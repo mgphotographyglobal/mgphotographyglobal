@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core pages -->
+  <url><loc>https://mgphotographyglobal.com/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mgphotographyglobal.com/about/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mgphotographyglobal.com/contact/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mgphotographyglobal.com/testimonials/</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mgphotographyglobal.com/gallery/</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mgphotographyglobal.com/terms/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <!-- PRIMARY: Canonical newborn page — 301 redirect from /newborn-photography-dubai/ points here -->
+  <url><loc>https://mgphotographyglobal.com/dubai-newborn-photography/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <!-- Dubai Service Pages -->
+  <url><loc>https://mgphotographyglobal.com/baby-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://mgphotographyglobal.com/maternity-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mgphotographyglobal.com/wedding-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://mgphotographyglobal.com/pre-wedding-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mgphotographyglobal.com/outdoor-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mgphotographyglobal.com/birthday-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://mgphotographyglobal.com/architecture-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://mgphotographyglobal.com/real-estate-photography-dubai/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Location Pages -->
+  <url><loc>https://mgphotographyglobal.com/newborn-photography-abu-dhabi/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://mgphotographyglobal.com/newborn-photography-sharjah/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://mgphotographyglobal.com/maternity-photography-abu-dhabi/</loc><changefreq>monthly</changefreq><priority>0.75</priority></url>
+  <url><loc>https://mgphotographyglobal.com/wedding-photography-abu-dhabi/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Guides — informational SEO -->
+  <url><loc>https://mgphotographyglobal.com/guides/newborn-photoshoot-ideas-dubai/</loc><changefreq>yearly</changefreq><priority>0.65</priority></url>
+  <url><loc>https://mgphotographyglobal.com/guides/outdoor-photoshoot-locations-dubai/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mgphotographyglobal.com/guides/what-to-wear-maternity-photoshoot/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://mgphotographyglobal.com/guides/dubai-wedding-photography-guide/</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+</urlset>

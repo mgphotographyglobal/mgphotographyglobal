@@ -1,0 +1,697 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
+
+:root {
+  --black:       #0D0D0D;
+  --black-rich:  #111111;
+  --black-soft:  #1a1a1a;
+  --gold:        #C9A84C;
+  --gold-light:  #D4B86A;
+  --gold-dark:   #A8883A;
+  --gold-pale:   #E8D5A3;
+  --gold-muted:  rgba(201, 168, 76, 0.12);
+  --gold-muted2: rgba(201, 168, 76, 0.25);
+  --cream:       #FAF6EE;
+  --cream-warm:  #F5EFE0;
+  --cream-soft:  #FFFDF8;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --ease-luxury:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+  --section-pad: clamp(4rem, 10vw, 7rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--black);
+  color: var(--cream);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); line-height:1.1; letter-spacing:-0.02em; color:var(--cream); }
+
+.display-xl  { font-size: clamp(2.8rem, 7.5vw, 6.5rem); line-height:1.03; letter-spacing:-0.03em; }
+.display-lg  { font-size: clamp(2rem, 5vw, 4.5rem);     line-height:1.08; letter-spacing:-0.025em; }
+.display-md  { font-size: clamp(1.6rem, 3.5vw, 3rem);   line-height:1.15; letter-spacing:-0.02em; }
+.display-sm  { font-size: clamp(1.2rem, 2.2vw, 1.875rem); line-height:1.25; }
+.body-lg     { font-size: clamp(1rem,1.5vw,1.125rem); line-height:1.75; color:rgba(250,246,238,0.72); }
+.body-sm     { font-size:0.875rem; line-height:1.6; color:rgba(250,246,238,0.55); }
+.label       { font-family:var(--font-body); font-size:0.68rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); }
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-pale) 40%, var(--gold) 70%, var(--gold-dark) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-gold-shimmer {
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-pale) 35%, var(--gold) 50%, var(--gold-pale) 65%, var(--gold-dark) 100%);
+  background-size:200% auto; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  animation: textShimmer 4s linear infinite;
+}
+@keyframes textShimmer { 0%{background-position:0% center} 100%{background-position:200% center} }
+
+.gold-line      { width:60px; height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.gold-line-full { width:100%; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(201,168,76,0.25) 30%,var(--gold) 50%,rgba(201,168,76,0.25) 70%,transparent 100%); }
+
+.container-luxury { width:100%; max-width:1280px; margin:0 auto; padding:0 clamp(1.25rem,5vw,4rem); }
+.section-pad      { padding-top:var(--section-pad); padding-bottom:var(--section-pad); }
+
+.glass-card      { background:rgba(255,255,255,0.03); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(201,168,76,0.15); }
+.glass-card-dark { background:rgba(13,13,13,0.88); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(201,168,76,0.12); }
+
+.btn-primary {
+  display:inline-flex; align-items:center; gap:0.5rem; padding:0.875rem 2.25rem;
+  background:var(--gold); color:var(--black);
+  font-family:var(--font-body); font-size:0.78rem; font-weight:600; letter-spacing:0.13em; text-transform:uppercase;
+  text-decoration:none; transition:all 0.4s var(--ease-cinematic); cursor:pointer; border:none;
+}
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 10px 30px rgba(201,168,76,0.3); }
+
+.btn-outline {
+  display:inline-flex; align-items:center; gap:0.5rem; padding:0.875rem 2.25rem;
+  background:transparent; color:var(--cream);
+  font-family:var(--font-body); font-size:0.78rem; font-weight:600; letter-spacing:0.13em; text-transform:uppercase;
+  text-decoration:none; border:1px solid rgba(250,246,238,0.3); transition:all 0.4s var(--ease-cinematic); cursor:pointer;
+}
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); transform:translateY(-2px); }
+
+.btn-whatsapp {
+  display:inline-flex; align-items:center; gap:0.6rem; padding:0.9rem 2rem;
+  background:#25D366; color:#fff;
+  font-family:var(--font-body); font-size:0.85rem; font-weight:600; letter-spacing:0.06em;
+  text-decoration:none; transition:all 0.4s var(--ease-cinematic); cursor:pointer; border:none;
+}
+.btn-whatsapp:hover { background:#1fbc5a; transform:translateY(-2px); box-shadow:0 10px 30px rgba(37,211,102,0.35); }
+
+.img-luxury { overflow:hidden; position:relative; }
+.img-luxury img { transition:transform 0.8s var(--ease-luxury); }
+.img-luxury:hover img { transform:scale(1.05); }
+
+.stars { display:flex; gap:2px; color:var(--gold); font-size:0.85rem; }
+
+.bg-cream-section { background:var(--cream-warm); color:var(--black); }
+.bg-cream-section h1,.bg-cream-section h2,.bg-cream-section h3,.bg-cream-section h4,.bg-cream-section h5 { color:var(--black); }
+.bg-cream-section .body-lg { color:rgba(13,13,13,0.68); }
+.bg-cream-section .label { color:var(--gold-dark); }
+
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--black); }
+::-webkit-scrollbar-thumb { background:var(--gold-dark); border-radius:4px; }
+::selection { background:rgba(201,168,76,0.25); color:var(--cream); }
+
+.whatsapp-float {
+  position:fixed; bottom:1.75rem; right:1.75rem; width:3.25rem; height:3.25rem;
+  background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.4); z-index:999; transition:all 0.3s var(--ease-cinematic); text-decoration:none;
+}
+.whatsapp-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(37,211,102,0.55); }
+.whatsapp-float svg { width:1.6rem; height:1.6rem; fill:#fff; }
+
+.photo-placeholder {
+  background: linear-gradient(135deg, #1c1c1c 0%, #242424 100%);
+  display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+}
+.photo-placeholder::after {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(201,168,76,0.07) 0%,transparent 70%);
+}
+
+/* ─── Hover utility classes (replaces JS event handlers) ─── */
+.hover-gold:hover { color: var(--gold) !important; }
+.hover-border-gold:hover { border-color: var(--gold) !important; }
+.hover-lift:hover { transform: translateY(-4px); }
+.hover-lift { transition: transform 0.35s var(--ease-cinematic); }
+
+.service-card { transition: all 0.4s var(--ease-cinematic); }
+.service-card:hover { transform: translateY(-4px); border-color: rgba(201,168,76,0.4) !important; background: rgba(201,168,76,0.05) !important; }
+
+.social-link { transition: all 0.3s; }
+.social-link:hover { color: var(--gold) !important; border-color: var(--gold) !important; }
+
+.footer-link { color: rgba(250,246,238,0.55); transition: color 0.3s; text-decoration: none; font-family: var(--font-body); font-size: 0.85rem; }
+.footer-link:hover { color: var(--gold); }
+
+.nav-link { color: rgba(250,246,238,0.75); font-family: var(--font-body); font-size: 0.82rem; letter-spacing: 0.08em; text-decoration: none; transition: color 0.3s; }
+.nav-link:hover { color: var(--gold); }
+
+.testimonial-card { transition: all 0.3s; }
+.testimonial-card:hover { border-color: rgba(201,168,76,0.3) !important; }
+
+.pkg-card { transition: all 0.3s; }
+.input-field { width:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(201,168,76,0.2); color:var(--cream); font-family:var(--font-body); font-size:0.9rem; padding:0.85rem 1rem; outline:none; transition:border-color 0.3s; }
+.input-field:focus { border-color: var(--gold); }
+
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION — Newborn Photography Page (and global)
+   Primary breakpoint: max-width 767px  (all phones)
+   Secondary: 768–900px  (tablets)
+   Written to override inline styles using !important only where needed,
+   and to use low-specificity selectors so desktop is never affected.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* ── Fade-up animation for mobile scroll reveals ───────────────────── */
+@keyframes fadeUpMobile {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Shared luxury button base for mobile ──────────────────────────── */
+.mobile-cta-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: all 0.3s var(--ease-cinematic);
+  white-space: nowrap;
+  cursor: pointer;
+  border: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE — max 767px
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* ─── Body: reserve space for sticky CTA bar (70px) ──────────────
+     The sticky bar sits at the bottom and is 70px tall including
+     the safe-area padding. Without this, the last section's content
+     would hide behind the bar on iOS. */
+  body { padding-bottom: 72px; }
+
+  /* ─── Container: consistent mobile edge padding ─────────────────── */
+  .container-luxury {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+
+  /* ─── Hero heading — reduce sizes so lines don't break awkwardly ──
+     At 375px the clamp min values (2.4rem, 3rem) feel too large.
+     We drop them to editorial-feeling sizes that still feel luxury. */
+  .nb-h1-line1 {
+    font-size: clamp(1.85rem, 7.5vw, 2.4rem) !important;
+  }
+  .nb-h1-line2 {
+    font-size: clamp(2.2rem, 9vw, 3rem) !important;
+  }
+
+  /* ─── Hero buttons: stack vertically, full width ──────────────────
+     On desktop the buttons sit side-by-side.
+     On mobile, stacked full-width buttons are much easier to tap
+     and look premium rather than cramped. */
+  .nb-hero-btns {
+    flex-direction: column !important;
+    gap: 0.65rem !important;
+  }
+  .nb-hero-btns a {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.95rem 1.5rem !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* ─── Hero stats strip: tighter gap on mobile ────────────────────── */
+  .nb-hero-stats {
+    gap: 1rem 2rem !important;
+    margin-top: 1.75rem !important;
+    padding-top: 1.5rem !important;
+  }
+
+  /* ─── Storytelling split section ────────────────────────────────────
+     The 2-column grid collapses to single column.
+     Image appears first (emotional hook), then copy below it. */
+  .nb-story-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* On mobile the image becomes landscape (4/3) instead of portrait (3/4)
+     to save vertical space — faces remain visible */
+  .nb-story-img {
+    aspect-ratio: 4/3 !important;
+    margin-left: 0 !important;
+  }
+  /* Hide the decorative gold frame on mobile — it clips outside its container */
+  .nb-story-frame { display: none !important; }
+  /* Remove desktop right padding from text column */
+  .nb-story-text { padding-right: 0 !important; }
+
+  /* ─── Portfolio header: stack on mobile ──────────────────────────── */
+  .nb-portfolio-header {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+    margin-bottom: 1.75rem !important;
+  }
+
+  /* ─── Portfolio main grid ────────────────────────────────────────────
+     The complex 3-col asymmetric grid becomes a clean 2-col grid.
+     The large spanning item (first child, gridRow: span 2) resets to
+     span just 1 row so everything is balanced. The wide bottom item
+     (4th child, gridColumn: span 2) keeps its span so it stays full-width. */
+  .nb-portfolio-main {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 180px !important;
+    gap: 3px !important;
+  }
+  /* Reset the tall left-spanning image — normal height on mobile */
+  .nb-portfolio-main > div:first-child {
+    grid-row: span 1 !important;
+  }
+  /* Keep the wide hammock image spanning both columns */
+  .nb-portfolio-main .portfolio-img:last-child {
+    grid-column: span 2 !important;
+  }
+
+  /* ─── Portfolio bottom row: single column on very small screens ────
+     At 375px, 2 × 16/9 images side by side would be very thin.
+     We stack them for proper legibility. */
+  .nb-portfolio-row2 {
+    grid-template-columns: 1fr !important;
+    gap: 3px !important;
+  }
+  .nb-portfolio-row2 .portfolio-img {
+    aspect-ratio: 16/9 !important;
+  }
+
+  /* ─── Milestone packages: stack vertically ───────────────────────── */
+  .nb-milestone-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* ─── Trust cards: ensure they don't get too narrow ─────────────── */
+  .trust-card {
+    padding: 1.5rem !important;
+  }
+
+  /* ─── Theme cards: 2-col on mobile feels good ───────────────────── */
+  /* auto-fill with minmax(220px) already collapses to 1col at ~375px,
+     but we explicitly force 2-col for the theme grid since 150px works */
+
+  /* ─── Testimonial cards: comfortable reading width ───────────────── */
+  /* auto-fill with minmax(300px) collapses to 1col automatically.
+     We just ensure padding is comfortable */
+
+  /* ─── Floating WhatsApp button: raise above sticky CTA bar ──────────
+     The sticky bar is 70px. We push the float button above it with
+     a comfortable gap, and slightly reduce its size on mobile. */
+  .whatsapp-float {
+    bottom: 5.25rem !important;  /* above sticky bar */
+    right: 1rem !important;
+    width: 2.9rem !important;
+    height: 2.9rem !important;
+    box-shadow: 0 3px 14px rgba(37, 211, 102, 0.45) !important;
+  }
+  .whatsapp-float svg {
+    width: 1.35rem !important;
+    height: 1.35rem !important;
+  }
+
+  /* ─── Section padding reduction for mobile breathing room ───────────
+     The clamp values in inline styles already handle this well via vw,
+     but we add explicit overrides for sections that need more air. */
+
+  /* ─── Add-on cards: ensure they're comfortable on mobile ─────────── */
+  .addon-card {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  /* ─── Comparison table: ensure horizontal scroll works cleanly ─────
+     The table has overflow: auto on its wrapper already, but we
+     set a minimum to prevent too-small columns on tiny screens. */
+  table td, table th {
+    padding: 0.85rem 1rem !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* ─── Final CTA buttons: stack on mobile ─────────────────────────── */
+  /* These use flexWrap: wrap which handles it, but we help size them */
+
+  /* ─── Input fields in contact form ────────────────────────────────── */
+  .input-field {
+    font-size: 16px !important; /* prevents iOS zoom-on-focus */
+  }
+
+  /* ─── Mobile sticky CTA bar ─────────────────────────────────────────
+     The MobileStickyCTA component styles live here so they're global.
+     The component itself handles show/hide via React state. */
+  .mobile-sticky-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 950;
+    background: rgba(10, 8, 5, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(201, 168, 76, 0.18);
+    padding: 0.85rem 1.25rem;
+    /* Respect iPhone home indicator / notch */
+    padding-bottom: calc(0.85rem + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mobile-sticky-cta.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .mobile-sticky-cta.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  /* WhatsApp button — PRIMARY, ~50% width */
+  .sticky-btn-wa {
+    flex: 2;
+    background: #25D366;
+    color: #fff;
+    border-radius: 8px;
+    padding: 0.8rem 0.75rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    box-shadow: 0 2px 12px rgba(37,211,102,0.35);
+  }
+  .sticky-btn-wa:active { background: #1fbc5a; transform: scale(0.98); }
+  /* Call button — secondary */
+  .sticky-btn-call {
+    flex: 1;
+    background: transparent;
+    color: rgba(250, 246, 238, 0.75);
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-radius: 8px;
+    padding: 0.8rem 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .sticky-btn-call:active { background: rgba(201, 168, 76, 0.08); }
+  /* Book button — tertiary */
+  .sticky-btn-book {
+    flex: 1;
+    background: linear-gradient(135deg, #C9A84C, #E8D5A3, #C9A84C);
+    background-size: 180% auto;
+    color: #0a0806;
+    border-radius: 8px;
+    padding: 0.8rem 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: background-position 0.4s ease;
+  }
+  .sticky-btn-book:active { background-position: right center; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TABLET — 768px to 900px
+   Minor tweaks for landscape phones and small tablets
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) and (max-width: 900px) {
+  /* Storytelling section: reduce the very wide gap on tablet */
+  .nb-story-grid { gap: 2.5rem !important; }
+
+  /* Milestone packages: stack on tablet too — they're complex cards */
+  .nb-milestone-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Portfolio main grid: simplify to 2-col on tablet */
+  .nb-portfolio-main {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 220px !important;
+  }
+  .nb-portfolio-main > div:first-child { grid-row: span 1 !important; }
+  .nb-portfolio-main .portfolio-img:last-child { grid-column: span 2 !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   HIDE sticky CTA on desktop — it is only for mobile
+   ═══════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .mobile-sticky-cta { display: none !important; }
+  body { padding-bottom: 0 !important; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   QUICK SERVICES SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+.quick-services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.875rem;
+}
+.quick-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,168,76,0.12);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+  cursor: pointer;
+}
+.quick-service-card:hover {
+  background: rgba(201,168,76,0.06);
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-3px);
+}
+.quick-service-icon {
+  font-size: 1.75rem;
+  line-height: 1;
+}
+.quick-service-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--cream);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+.quick-service-desc {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  color: rgba(250,246,238,0.55);
+  line-height: 1.5;
+}
+.quick-service-cta {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TRUST SECTION
+   ═══════════════════════════════════════════════════════════════════ */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.trust-card {
+  padding: 1.75rem 1.5rem;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid rgba(201,168,76,0.1);
+  transition: all 0.35s cubic-bezier(0.16,1,0.3,1);
+}
+.trust-card:hover {
+  background: rgba(201,168,76,0.05);
+  border-color: rgba(201,168,76,0.28);
+}
+.trust-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.875rem;
+  line-height: 1;
+}
+.trust-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: var(--cream);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  line-height: 1.25;
+}
+.trust-desc {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  color: rgba(250,246,238,0.55);
+  line-height: 1.65;
+}
+
+/* ─── Mobile overrides ─────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .quick-services-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.625rem;
+  }
+  .quick-service-card {
+    padding: 1.1rem 0.75rem;
+    gap: 0.5rem;
+  }
+  .quick-service-icon { font-size: 1.4rem; }
+  .quick-service-title { font-size: 0.82rem; }
+  .quick-service-desc { display: none; } /* Hide on mobile to keep cards tight */
+
+  .trust-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .trust-card {
+    padding: 1.25rem 1rem;
+  }
+  .trust-icon { font-size: 1.25rem; margin-bottom: 0.625rem; }
+  .trust-title { font-size: 0.9rem; }
+  .trust-desc { font-size: 0.76rem; }
+}
+
+@media (max-width: 420px) {
+  .quick-services-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-service-card {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+    padding: 0.875rem 1rem;
+  }
+  .quick-service-desc { display: block; }
+  .quick-service-cta { margin-top: 0; margin-left: auto; white-space: nowrap; }
+
+  .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ACCESSIBILITY — WCAG AA Compliance
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Skip to content — keyboard navigation */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Visible focus rings for all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Remove outline for mouse users, keep for keyboard */
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure minimum touch target size — 44×44px per WCAG 2.5.5 */
+.mobile-cta-btn,
+.btn-whatsapp,
+.btn-primary,
+.btn-outline {
+  min-height: 44px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PERFORMANCE — Critical CSS optimizations
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Prevent CLS on images — reserve space before load */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Font display — prevent FOIT */
+@font-face {
+  font-display: swap;
+}
+
+/* Optimize rendering for off-screen images */
+.service-tile img,
+.portfolio-img img {
+  content-visibility: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   LANDING PAGE MOBILE — /dubai-newborn-photography responsive fixes
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+  /* Reviews grid */
+  [aria-label="Client testimonials"],
+  [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Packages grid */
+  [aria-label="Photography packages"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Gallery grid */
+  [aria-label="Gallery of newborn photography sessions in Dubai"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  [aria-label="Gallery of newborn photography sessions in Dubai"] > div {
+    grid-column: span 1 !important;
+    aspect-ratio: 3/4 !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RELATED SERVICES LINKS — hover state
+   ═══════════════════════════════════════════════════════════════════ */
+[aria-label="Related services"] a:hover {
+  border-color: rgba(201,168,76,0.5) !important;
+  color: var(--gold) !important;
+}

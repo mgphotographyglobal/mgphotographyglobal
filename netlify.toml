@@ -1,0 +1,61 @@
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# ─── Security Headers ─────────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    # NOTE: no blanket X-Robots-Tag here on purpose. Next.js already emits the
+    # correct per-page <meta name="robots"> tag for every route (including
+    # noindex on /landing/* and /newborn-photography-dubai/). A sitewide HTTP
+    # header of "index, follow" would conflict with those noindex directives.
+
+# ─── Image caching ────────────────────────────────────────────────────────────
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ─── Redirects ────────────────────────────────────────────────────────────────
+# Part 1: Canonical redirect — secondary URL → primary URL (301)
+[[redirects]]
+  from = "/newborn-photography-dubai"
+  to = "/dubai-newborn-photography/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/newborn-photography-dubai/"
+  to = "/dubai-newborn-photography/"
+  status = 301
+  force = true
+
+# Short-URL aliases now serve real content directly (see app/newborn-photography/page.tsx)
+# — no redirect needed. A Netlify redirect here would silently override that fix for
+# any direct/server-side visit (typed URL, external link, refresh), even though
+# client-side navigation would correctly show the real content. Removed intentionally.
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# NOTE: no SPA-fallback ("/* -> /index.html" status 200) rule here on purpose.
+# This is a fully static export with a real pre-rendered HTML file for every route
+# (trailingSlash: true), so a catch-all fallback isn't needed — and if added, it
+# would mask genuinely missing/mistyped URLs as soft-404s (200 status, homepage
+# content) instead of returning a real 404, which actively hurts crawlability.

@@ -5,7 +5,7 @@ import "./globals.css";
 
 // ─── GA4 Measurement ID — replace with your actual ID ──────────────────────
 // Format: G-XXXXXXXXXX — get this from Google Analytics > Admin > Data Streams
-const GA_ID = "G-XXXXXXXXXX"; // TODO: replace with real GA4 Measurement ID
+const GA_ID: string = "G-K504JFHLK3";
 const PIXEL_ID = "1471358291339174";
 const SITE_URL = "https://mgphotographyglobal.com";
 

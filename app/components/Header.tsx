@@ -60,16 +60,16 @@ export default function Header() {
       backdropFilter: scrolled ? "blur(20px)" : "none",
       borderBottom: scrolled ? "1px solid rgba(201,168,76,0.12)" : "1px solid transparent",
     }}>
-      <div className="container-luxury" style={{
+      <div className="container-luxury site-header-inner" style={{
         display: "flex", alignItems: "center", justifyContent: "space-between",
         height: scrolled ? "4.5rem" : "5.5rem",
         transition: "height 0.5s cubic-bezier(0.16,1,0.3,1)",
       }}>
 
         {/* ── Logo ──────────────────────────────────────────────── */}
-        <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.65rem" }}>
+        <Link href="/" className="site-logo-link" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.65rem", minWidth: 0 }}>
           {/* Logo image — swap src to /images/mg-logo.png once uploaded */}
-          <div style={{
+          <div className="site-logo-box" style={{
             width: "2.5rem", height: "2.5rem",
             border: "1.5px solid var(--gold)",
             display: "flex", alignItems: "center", justifyContent: "center",
@@ -80,12 +80,13 @@ export default function Header() {
               fontSize: "1rem", fontWeight: 700, letterSpacing: "0.05em",
             }}>MG</span>
           </div>
-          <div>
-            <div style={{
+          <div className="site-logo-text" style={{ minWidth: 0 }}>
+            <div className="site-logo-name" style={{
               fontFamily: "var(--font-display)", color: "var(--cream)",
               fontSize: "1.05rem", fontWeight: 600, lineHeight: 1.1, letterSpacing: "0.04em",
+              whiteSpace: "nowrap",
             }}>MG Photography</div>
-            <div className="label" style={{ fontSize: "0.56rem", letterSpacing: "0.18em" }}>UAE — Dubai</div>
+            <div className="label site-logo-tagline" style={{ fontSize: "0.56rem", letterSpacing: "0.18em", whiteSpace: "nowrap" }}>UAE — Dubai</div>
           </div>
         </Link>
 
@@ -249,6 +250,20 @@ export default function Header() {
         @media (max-width: 767px) {
           .desktop-nav { display: none !important; }
           .mobile-toggle { display: block !important; }
+
+          /* Shorter header on mobile so it takes less vertical space
+             and never eats into the hero content below it */
+          .site-header-inner { height: 3.75rem !important; }
+
+          /* Smaller logo mark on mobile */
+          .site-logo-box {
+            width: 2rem !important;
+            height: 2rem !important;
+          }
+          .site-logo-box span { font-size: 0.8rem !important; }
+          .site-logo-name { font-size: 0.88rem !important; }
+          .site-logo-tagline { font-size: 0.5rem !important; letter-spacing: 0.14em !important; }
+          .site-logo-link { gap: 0.5rem !important; }
         }
         @keyframes fadeDropdown {
           from { opacity: 0; transform: translateX(-50%) translateY(-6px); }

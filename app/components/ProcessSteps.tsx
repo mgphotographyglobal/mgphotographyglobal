@@ -39,14 +39,14 @@ export default function ProcessSteps() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
 
   return (
-    <div style={{
+    <div className="process-grid" style={{
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)",
       gap: "0",
       position: "relative",
     }}>
-      {/* Connecting line behind all step circles */}
-      <div style={{
+      {/* Connecting line behind all step circles — desktop 4-col layout only */}
+      <div className="process-connector" style={{
         position: "absolute",
         top: "1.75rem",
         left: "12.5%",
@@ -150,9 +150,21 @@ export default function ProcessSteps() {
       })}
 
       <style>{`
-        @media (max-width: 640px) {
-          /* 2-column on small phones */
-          .process-grid { grid-template-columns: 1fr 1fr !important; }
+        @media (max-width: 767px) {
+          /* 2-column on phones — was previously dead code (wrong class name),
+             so mobile was silently rendering all 4 columns and overflowing */
+          .process-grid {
+            grid-template-columns: 1fr 1fr !important;
+            row-gap: 1.5rem !important;
+          }
+          .process-grid > div {
+            padding: 1.25rem 0.75rem !important;
+          }
+          .process-connector { display: none !important; }
+        }
+        @media (max-width: 420px) {
+          /* Single column on the smallest phones — 2-up gets too tight */
+          .process-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>
     </div>

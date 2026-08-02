@@ -193,31 +193,31 @@ export default function HomePage() {
       <MobileStickyCTA />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
-      <section style={{ position: "relative", height: "100svh", minHeight: "640px", overflow: "hidden", display: "flex", alignItems: "flex-end" }}>
+      <section className="hero-section" style={{ position: "relative", height: "100svh", minHeight: "640px", overflow: "hidden", display: "flex", alignItems: "flex-end" }}>
         <HeroCarousel slides={heroSlides} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(13,13,13,0.88) 0%, rgba(13,13,13,0.60) 45%, rgba(13,13,13,0.18) 100%)" }} />
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.35) 45%, transparent 72%)" }} />
         <div style={{ position: "absolute", top: "10%", right: "5%", width: "50vw", height: "50vw", maxWidth: "600px", maxHeight: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", filter: "blur(60px)", pointerEvents: "none" }} />
 
-        <div className="container-luxury" style={{ position: "relative", zIndex: 10, paddingBottom: "clamp(3rem, 8vh, 6rem)" }}>
-          <div style={{ maxWidth: "700px" }}>
+        <div className="container-luxury hero-inner" style={{ position: "relative", zIndex: 10, paddingBottom: "clamp(3rem, 8vh, 6rem)" }}>
+          <div className="hero-content" style={{ maxWidth: "700px" }}>
             {/* Location label */}
-            <div className="label" style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.85rem" }}>
+            <div className="label hero-location" style={{ marginBottom: "1.25rem", display: "flex", alignItems: "center", gap: "0.85rem" }}>
               <div className="gold-line" />
               Dubai · Abu Dhabi · Sharjah
             </div>
 
             {/* H1 — keyword-rich, conversion-focused */}
-            <h1 style={{ fontFamily: "var(--font-display)", lineHeight: 1.06, letterSpacing: "-0.03em", marginBottom: "1.25rem" }}>
-              <span style={{ display: "block", fontSize: "clamp(1.9rem, 5vw, 4rem)", color: "var(--cream)", fontWeight: 400 }}>Dubai Newborn, Baby &</span>
-              <span style={{ display: "block", fontSize: "clamp(2.4rem, 6.5vw, 5.5rem)", fontWeight: 700, background: "linear-gradient(135deg, var(--gold-light) 0%, var(--gold-pale) 45%, var(--gold) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Maternity Photography</span>
+            <h1 className="hero-heading" style={{ fontFamily: "var(--font-display)", lineHeight: 1.06, letterSpacing: "-0.03em", marginBottom: "1.25rem" }}>
+              <span className="hero-heading-line1" style={{ display: "block", fontSize: "clamp(1.9rem, 5vw, 4rem)", color: "var(--cream)", fontWeight: 400 }}>Dubai Newborn, Baby &</span>
+              <span className="hero-heading-line2" style={{ display: "block", fontSize: "clamp(2.4rem, 6.5vw, 5.5rem)", fontWeight: 700, background: "linear-gradient(135deg, var(--gold-light) 0%, var(--gold-pale) 45%, var(--gold) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Maternity Photography</span>
             </h1>
-            <p className="body-lg" style={{ maxWidth: "500px", marginBottom: "1.75rem", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}>
+            <p className="body-lg hero-subtext" style={{ maxWidth: "500px", marginBottom: "1.75rem", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}>
               Capture the moments you'll treasure forever with luxury photography designed for Dubai families.
             </p>
 
             {/* Trust indicators — visible above the fold */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.5rem", marginBottom: "2rem" }}>
+            <div className="hero-trust-badges" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.5rem", marginBottom: "2rem" }}>
               {[
                 "✓ Dubai Based Photographer",
                 "✓ 500+ Families Photographed",
@@ -231,10 +231,10 @@ export default function HomePage() {
             </div>
 
             {/* Primary CTAs */}
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "center" }}>
+            <div className="hero-cta-group" style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem", alignItems: "center" }}>
               <a
                 href={WA_BOOK}
-                className="btn-whatsapp"
+                className="btn-whatsapp hero-cta-btn"
                 style={{ fontSize: "0.85rem", padding: "0.95rem 2rem" }}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -242,15 +242,15 @@ export default function HomePage() {
                 <WAIcon />
                 Book on WhatsApp
               </a>
-              <a href="/newborn-photography/" className="btn-outline" style={{ fontSize: "0.82rem" }}>
+              <a href="/newborn-photography/" className="btn-outline hero-cta-btn" style={{ fontSize: "0.82rem" }}>
                 View Portfolio →
               </a>
             </div>
 
             {/* Stats bar */}
-            <div style={{ marginTop: "2.5rem", display: "flex", flexWrap: "wrap", gap: "1.5rem 3rem", paddingTop: "1.75rem", borderTop: "1px solid rgba(201,168,76,0.18)" }}>
+            <div className="hero-stats-bar" style={{ marginTop: "2.5rem", display: "flex", flexWrap: "wrap", gap: "1.5rem 3rem", paddingTop: "1.75rem", borderTop: "1px solid rgba(201,168,76,0.18)" }}>
               {[["500+","Families"],["8+","Years"],["5★","Rating"],["3","UAE Cities"]].map(([val,lab]) => (
-                <div key={lab}>
+                <div key={lab} className="hero-stat-item">
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>{val}</div>
                   <div className="body-sm" style={{ fontSize: "0.72rem", marginTop: "0.2rem" }}>{lab}</div>
                 </div>
@@ -259,7 +259,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div style={{ position: "absolute", bottom: "2rem", right: "clamp(1.5rem, 5vw, 4rem)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem", zIndex: 10 }}>
+        <div className="hero-scroll-cue" style={{ position: "absolute", bottom: "2rem", right: "clamp(1.5rem, 5vw, 4rem)", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.4rem", zIndex: 10 }}>
           <div className="label" style={{ fontSize: "0.55rem", writingMode: "vertical-rl", letterSpacing: "0.25em" }}>Scroll</div>
           <div style={{ width: "1px", height: "60px", background: "linear-gradient(to bottom, var(--gold), transparent)" }} />
         </div>
@@ -322,12 +322,12 @@ export default function HomePage() {
       {/* ── EMOTIONAL STORYTELLING ── teddy close-up ─────────────────────── */}
       <section style={{ background: "var(--black)", padding: "clamp(5rem,12vw,9rem) 0", overflow: "hidden" }}>
         <div className="container-luxury">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(3rem,6vw,7rem)", alignItems: "center" }}>
-            <div style={{ position: "relative", aspectRatio: "4/5", marginLeft: "-2rem" }}>
+          <div className="story-split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(3rem,6vw,7rem)", alignItems: "center" }}>
+            <div className="story-split-img" style={{ position: "relative", aspectRatio: "4/5", marginLeft: "-2rem" }}>
               <Image src="/images/story-teddy-closeup.png" alt="Newborn baby holding teddy bear — intimate close-up newborn photography Dubai" fill style={{ objectFit: "cover" }} />
-              <div style={{ position: "absolute", bottom: "-1.5rem", right: "-1.5rem", width: "60%", height: "60%", border: "1px solid rgba(201,168,76,0.25)", zIndex: -1 }} />
+              <div className="story-split-frame" style={{ position: "absolute", bottom: "-1.5rem", right: "-1.5rem", width: "60%", height: "60%", border: "1px solid rgba(201,168,76,0.25)", zIndex: -1 }} />
             </div>
-            <div style={{ paddingRight: "2rem" }}>
+            <div className="story-split-text" style={{ paddingRight: "2rem" }}>
               <div className="label" style={{ marginBottom: "1.5rem" }}>The First Days</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4vw,3.5rem)", lineHeight: 1.1, letterSpacing: "-0.025em", marginBottom: "1.5rem" }}>
                 Tiny fingers.<br />A world of<br /><em style={{ color: "var(--gold)" }}>pure wonder.</em>
@@ -365,7 +365,7 @@ export default function HomePage() {
           <Image src="/images/trust-parent-hands.png" alt="Family photographer Dubai — parent hands surrounding newborn baby" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.0) 40%, rgba(10,10,10,0.88) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%)" }} />
-          <div style={{ position: "absolute", right: "clamp(1.5rem,8vw,8rem)", top: "50%", transform: "translateY(-50%)", maxWidth: "420px", zIndex: 10 }}>
+          <div className="family-trust-box" style={{ position: "absolute", right: "clamp(1.5rem,8vw,8rem)", top: "50%", transform: "translateY(-50%)", maxWidth: "420px", zIndex: 10 }}>
             <div className="label" style={{ marginBottom: "1.25rem" }}>Family Connection</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.8rem,3.5vw,3rem)", color: "var(--cream)", lineHeight: 1.12, letterSpacing: "-0.02em", marginBottom: "1.25rem" }}>
               Protected by love.<br /><span className="text-gold-gradient">Preserved forever.</span>
@@ -384,7 +384,7 @@ export default function HomePage() {
       {/* ── WHAT WE CREATE ── editorial service tiles ─────────────────────── */}
       <section style={{ background: "var(--black)", padding: "clamp(5rem,10vw,8rem) 0" }}>
         <div className="container-luxury">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "end", marginBottom: "clamp(3rem,6vw,5rem)" }}>
+          <div className="section-header-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "end", marginBottom: "clamp(3rem,6vw,5rem)" }}>
             <div>
               <div className="label" style={{ marginBottom: "1rem" }}>What We Create</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4.5vw,4rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>
@@ -396,7 +396,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{
+          <div className="service-tile-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gridAutoRows: "280px",
@@ -410,7 +410,7 @@ export default function HomePage() {
                 <a
                   key={service.href}
                   href={service.href}
-                  className="service-tile"
+                  className={`service-tile${isHero ? " service-tile-hero" : ""}`}
                   style={{
                     position: "relative",
                     overflow: "hidden",
@@ -426,6 +426,7 @@ export default function HomePage() {
                       src={service.img}
                       alt={`${service.title} Dubai — MG Photography UAE`}
                       fill
+                      sizes="(max-width: 767px) 50vw, 25vw"
                       style={{ objectFit: "cover", objectPosition: service.objectPos, transition: "transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94)" }}
                       className="service-tile-img"
                     />
@@ -443,14 +444,14 @@ export default function HomePage() {
                     background: "var(--gold)",
                     transition: "width 0.4s cubic-bezier(0.16,1,0.3,1)",
                   }} />
-                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.5rem" }}>
+                  <div className="service-tile-caption" style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "1.5rem" }}>
                     <div className="label" style={{ fontSize: "0.56rem", color: "rgba(201,168,76,0.6)", marginBottom: "0.4rem" }}>0{i + 1}</div>
-                    <h3 style={{
+                    <h3 className="service-tile-title" style={{
                       fontFamily: "var(--font-display)",
                       fontSize: isHero ? "1.5rem" : "1.1rem",
                       color: "var(--cream)", fontWeight: 500, lineHeight: 1.2, marginBottom: "0.3rem",
                     }}>{service.title}</h3>
-                    <p className="body-sm" style={{ fontSize: "0.78rem" }}>{service.subtitle}</p>
+                    <p className="body-sm service-tile-subtitle" style={{ fontSize: "0.78rem" }}>{service.subtitle}</p>
                   </div>
                 </a>
               );
@@ -475,8 +476,8 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr 1fr", gridTemplateRows: "auto auto", gap: "0.75rem", marginBottom: "4rem" }}>
-            <div style={{ position: "relative", gridRow: "span 2", aspectRatio: "3/4" }}>
+          <div className="story-photo-grid" style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr 1fr", gridTemplateRows: "auto auto", gap: "0.75rem", marginBottom: "4rem" }}>
+            <div className="story-photo-tall" style={{ position: "relative", gridRow: "span 2", aspectRatio: "3/4" }}>
               <Image src="/images/story-rainbow-smile.png" alt="Baby smiling in rainbow wrap — baby photography Dubai milestone session" fill style={{ objectFit: "cover" }} />
               <div style={{ position: "absolute", bottom: "1rem", left: "1rem", background: "rgba(13,13,13,0.65)", backdropFilter: "blur(8px)", padding: "0.4rem 0.75rem" }}>
                 <span style={{ fontFamily: "var(--font-body)", fontSize: "0.62rem", color: "var(--gold)", letterSpacing: "0.12em", textTransform: "uppercase" }}>Joy</span>
@@ -519,7 +520,7 @@ export default function HomePage() {
       {/* ── RECENT SESSIONS ──────────────────────────────────────────────── */}
       <section style={{ background: "var(--black)", padding: "clamp(5rem,10vw,8rem) 0" }}>
         <div className="container-luxury">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "end", marginBottom: "clamp(3rem,6vw,5rem)" }}>
+          <div className="section-header-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2rem", alignItems: "end", marginBottom: "clamp(3rem,6vw,5rem)" }}>
             <div>
               <div className="label" style={{ marginBottom: "1rem" }}>Recent Sessions</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4.5vw,4rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>
@@ -531,7 +532,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div style={{
+          <div className="recent-sessions-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(4, 1fr)",
             gridAutoRows: "220px",
@@ -540,7 +541,7 @@ export default function HomePage() {
             {recentSessions.map((session, i) => (
               <div
                 key={session.src}
-                className="service-tile"
+                className="service-tile recent-session-tile"
                 style={{
                   position: "relative",
                   overflow: "hidden",
@@ -571,8 +572,8 @@ export default function HomePage() {
       {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
       <section style={{ background: "var(--black-rich)", padding: "clamp(5rem,10vw,8rem) 0" }}>
         <div className="container-luxury">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem", alignItems: "start" }}>
-            <div style={{ position: "sticky", top: "6rem" }}>
+          <div className="testimonials-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem", alignItems: "start" }}>
+            <div className="testimonials-sticky" style={{ position: "sticky", top: "6rem" }}>
               <div className="label" style={{ marginBottom: "1rem" }}>Client Reviews</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,3.5vw,3rem)", lineHeight: 1.12, letterSpacing: "-0.025em", marginBottom: "1.5rem" }}>
                 Stories that<br /><span className="text-gold-gradient">move us.</span>
@@ -621,8 +622,8 @@ export default function HomePage() {
 
       {/* ── FOLLOW OUR WORK ───────────────────────────────────────────────── */}
       <section style={{ background: "#0a0a0a", overflow: "hidden" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "clamp(480px,65vh,700px)" }}>
-          <div style={{ position: "relative" }}>
+        <div className="follow-work-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "clamp(480px,65vh,700px)" }}>
+          <div className="follow-work-img" style={{ position: "relative" }}>
             <Image src="/images/story-mother-holding.png" alt="Mother holding newborn baby — maternity photographer Dubai" fill style={{ objectFit: "cover", objectPosition: "center top" }} />
           </div>
           <div style={{ background: "var(--black)", display: "flex", flexDirection: "column", justifyContent: "center", padding: "clamp(3rem,8vw,7rem) clamp(2.5rem,6vw,6rem)" }}>

@@ -695,3 +695,214 @@ img {
   border-color: rgba(201,168,76,0.5) !important;
   color: var(--gold) !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   HOMEPAGE MOBILE FIXES
+   Scoped strictly to max-width: 767px — desktop layout is untouched.
+   Fixes: hero/header overlap, horizontal overflow (dead-CSS grid bugs,
+   negative margins, uncollapsed 2-col grids), CTA sizing, mosaic
+   layouts, section stacking.
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* Global overflow safety net — belt and suspenders on top of the
+     existing body { overflow-x: hidden }. Ensures no element can
+     force the viewport wider than 100%. */
+  html, body { max-width: 100%; }
+
+  /* ─── HERO ──────────────────────────────────────────────────────
+     Root cause of the logo/heading overlap: hero content is
+     bottom-anchored (align-items: flex-end) inside a 100svh section
+     with no offset for the fixed header. On short/narrow viewports
+     the stacked content was taller than the available space and
+     got pushed up underneath the header. Fix: reserve header height
+     as top padding, and shrink content so it comfortably fits. */
+  .hero-section {
+    padding-top: 4.75rem;
+  }
+  .hero-inner {
+    padding-bottom: 2rem !important;
+  }
+  .hero-content {
+    max-width: 100% !important;
+  }
+  .hero-location {
+    margin-bottom: 0.85rem !important;
+    gap: 0.6rem !important;
+    font-size: 0.62rem !important;
+  }
+  .hero-heading {
+    margin-bottom: 0.85rem !important;
+  }
+  /* ~18% reduction from the previous mobile clamp minimums */
+  .hero-heading-line1 { font-size: 1.55rem !important; }
+  .hero-heading-line2 { font-size: 1.95rem !important; }
+  .hero-subtext {
+    max-width: 100% !important;
+    margin-bottom: 1.25rem !important;
+    font-size: 0.92rem !important;
+  }
+  .hero-trust-badges {
+    gap: 0.4rem 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .hero-trust-badges span { font-size: 0.68rem !important; }
+
+  /* Hero CTAs — stacked, full width, slightly shorter, better gap */
+  .hero-cta-group {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.65rem !important;
+  }
+  .hero-cta-btn {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 0.8rem 1.5rem !important;
+    min-height: 46px;
+  }
+
+  /* Stats strip — even spacing, clean alignment */
+  .hero-stats-bar {
+    margin-top: 1.5rem !important;
+    padding-top: 1.15rem !important;
+    gap: 1rem 0 !important;
+    justify-content: space-between !important;
+  }
+  .hero-stat-item {
+    flex: 1 1 0;
+    text-align: center;
+  }
+
+  /* Scroll cue competes for vertical space and adds clutter on
+     short screens — hide on mobile, it's a desktop nicety */
+  .hero-scroll-cue { display: none !important; }
+
+  /* ─── SECTION HEADERS (title + intro paragraph pairs) ───────────
+     "What We Create" and "Recent Sessions" headers were a rigid
+     2-col grid that squeezed both the heading and the paragraph on
+     mobile. Stack them. */
+  .section-header-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .section-header-grid p { padding-bottom: 0 !important; }
+
+  /* ─── SERVICE MOSAIC ("What We Create") ──────────────────────────
+     This class existed as dead CSS before (never applied to the
+     grid element), so mobile was silently rendering 4 tiny columns.
+     Now fixed to a clean 2-col mosaic with taller rows so titles
+     and subtitles never get cropped. */
+  .service-tile-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 190px !important;
+    gap: 2px !important;
+  }
+  .service-tile-grid > a {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+  .service-tile-grid > a.service-tile-hero {
+    grid-column: span 2 !important;
+    grid-row: span 1 !important;
+    grid-auto-rows: 240px;
+  }
+  .service-tile-caption { padding: 1rem !important; }
+  .service-tile-title { font-size: 0.95rem !important; }
+  .service-tile-subtitle { font-size: 0.7rem !important; }
+
+  /* ─── RECENT SESSIONS GALLERY ─────────────────────────────────────
+     Had zero mobile handling at all — same fixed 4-col grid issue. */
+  .recent-sessions-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-auto-rows: 150px !important;
+    gap: 2px !important;
+  }
+  .recent-sessions-grid > .recent-session-tile {
+    grid-column: span 1 !important;
+    grid-row: span 1 !important;
+  }
+
+  /* ─── STORYTELLING SPLIT ("Tiny fingers...") ─────────────────────
+     Real overflow bug: -2rem negative margin + a decorative frame
+     with a -1.5rem offset, inside a 2-col grid that never collapsed
+     on mobile. Stack to 1 column and zero out the offsets. */
+  .story-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .story-split-img {
+    margin-left: 0 !important;
+    aspect-ratio: 4/3 !important;
+  }
+  .story-split-frame { display: none !important; }
+  .story-split-text { padding-right: 0 !important; }
+
+  /* ─── FAMILY TRUST OVERLAY TEXT ──────────────────────────────────
+     Absolutely-positioned text box with only a right offset and no
+     left constraint — on narrow screens it could crowd or overflow
+     past the edge. Constrain it properly and reduce the image
+     section height so it isn't excessive on mobile. */
+  .family-trust-box {
+    right: 1.25rem !important;
+    left: 1.25rem !important;
+    max-width: none !important;
+  }
+
+  /* ─── OUR STORY PHOTO GRID ────────────────────────────────────────
+     The 3-column asymmetric grid (1.2fr / 0.8fr / 1fr) is far too
+     tight on mobile. Simplify to a balanced 2-col grid. */
+  .story-photo-grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto !important;
+  }
+  .story-photo-tall {
+    grid-row: span 1 !important;
+    aspect-ratio: 3/4 !important;
+  }
+  .story-photo-grid > div:nth-child(4) {
+    grid-column: span 2 !important;
+  }
+
+  /* ─── FOLLOW OUR WORK SPLIT ───────────────────────────────────────
+     Image + text side-by-side becomes image-on-top, text-below. */
+  .follow-work-grid {
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+  }
+  .follow-work-img {
+    height: 280px;
+  }
+
+  /* ─── TESTIMONIALS ─────────────────────────────────────────────── */
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2.5rem !important;
+  }
+  .testimonials-sticky {
+    position: static !important;
+  }
+
+  /* ─── STICKY BOTTOM CTA — equal heights, even spacing ─────────── */
+  .mobile-sticky-cta {
+    gap: 0.5rem !important;
+    align-items: stretch !important;
+  }
+  .sticky-btn-wa,
+  .sticky-btn-call,
+  .sticky-btn-book {
+    min-height: 46px;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}
+
+/* ─── Extra-small phones (320–374px) ────────────────────────────────
+   A touch more compression so the hero and mosaic never feel cramped
+   on the smallest devices. */
+@media (max-width: 374px) {
+  .hero-heading-line1 { font-size: 1.4rem !important; }
+  .hero-heading-line2 { font-size: 1.75rem !important; }
+  .hero-trust-badges span { font-size: 0.64rem !important; }
+  .service-tile-grid { grid-auto-rows: 165px !important; }
+  .service-tile-grid > a.service-tile-hero { grid-auto-rows: 210px; }
+}

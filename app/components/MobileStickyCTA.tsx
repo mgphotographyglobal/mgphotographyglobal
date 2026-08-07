@@ -62,6 +62,7 @@ export default function MobileStickyCTA() {
         className="mobile-cta-btn sticky-btn-book"
         data-pixel-event="Lead"
         data-pixel-label="Sticky CTA Book Session"
+        data-track-event="book_now_click"
         aria-label="View packages and book a session"
       >
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" width="14" height="14" aria-hidden="true">

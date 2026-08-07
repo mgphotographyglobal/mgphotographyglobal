@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import { GoogleTagManager } from "@next/third-parties/google";
 import Analytics from "./components/Analytics";
 import "./globals.css";
 
@@ -8,6 +9,12 @@ import "./globals.css";
 const GA_ID: string = "G-K504JFHLK3";
 const PIXEL_ID = "1471358291339174";
 const SITE_URL = "https://mgphotographyglobal.com";
+
+// ─── GTM Container ID ────────────────────────────────────────────────────────
+// GA4 above stays as a direct gtag.js implementation (NOT managed through GTM)
+// to avoid double pageviews. Do not add a GA4 Configuration tag inside this
+// GTM container — see the note next to <GoogleTagManager /> below.
+const GTM_ID = "GTM-5M595Z78";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -225,6 +232,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) — required fallback for JS-disabled
+            browsers. @next/third-parties only injects the script loader below,
+            so this iframe is added manually per Google's official spec. */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+            title="Google Tag Manager"
+          />
+        </noscript>
+
         {/* Skip to content — accessibility */}
         <a href="#main-content" className="skip-to-content" tabIndex={0}>
           Skip to main content
@@ -250,6 +270,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           />
         </noscript>
       </body>
+
+      {/* Google Tag Manager — official @next/third-parties integration.
+          Loads gtm.js via next/script (afterInteractive), independent of GA4
+          above. GA4 is NOT routed through this container, so no GA4
+          Configuration tag should be added inside GTM — that would fire a
+          second, duplicate pageview alongside the direct gtag.js call. */}
+      <GoogleTagManager gtmId={GTM_ID} />
     </html>
   );
 }

@@ -22,6 +22,8 @@ declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;
     fbq: (...args: unknown[]) => void;
+    // dataLayer is already declared globally by @next/third-parties/google
+    // (imported in layout.tsx) — not redeclared here to avoid a modifier clash.
     mgTrack: (event: string, params?: Record<string, string>) => void;
     _scrollTracked: Set<number>;
   }
@@ -31,6 +33,19 @@ declare global {
 export function trackGA4(event: string, params: Record<string, string> = {}) {
   if (typeof window !== "undefined" && typeof window.gtag === "function") {
     window.gtag("event", event, {
+      page_location: window.location.href,
+      ...params,
+    });
+  }
+  // Also push to GTM's dataLayer (object form, not gtag's arguments-array
+  // form) so a GTM Custom Event trigger matching `event` can pick this up.
+  // This single push covers every call site below: whatsapp_click,
+  // call_click, generate_lead, view_item, book_now_click, scroll_50/90,
+  // and any data-track-event passthrough (gallery_view, package_view, etc).
+  if (typeof window !== "undefined") {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event,
       page_location: window.location.href,
       ...params,
     });
@@ -125,6 +140,21 @@ export default function Analytics() {
       // Scroll-anchor "Book Session" / "View Portfolio" links
       if (target.dataset.trackEvent) {
         trackGA4(target.dataset.trackEvent, { button_location: loc, service_type: svc });
+      }
+
+      // Outbound link clicks — external domain, not WhatsApp/tel (tracked above)
+      if (
+        target.hostname &&
+        target.hostname !== window.location.hostname &&
+        !href.startsWith("tel:") &&
+        !href.includes("wa.me") &&
+        !href.includes("whatsapp")
+      ) {
+        trackGA4("outbound_click", {
+          link_url: href,
+          link_domain: target.hostname,
+          link_text: (target.textContent || "").trim().slice(0, 100),
+        });
       }
     };
     document.addEventListener("click", onClick);

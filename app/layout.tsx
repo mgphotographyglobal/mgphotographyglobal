@@ -156,11 +156,9 @@ const websiteSchema = {
   url: SITE_URL,
   description: "Luxury newborn, baby, maternity & family photography in Dubai, Abu Dhabi & Sharjah",
   publisher: { "@id": `${SITE_URL}/#organization` },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: { "@type": "EntryPoint", urlTemplate: `${SITE_URL}/search?q={search_term_string}` },
-    "query-input": "required name=search_term_string",
-  },
+  // NOTE: no potentialAction/SearchAction here — this site has no /search route.
+  // A SearchAction pointing at a URL that 404s is an invalid structured-data
+  // claim; only add it back once a real on-site search page exists.
 };
 
 // ─── Root Layout ─────────────────────────────────────────────────────────────

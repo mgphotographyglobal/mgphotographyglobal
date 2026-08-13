@@ -39,5 +39,10 @@ const serviceData = {
     { title: "Maternity Photography Dubai", href: "/maternity-photography-dubai" },
     { title: "Birthday Photography Dubai", href: "/birthday-photography-dubai" },
   ],
+  heroImage: {
+    src: "/images/gallery/baby-photography-dubai-purple-blanket-flowers-smiling-21.jpg",
+    alt: "Smiling baby wrapped in purple blanket with flowers — baby photography Dubai",
+    objectPosition: "center 30%",
+  },
 };
 export default function BabyPhotographyDubai() { return <ServicePageTemplate service={serviceData} />; }

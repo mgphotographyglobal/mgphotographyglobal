@@ -24,6 +24,27 @@ const s = {
   ],
   ctaText:"Let's Create Your Cinematic Love Prelude.",
   keywords:["pre-wedding photography Dubai","engagement photoshoot Dubai"],
+  heroImage:{
+    src:"/images/pre-wedding-photography-dubai-hero-couple-floral-dress.jpg",
+    alt:"Man lifting his partner in a flowing green floral dress during a pre-wedding photoshoot",
+    objectPosition:"center 35%",
+  },
+  galleryTitle:"Pre-Wedding Photography Portfolio",
+  gallery:[
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-floral-dress-lift-06.jpg", alt:"Man lifting his partner in a flowing green floral dress on a beach walkway" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-umbrella-09.jpg", alt:"Couple in matching red outfits sitting under a colorful umbrella on the beach" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-red-dress-portrait-rocks-07.jpg", alt:"Woman in a flowing red dress and sunglasses posing on coastal rocks" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-silhouette-sunset-03.jpg", alt:"Silhouette of a couple holding hands against a blue sunset sky, framed through a ring" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-embrace-10.jpg", alt:"Couple in red outfits lying on the beach sharing an intimate moment" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-beach-boat-01.jpg", alt:"Couple sitting together on a wooden fishing boat on a beach" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-lifeguard-tower-02.jpg", alt:"Couple standing together under a thatched wooden lifeguard tower on the beach" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-red-dress-flowing-fabric-08.jpg", alt:"Woman in a red flowing dress with fabric caught in the wind atop coastal rocks" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-lighthouse-11.jpg", alt:"Couple in red outfits standing on a sandbar with a lighthouse in the distance" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-silhouette-embrace-04.jpg", alt:"Silhouette of a couple embracing against a blue evening sky" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-beach-candid-05.jpg", alt:"Couple lying together on the sand sharing a candid moment on the beach" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-sharing-ice-cream-12.jpg", alt:"Couple in red outfits sharing an ice cream cone, photographed from above" },
+    { src:"/images/gallery/pre-wedding-photography-dubai-couple-colonial-veranda-13.jpg", alt:"Couple in red outfits sitting together on a pillared colonial-style veranda" },
+  ],
   relatedServices:[{title:"Wedding Photography Dubai",href:"/wedding-photography-dubai"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai"}],
 };
 export default function PreWeddingPage(){return <ServicePageTemplate service={s}/>;}

@@ -5,21 +5,44 @@ import GalleryGrid from "./GalleryGrid";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Photo Gallery | Newborn & Baby Photography Dubai",
-  description: "Browse our portfolio of newborn, baby & maternity sessions across Dubai, Abu Dhabi & Sharjah. Luxury themed setups, hand-retouched.",
+  title: "Photo Gallery | Wedding, Newborn & Baby Photography Dubai",
+  description: "Browse our portfolio of wedding, pre-wedding, newborn, baby & maternity sessions across Dubai, Abu Dhabi & Sharjah. Luxury themed setups, hand-retouched.",
   keywords:
-    "Newborn Photography Gallery Dubai, Baby Photography Portfolio Dubai, MG Photography UAE Gallery",
+    "Wedding Photography Gallery Dubai, Pre-Wedding Photography Portfolio, Newborn Photography Gallery Dubai, Baby Photography Portfolio Dubai, MG Photography UAE Gallery",
   alternates: { canonical: "https://mgphotographyglobal.com/gallery/" },
   openGraph: {
     title: "Photo Gallery | MG Photography UAE",
-    description: "Browse our full portfolio of newborn, baby, and maternity photography sessions across the UAE.",
+    description: "Browse our full portfolio of wedding, pre-wedding, newborn, baby, and maternity photography sessions across the UAE.",
     type: "website",
     locale: "en_AE",
-    images: ["/images/gallery/newborn-photography-dubai-purple-fairy-lights-sleeping-15.jpg"],
+    images: ["/images/gallery/wedding-photography-dubai-bridal-portrait-purple-saree-09.jpg"],
   },
 };
 
 export const galleryImages = [
+  { src: "/images/gallery/wedding-photography-dubai-bridal-portrait-jewelry-closeup-01.jpg", alt: "Close-up portrait of an Indian bride wearing a maang tikka and gold jewelry", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-makeup-application-02.jpg", alt: "Makeup artist applying eyeshadow to an Indian bride before her wedding ceremony", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-ring-light-getting-ready-03.jpg", alt: "Bride peeking through a ring light during her wedding getting-ready session", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-getting-ready-blue-saree-04.jpg", alt: "Bride in a blue embellished saree having makeup applied before her wedding", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-mirror-reflection-05.jpg", alt: "Bride looking at her reflection in a lit mirror while getting ready for her wedding", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-adjusting-maang-tikka-06.jpg", alt: "Bride adjusting her gold maang tikka, showing intricate henna on her hands", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-wedding-ceremony-hands-ritual-07.jpg", alt: "Close-up of bride and groom's hands during a traditional wedding ritual with rose petals", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-ceremony-prayer-mandap-08.jpg", alt: "Bride with hands folded in prayer during her wedding ceremony on a decorated mandap stage", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bridal-portrait-purple-saree-09.jpg", alt: "Indian bride in a purple and gold silk saree with traditional jewelry, studio portrait", category: "Wedding" },
+  { src: "/images/gallery/wedding-photography-dubai-bride-groom-silhouette-10.jpg", alt: "Silhouette of bride and groom with foreheads touching against a warm orange backdrop", category: "Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-beach-boat-01.jpg", alt: "Couple sitting together on a wooden fishing boat on a beach", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-lifeguard-tower-02.jpg", alt: "Couple standing together under a thatched wooden lifeguard tower on the beach", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-silhouette-sunset-03.jpg", alt: "Silhouette of a couple holding hands against a blue sunset sky, framed through a ring", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-silhouette-embrace-04.jpg", alt: "Silhouette of a couple embracing against a blue evening sky", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-beach-candid-05.jpg", alt: "Couple lying together on the sand sharing a candid moment on the beach", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-floral-dress-lift-06.jpg", alt: "Man lifting his partner in a flowing green floral dress on a beach walkway", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-red-dress-portrait-rocks-07.jpg", alt: "Woman in a flowing red dress and sunglasses posing on coastal rocks", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-red-dress-flowing-fabric-08.jpg", alt: "Woman in a red flowing dress with fabric caught in the wind atop coastal rocks", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-umbrella-09.jpg", alt: "Couple in matching red outfits sitting under a colorful umbrella on the beach", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-embrace-10.jpg", alt: "Couple in red outfits lying on the beach sharing an intimate moment", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-lighthouse-11.jpg", alt: "Couple in red outfits standing on a sandbar with a lighthouse in the distance", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-sharing-ice-cream-12.jpg", alt: "Couple in red outfits sharing an ice cream cone, photographed from above", category: "Pre-Wedding" },
+  { src: "/images/gallery/pre-wedding-photography-dubai-couple-colonial-veranda-13.jpg", alt: "Couple in red outfits sitting together on a pillared colonial-style veranda", category: "Pre-Wedding" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-theme-parents-hands-01.jpg", alt: "Newborn baby held by parents' hands in a purple-themed setup with teddy bear and flowers", category: "Newborn" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-bonnet-bunny-02.jpg", alt: "Sleeping newborn in a lace bonnet resting beside a crochet bunny toy", category: "Newborn" },
   { src: "/images/gallery/newborn-photography-dubai-crying-basket-neutral-03.jpg", alt: "Expressive newborn portrait in a woven basket with a floral headband", category: "Newborn" },
@@ -46,8 +69,8 @@ export default function GalleryPage() {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
     "@id": "https://mgphotographyglobal.com/gallery/#gallery",
-    name: "MG Photography UAE — Newborn & Baby Photography Gallery",
-    description: "Portfolio of newborn, baby, and maternity photography sessions in Dubai, Abu Dhabi & Sharjah.",
+    name: "MG Photography UAE — Wedding, Newborn & Baby Photography Gallery",
+    description: "Portfolio of wedding, pre-wedding, newborn, baby, and maternity photography sessions in Dubai, Abu Dhabi & Sharjah.",
     url: "https://mgphotographyglobal.com/gallery/",
     image: galleryImages.map((img) => ({
       "@type": "ImageObject",
@@ -70,7 +93,7 @@ export default function GalleryPage() {
             Every Session Tells<br />a <span className="text-gold-shimmer">Story Worth Keeping</span>
           </h1>
           <p className="body-lg" style={{ maxWidth: "500px", margin: "0 auto" }}>
-            A curated look at our newborn and baby photography — captured across Dubai, Abu Dhabi & Sharjah.
+            A curated look at our wedding, pre-wedding, newborn and baby photography — captured across Dubai, Abu Dhabi & Sharjah.
           </p>
         </div>
       </section>

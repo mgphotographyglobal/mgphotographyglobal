@@ -19,6 +19,8 @@ interface ServicePageProps {
     keywords: string[];
     relatedServices: { title: string; href: string }[];
     heroImage?: { src: string; alt: string; objectPosition?: string };
+    gallery?: { src: string; alt: string }[];
+    galleryTitle?: string;
     canonicalPath: string; // e.g. "/baby-photography-dubai/" — used for Service/FAQ/Breadcrumb schema + canonical
   };
 }
@@ -69,11 +71,25 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
     ],
   };
 
+  const gallerySchema = service.gallery && service.gallery.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${pageUrl}#gallery`,
+    name: service.galleryTitle || `${service.title} Portfolio`,
+    url: pageUrl,
+    image: service.gallery.map((img) => ({
+      "@type": "ImageObject",
+      contentUrl: `${SITE_URL}${img.src}`,
+      caption: img.alt,
+    })),
+  } : null;
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {gallerySchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />}
       <Header />
       <WhatsAppFloat />
 
@@ -122,6 +138,36 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
           <p className="body-lg" style={{ whiteSpace: "pre-line" }}>{service.description}</p>
         </div>
       </section>
+
+      {/* Gallery */}
+      {service.gallery && service.gallery.length > 0 && (
+        <section id="gallery" aria-label={`${service.title} gallery`} className="section-pad" style={{ background: "var(--black-rich)" }}>
+          <div className="container-luxury">
+            <div style={{ textAlign: "center", marginBottom: "3rem" }}>
+              <div className="label" style={{ marginBottom: "0.75rem" }}>Our Work</div>
+              <h2 className="display-sm">{service.galleryTitle || `${service.title} Portfolio`}</h2>
+            </div>
+            <div className="service-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.5rem" }}>
+              {service.gallery.map((img, i) => (
+                <div
+                  key={img.src}
+                  style={{ position: "relative", aspectRatio: i === 0 ? "4/3" : "3/4", gridColumn: i === 0 ? "span 2" : "span 1", overflow: "hidden" }}
+                >
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    loading={i < 3 ? "eager" : "lazy"}
+                    sizes={i === 0 ? "66vw" : "33vw"}
+                    style={{ objectFit: "cover" }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <style>{`@media(max-width:768px){.service-gallery-grid{grid-template-columns:repeat(2,1fr)!important}}`}</style>
+        </section>
+      )}
 
       {/* Why MG */}
       <section className="section-pad bg-cream-section">

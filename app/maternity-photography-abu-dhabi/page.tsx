@@ -19,7 +19,24 @@ const s = {
     {q:"What is the ideal time for a maternity shoot?",a:"Between 28–34 weeks for the best results. Your bump is beautiful and prominent, and you'll still be comfortable throughout the session."},
   ],
   ctaText:"Celebrate Your Pregnancy With Abu Dhabi's Finest Photography.",
-  keywords:["maternity photography Abu Dhabi","pregnancy photoshoot Abu Dhabi"],
+  keywords:["maternity photography Abu Dhabi","maternity photographer Abu Dhabi","pregnancy photography Abu Dhabi","maternity photoshoot Abu Dhabi"],
+  heroImage:{
+    src:"/images/gallery/maternity-portrait-lilac-gown-flowing-fabric-sunset.jpg",
+    alt:"Pregnant woman in a lilac gown with sheer fabric flowing around her at sunset",
+    objectPosition:"center 30%",
+  },
+  galleryTitle:"Maternity Photography — A Selection of Our Work",
+  gallerySubtitle:"Explore a selection of our maternity photography, showcasing the same premium style and artistry we bring to every session across the UAE.",
+  gallery:[
+    { src:"/images/gallery/maternity-portrait-lilac-gown-flowing-fabric-sunset.jpg", alt:"Pregnant woman in a lilac gown with sheer fabric flowing around her at sunset" },
+    { src:"/images/gallery/maternity-portrait-family-group-gazebo.jpg", alt:"Pregnant woman surrounded by family members celebrating together under a gazebo" },
+    { src:"/images/gallery/maternity-portrait-couple-colonial-veranda-golden-hour.jpg", alt:"Expectant couple standing together on a pillared veranda at golden hour" },
+    { src:"/images/gallery/maternity-portrait-tulle-gown-black-and-white.jpg", alt:"Pregnant woman in a dramatic tulle gown posing in a black and white studio portrait" },
+    { src:"/images/gallery/maternity-portrait-couple-black-and-white-studio.jpg", alt:"Black and white studio portrait of an expectant couple embracing" },
+    { src:"/images/gallery/maternity-portrait-black-and-white-silhouette-profile.jpg", alt:"Black and white profile portrait of a pregnant woman cradling her bump" },
+    { src:"/images/gallery/maternity-portrait-couple-maroon-gown-indoor.jpg", alt:"Expectant couple standing together indoors, mother in a flowing maroon maternity gown" },
+    { src:"/images/gallery/maternity-portrait-lilac-gown-traditional-veranda-night.jpg", alt:"Pregnant woman in a lilac gown seated on an ornately decorated traditional veranda at night" },
+  ],
   relatedServices:[{title:"Maternity Photography Dubai",href:"/maternity-photography-dubai"},{title:"Newborn Photography Abu Dhabi",href:"/newborn-photography-abu-dhabi"},{title:"Wedding Photography Abu Dhabi",href:"/wedding-photography-abu-dhabi"}],
 };
 export default function MaternityPhotographyAbuDhabi(){return <ServicePageTemplate service={s}/>;}

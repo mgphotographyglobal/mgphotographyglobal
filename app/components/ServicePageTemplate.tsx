@@ -21,6 +21,7 @@ interface ServicePageProps {
     heroImage?: { src: string; alt: string; objectPosition?: string };
     gallery?: { src: string; alt: string }[];
     galleryTitle?: string;
+    gallerySubtitle?: string;
     canonicalPath: string; // e.g. "/baby-photography-dubai/" — used for Service/FAQ/Breadcrumb schema + canonical
   };
 }
@@ -146,6 +147,9 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
             <div style={{ textAlign: "center", marginBottom: "3rem" }}>
               <div className="label" style={{ marginBottom: "0.75rem" }}>Our Work</div>
               <h2 className="display-sm">{service.galleryTitle || `${service.title} Portfolio`}</h2>
+              {service.gallerySubtitle && (
+                <p className="body-lg" style={{ maxWidth: "560px", margin: "1rem auto 0" }}>{service.gallerySubtitle}</p>
+              )}
             </div>
             <div className="service-gallery-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "0.5rem" }}>
               {service.gallery.map((img, i) => (

@@ -5,7 +5,7 @@ import GalleryGrid from "./GalleryGrid";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Photo Gallery | Wedding, Newborn & Baby Photography Dubai",
+  title: "Photo Gallery | Wedding, Maternity, Newborn & Baby Photography Dubai",
   description: "Browse our portfolio of wedding, pre-wedding, newborn, baby & maternity sessions across Dubai, Abu Dhabi & Sharjah. Luxury themed setups, hand-retouched.",
   keywords:
     "Wedding Photography Gallery Dubai, Pre-Wedding Photography Portfolio, Newborn Photography Gallery Dubai, Baby Photography Portfolio Dubai, MG Photography UAE Gallery",
@@ -43,6 +43,21 @@ export const galleryImages = [
   { src: "/images/gallery/pre-wedding-photography-dubai-couple-red-outfits-lighthouse-11.jpg", alt: "Couple in red outfits standing on a sandbar with a lighthouse in the distance", category: "Pre-Wedding" },
   { src: "/images/gallery/pre-wedding-photography-dubai-couple-sharing-ice-cream-12.jpg", alt: "Couple in red outfits sharing an ice cream cone, photographed from above", category: "Pre-Wedding" },
   { src: "/images/gallery/pre-wedding-photography-dubai-couple-colonial-veranda-13.jpg", alt: "Couple in red outfits sitting together on a pillared colonial-style veranda", category: "Pre-Wedding" },
+  { src: "/images/gallery/maternity-photography-dubai-red-gown-flowing-fabric-waterfront.jpg", alt: "Pregnant woman in a red gown with fabric flowing in the wind beside Dubai Water Canal, Burj Khalifa in the background", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-lilac-gown-flowing-fabric-sunset.jpg", alt: "Pregnant woman in a lilac gown with sheer fabric flowing around her at sunset", category: "Maternity" },
+  { src: "/images/gallery/maternity-photography-dubai-red-gown-skyline-baby-shoes.jpg", alt: "Pregnant woman in a flowing red gown holding baby shoes with the Dubai skyline behind her", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-couple-studio-yellow-backdrop.jpg", alt: "Expectant couple embracing in a studio maternity portrait against a golden-yellow backdrop", category: "Maternity" },
+  { src: "/images/gallery/maternity-photography-dubai-couple-park-with-dog.jpg", alt: "Expectant couple sitting together in a park with their dog, Dubai skyline in the background", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-white-dress-garden-flowers.jpg", alt: "Pregnant woman in a white embroidered dress tossing yellow flowers in a sunlit garden", category: "Maternity" },
+  { src: "/images/gallery/maternity-photography-dubai-white-dress-park-skyline.jpg", alt: "Pregnant woman in a white embroidered dress standing in a park with the Dubai skyline behind her", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-couple-baby-socks-garden.jpg", alt: "Expectant couple holding tiny baby socks together in a garden at golden hour", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-family-group-gazebo.jpg", alt: "Pregnant woman surrounded by family members celebrating together under a gazebo", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-couple-colonial-veranda-golden-hour.jpg", alt: "Expectant couple standing together on a pillared veranda at golden hour", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-tulle-gown-black-and-white.jpg", alt: "Pregnant woman in a dramatic tulle gown posing in a black and white studio portrait", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-couple-black-and-white-studio.jpg", alt: "Black and white studio portrait of an expectant couple embracing", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-black-and-white-silhouette-profile.jpg", alt: "Black and white profile portrait of a pregnant woman cradling her bump", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-couple-maroon-gown-indoor.jpg", alt: "Expectant couple standing together indoors, mother in a flowing maroon maternity gown", category: "Maternity" },
+  { src: "/images/gallery/maternity-portrait-lilac-gown-traditional-veranda-night.jpg", alt: "Pregnant woman in a lilac gown seated on an ornately decorated traditional veranda at night", category: "Maternity" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-theme-parents-hands-01.jpg", alt: "Newborn baby held by parents' hands in a purple-themed setup with teddy bear and flowers", category: "Newborn" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-bonnet-bunny-02.jpg", alt: "Sleeping newborn in a lace bonnet resting beside a crochet bunny toy", category: "Newborn" },
   { src: "/images/gallery/newborn-photography-dubai-crying-basket-neutral-03.jpg", alt: "Expressive newborn portrait in a woven basket with a floral headband", category: "Newborn" },
@@ -93,7 +108,7 @@ export default function GalleryPage() {
             Every Session Tells<br />a <span className="text-gold-shimmer">Story Worth Keeping</span>
           </h1>
           <p className="body-lg" style={{ maxWidth: "500px", margin: "0 auto" }}>
-            A curated look at our wedding, pre-wedding, newborn and baby photography — captured across Dubai, Abu Dhabi & Sharjah.
+            A curated look at our wedding, pre-wedding, maternity, newborn and baby photography — captured across Dubai, Abu Dhabi & Sharjah.
           </p>
         </div>
       </section>

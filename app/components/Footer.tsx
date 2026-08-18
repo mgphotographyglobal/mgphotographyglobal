@@ -3,27 +3,27 @@ import Link from "next/link";
 
 const services = [
   { label: "Newborn Photography Dubai", href: "/dubai-newborn-photography/" },
-  { label: "Baby Photography Dubai", href: "/baby-photography-dubai" },
-  { label: "Maternity Photography Dubai", href: "/maternity-photography-dubai" },
-  { label: "Wedding Photography Dubai", href: "/wedding-photography-dubai" },
-  { label: "Pre-Wedding Photography", href: "/pre-wedding-photography-dubai" },
-  { label: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai" },
-  { label: "Architecture Photography", href: "/architecture-photography-dubai" },
-  { label: "Real Estate Photography", href: "/real-estate-photography-dubai" },
+  { label: "Baby Photography Dubai", href: "/baby-photography-dubai/" },
+  { label: "Maternity Photography Dubai", href: "/maternity-photography-dubai/" },
+  { label: "Wedding Photography Dubai", href: "/wedding-photography-dubai/" },
+  { label: "Pre-Wedding Photography", href: "/pre-wedding-photography-dubai/" },
+  { label: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai/" },
+  { label: "Architecture Photography", href: "/architecture-photography-dubai/" },
+  { label: "Real Estate Photography", href: "/real-estate-photography-dubai/" },
 ];
 
 const locations = [
-  { label: "Newborn Photography Abu Dhabi", href: "/newborn-photography-abu-dhabi" },
-  { label: "Newborn Photography Sharjah", href: "/newborn-photography-sharjah" },
-  { label: "Maternity Photography Abu Dhabi", href: "/maternity-photography-abu-dhabi" },
-  { label: "Wedding Photography Abu Dhabi", href: "/wedding-photography-abu-dhabi" },
+  { label: "Newborn Photography Abu Dhabi", href: "/newborn-photography-abu-dhabi/" },
+  { label: "Newborn Photography Sharjah", href: "/newborn-photography-sharjah/" },
+  { label: "Maternity Photography Abu Dhabi", href: "/maternity-photography-abu-dhabi/" },
+  { label: "Wedding Photography Abu Dhabi", href: "/wedding-photography-abu-dhabi/" },
 ];
 
 const guides = [
-  { label: "Newborn Photoshoot Ideas Dubai", href: "/guides/newborn-photoshoot-ideas-dubai" },
-  { label: "Outdoor Photoshoot Locations Dubai", href: "/guides/outdoor-photoshoot-locations-dubai" },
-  { label: "What to Wear for Maternity Photoshoot", href: "/guides/what-to-wear-maternity-photoshoot" },
-  { label: "Dubai Wedding Photography Guide", href: "/guides/dubai-wedding-photography-guide" },
+  { label: "Newborn Photoshoot Ideas Dubai", href: "/guides/newborn-photoshoot-ideas-dubai/" },
+  { label: "Outdoor Photoshoot Locations Dubai", href: "/guides/outdoor-photoshoot-locations-dubai/" },
+  { label: "What to Wear for Maternity Photoshoot", href: "/guides/what-to-wear-maternity-photoshoot/" },
+  { label: "Dubai Wedding Photography Guide", href: "/guides/dubai-wedding-photography-guide/" },
 ];
 
 export default function Footer() {
@@ -128,9 +128,9 @@ export default function Footer() {
             © {new Date().getFullYear()} MG Photography UAE. All rights reserved.
           </p>
           <div style={{ display: "flex", gap: "2rem" }}>
-            <Link href="/terms" style={{ color: "rgba(250,246,238,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.3s" }}
+            <Link href="/terms/" style={{ color: "rgba(250,246,238,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.3s" }}
             >Terms & Conditions</Link>
-            <Link href="/contact" style={{ color: "rgba(250,246,238,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.3s" }}
+            <Link href="/contact/" style={{ color: "rgba(250,246,238,0.4)", fontSize: "0.78rem", textDecoration: "none", transition: "color 0.3s" }}
             >Privacy Policy</Link>
           </div>
         </div>

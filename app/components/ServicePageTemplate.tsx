@@ -108,10 +108,26 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
             />
           </div>
         ) : (
-          <div className="photo-placeholder" style={{ position: "absolute", inset: 0 }}>
-            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0d0d0d 0%, #1a1511 60%, #0d0d0d 100%)" }} />
-            <div style={{ position: "absolute", top: "30%", right: "20%", width: "350px", height: "350px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%)", filter: "blur(50px)" }} />
-            <div style={{ position: "absolute", fontSize: "20rem", opacity: 0.03, top: "50%", left: "50%", transform: "translate(-50%,-50%)", pointerEvents: "none", userSelect: "none" }}>{service.emoji}</div>
+          // No real session photography available for this service yet — this is a
+          // deliberate abstract lens/bokeh motif, not a stand-in for client work.
+          // Do not replace with stock or generated imagery; swap in a real
+          // service.heroImage once genuine MG Photography photos exist.
+          <div className="photo-placeholder" aria-hidden="true" style={{ position: "absolute", inset: 0 }}>
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, #0d0d0d 0%, #1a1511 55%, #0d0d0d 100%)" }} />
+
+            {/* Soft bokeh field */}
+            <div style={{ position: "absolute", top: "16%", right: "10%", width: "230px", height: "230px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.16) 0%, transparent 72%)", filter: "blur(8px)" }} />
+            <div style={{ position: "absolute", top: "58%", right: "26%", width: "80px", height: "80px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.14) 0%, transparent 75%)", filter: "blur(3px)" }} />
+            <div style={{ position: "absolute", top: "32%", right: "4%", width: "46px", height: "46px", borderRadius: "50%", background: "radial-gradient(circle, rgba(250,246,238,0.12) 0%, transparent 75%)", filter: "blur(2px)" }} />
+            <div style={{ position: "absolute", bottom: "10%", left: "6%", width: "150px", height: "150px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 72%)", filter: "blur(10px)" }} />
+
+            {/* Concentric aperture-ring motif, true-centered via inset+auto-margin */}
+            <div style={{ position: "absolute", top: "50%", right: "5%", transform: "translateY(-50%)", width: "440px", height: "440px" }}>
+              <div style={{ position: "absolute", inset: 0, margin: "auto", width: "440px", height: "440px", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.09)" }} />
+              <div style={{ position: "absolute", inset: 0, margin: "auto", width: "320px", height: "320px", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.16)" }} />
+              <div style={{ position: "absolute", inset: 0, margin: "auto", width: "200px", height: "200px", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.26)" }} />
+              <div style={{ position: "absolute", inset: 0, margin: "auto", width: "92px", height: "92px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.16) 0%, transparent 75%)" }} />
+            </div>
           </div>
         )}
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,13,13,0.95) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.2) 100%)" }} />

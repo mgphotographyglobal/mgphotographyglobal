@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Birthday Photography Dubai | MG Photography UAE",
   description: "Vibrant birthday event photography in Dubai, from kids' parties to luxury adult celebrations. Book with MG Photography UAE.",
   alternates: { canonical: "https://mgphotographyglobal.com/birthday-photography-dubai/" },
@@ -23,6 +24,8 @@ const s = {
   ],
   ctaText:"Make Your Celebration Unforgettable — Beautifully Documented.",
   keywords:["birthday photography Dubai","event photography Dubai"],
-  relatedServices:[{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai"},{title:"Baby Photography Dubai",href:"/baby-photography-dubai"}],
+  relatedServices:[{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai/"},{title:"Baby Photography Dubai",href:"/baby-photography-dubai/"}],
 };
 export default function BirthdayPhotographyDubai(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

@@ -1,7 +1,8 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Wedding Photography Dubai | MG Photography UAE",
   description: "Cinematic wedding photography in Dubai specializing in Indian & destination weddings. Fast delivery, available UAE-wide.",
   keywords: ["wedding photography Dubai", "wedding photographer Dubai", "Indian wedding photographer Dubai", "luxury wedding photography Dubai"],
@@ -101,13 +102,15 @@ From intimate Nikah ceremonies to multi-day Hindu wedding celebrations, we under
     { src: "/images/gallery/wedding-photography-dubai-bride-groom-silhouette-10.jpg", alt: "Silhouette of bride and groom with foreheads touching against a warm orange backdrop" },
   ],
   relatedServices: [
-    { title: "Pre-Wedding Photography Dubai", href: "/pre-wedding-photography-dubai" },
-    { title: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai" },
-    { title: "Wedding Photography Abu Dhabi", href: "/wedding-photography-abu-dhabi" },
-    { title: "Birthday Photography Dubai", href: "/birthday-photography-dubai" },
+    { title: "Pre-Wedding Photography Dubai", href: "/pre-wedding-photography-dubai/" },
+    { title: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai/" },
+    { title: "Wedding Photography Abu Dhabi", href: "/wedding-photography-abu-dhabi/" },
+    { title: "Birthday Photography Dubai", href: "/birthday-photography-dubai/" },
   ],
 };
 
 export default function WeddingPhotographyDubai() {
   return <ServicePageTemplate service={serviceData} />;
 }
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, serviceData);

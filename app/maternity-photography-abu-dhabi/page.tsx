@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Maternity Photography Abu Dhabi | MG Photography",
   description: "Radiant maternity photography in Abu Dhabi. Cinematic pregnancy portraits for expectant mothers. Book your session.",
   alternates: { canonical: "https://mgphotographyglobal.com/maternity-photography-abu-dhabi/" },
@@ -37,6 +38,8 @@ const s = {
     { src:"/images/gallery/maternity-portrait-couple-maroon-gown-indoor.jpg", alt:"Expectant couple standing together indoors, mother in a flowing maroon maternity gown" },
     { src:"/images/gallery/maternity-portrait-lilac-gown-traditional-veranda-night.jpg", alt:"Pregnant woman in a lilac gown seated on an ornately decorated traditional veranda at night" },
   ],
-  relatedServices:[{title:"Maternity Photography Dubai",href:"/maternity-photography-dubai"},{title:"Newborn Photography Abu Dhabi",href:"/newborn-photography-abu-dhabi"},{title:"Wedding Photography Abu Dhabi",href:"/wedding-photography-abu-dhabi"}],
+  relatedServices:[{title:"Maternity Photography Dubai",href:"/maternity-photography-dubai/"},{title:"Newborn Photography Abu Dhabi",href:"/newborn-photography-abu-dhabi/"},{title:"Wedding Photography Abu Dhabi",href:"/wedding-photography-abu-dhabi/"}],
 };
 export default function MaternityPhotographyAbuDhabi(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

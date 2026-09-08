@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "MG Photography UAE",
     images: [
       {
-        url: "/images/hero-basket-newborn.png",
+        url: "/images/hero-basket-newborn.webp",
         width: 1200,
         height: 630,
         alt: "Dubai newborn photographer — MG Photography UAE luxury newborn session",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dubai Newborn Photographer | MG Photography UAE",
     description: "Luxury home newborn photography in Dubai. 500+ families.",
-    images: ["/images/hero-basket-newborn.png"],
+    images: ["/images/hero-basket-newborn.webp"],
   },
 };
 
@@ -253,7 +253,7 @@ const faqs = [
 ];
 
 const galleryImages = [
-  { src: "/images/hero-basket-newborn.png", alt: "Newborn in floral basket — Dubai newborn photographer MG Photography" },
+  { src: "/images/hero-basket-newborn.webp", alt: "Newborn in floral basket — Dubai newborn photographer MG Photography" },
   { src: "/images/nb-white-knit-smile.png", alt: "Sleeping newborn smiling in white knit — Dubai home-visit newborn session" },
   { src: "/images/nb-hero-couple-window.png", alt: "Parents kissing newborn by window — luxury newborn photography Dubai" },
   { src: "/images/nb-grandma-home-chandelier.png", alt: "Grandmother holding newborn at home — home newborn session Dubai" },
@@ -316,7 +316,7 @@ export default function DubaiNewbornPhotography() {
       >
         {/* LCP image — priority loaded */}
         <Image
-          src="/images/hero-basket-newborn.png"
+          src="/images/hero-basket-newborn.webp"
           alt="Dubai newborn photographer — luxury newborn photography session by MG Photography UAE"
           fill
           priority

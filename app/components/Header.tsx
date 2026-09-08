@@ -4,17 +4,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, ChevronDown } from "lucide-react";
 
-// Short-URL routes (without -dubai suffix) for clean UX
+// Link directly to the canonical service URLs.
 const services = [
-  { label: "Newborn Photography",     href: "/newborn-photography/" },
-  { label: "Baby Photography",        href: "/baby-photography/" },
-  { label: "Maternity Photography",   href: "/maternity-photography/" },
-  { label: "Wedding Photography",     href: "/wedding-photography/" },
-  { label: "Pre-Wedding Photography", href: "/pre-wedding-photography/" },
-  { label: "Outdoor Photography",     href: "/outdoor-photography/" },
-  { label: "Birthday Photography",    href: "/birthday-photography/" },
-  { label: "Architecture Photography",href: "/architecture-photography/" },
-  { label: "Real Estate Photography", href: "/real-estate-photography/" },
+  { label: "Newborn Photography",     href: "/dubai-newborn-photography/" },
+  { label: "Baby Photography",        href: "/baby-photography-dubai/" },
+  { label: "Maternity Photography",   href: "/maternity-photography-dubai/" },
+  { label: "Wedding Photography",     href: "/wedding-photography-dubai/" },
+  { label: "Pre-Wedding Photography", href: "/pre-wedding-photography-dubai/" },
+  { label: "Outdoor Photography",     href: "/outdoor-photography-dubai/" },
+  { label: "Birthday Photography",    href: "/birthday-photography-dubai/" },
+  { label: "Architecture Photography",href: "/architecture-photography-dubai/" },
+  { label: "Real Estate Photography", href: "/real-estate-photography-dubai/" },
 ];
 
 const navLinks = [

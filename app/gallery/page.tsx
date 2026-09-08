@@ -60,7 +60,7 @@ export const galleryImages = [
   { src: "/images/gallery/maternity-portrait-lilac-gown-traditional-veranda-night.jpg", alt: "Pregnant woman in a lilac gown seated on an ornately decorated traditional veranda at night", category: "Maternity" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-theme-parents-hands-01.jpg", alt: "Newborn baby held by parents' hands in a purple-themed setup with teddy bear and flowers", category: "Newborn" },
   { src: "/images/gallery/newborn-baby-photography-dubai-purple-bonnet-bunny-02.jpg", alt: "Sleeping newborn in a lace bonnet resting beside a crochet bunny toy", category: "Newborn" },
-  { src: "/images/gallery/newborn-photography-dubai-crying-basket-neutral-03.jpg", alt: "Expressive newborn portrait in a woven basket with a floral headband", category: "Newborn" },
+  { src: "/images/gallery/newborn-baby-photography-dubai-crying-basket-neutral-03.jpg", alt: "Expressive newborn portrait in a woven basket with a floral headband", category: "Newborn" },
   { src: "/images/gallery/baby-photography-dubai-laughing-woven-basket-05.jpg", alt: "Laughing baby wrapped in lilac and cream fabric inside a woven basket", category: "Baby" },
   { src: "/images/gallery/newborn-photography-dubai-purple-blanket-back-view-06.jpg", alt: "Newborn resting on a purple knit blanket surrounded by dried florals", category: "Newborn" },
   { src: "/images/gallery/newborn-photography-dubai-macro-details-eye-hand-foot-08.jpg", alt: "Black and white macro details collage — newborn eye, nose, lips, hand, foot and ear", category: "Details" },

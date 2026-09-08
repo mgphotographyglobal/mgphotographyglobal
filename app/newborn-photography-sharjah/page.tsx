@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Newborn Photography Sharjah | MG Photography",
   description: "Premium newborn photography in Sharjah. Safe, cinematic, professional. Book your session today with MG Photography UAE.",
   alternates: { canonical: "https://mgphotographyglobal.com/newborn-photography-sharjah/" },
@@ -20,6 +21,8 @@ const s = {
   ],
   ctaText:"Premium Newborn Photography, Now Available in Sharjah.",
   keywords:["newborn photography Sharjah","newborn photographer Sharjah"],
-  relatedServices:[{title:"Newborn Photography Dubai",href:"/newborn-photography-dubai"},{title:"Newborn Photography Abu Dhabi",href:"/newborn-photography-abu-dhabi"},{title:"Maternity Photography Dubai",href:"/maternity-photography-dubai"}],
+  relatedServices:[{title:"Newborn Photography Dubai",href:"/dubai-newborn-photography/"},{title:"Newborn Photography Abu Dhabi",href:"/newborn-photography-abu-dhabi/"},{title:"Maternity Photography Dubai",href:"/maternity-photography-dubai/"}],
 };
 export default function NewbornPhotographySharjah(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

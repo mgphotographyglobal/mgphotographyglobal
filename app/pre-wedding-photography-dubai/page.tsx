@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Pre-Wedding Photography Dubai | MG Photography UAE",
   description: "Cinematic pre-wedding & engagement photography in Dubai — desert dunes, Burj views & luxury locations. Book now.",
   alternates: { canonical: "https://mgphotographyglobal.com/pre-wedding-photography-dubai/" },
@@ -45,6 +46,8 @@ const s = {
     { src:"/images/gallery/pre-wedding-photography-dubai-couple-sharing-ice-cream-12.jpg", alt:"Couple in red outfits sharing an ice cream cone, photographed from above" },
     { src:"/images/gallery/pre-wedding-photography-dubai-couple-colonial-veranda-13.jpg", alt:"Couple in red outfits sitting together on a pillared colonial-style veranda" },
   ],
-  relatedServices:[{title:"Wedding Photography Dubai",href:"/wedding-photography-dubai"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai"}],
+  relatedServices:[{title:"Wedding Photography Dubai",href:"/wedding-photography-dubai/"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai/"}],
 };
 export default function PreWeddingPage(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

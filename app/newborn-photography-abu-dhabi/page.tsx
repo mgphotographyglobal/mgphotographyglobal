@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Newborn Photography Abu Dhabi | MG Photography",
   description: "Premium newborn photography in Abu Dhabi. Safe, cinematic, professional. Book your session today with MG Photography UAE.",
   alternates: { canonical: "https://mgphotographyglobal.com/newborn-photography-abu-dhabi/" },
@@ -20,6 +21,8 @@ const s = {
   ],
   ctaText:"Bringing Dubai's Best Newborn Photography to Abu Dhabi Families.",
   keywords:["newborn photography Abu Dhabi","newborn photographer Abu Dhabi"],
-  relatedServices:[{title:"Newborn Photography Dubai",href:"/newborn-photography-dubai"},{title:"Maternity Photography Abu Dhabi",href:"/maternity-photography-abu-dhabi"},{title:"Wedding Photography Abu Dhabi",href:"/wedding-photography-abu-dhabi"}],
+  relatedServices:[{title:"Newborn Photography Dubai",href:"/dubai-newborn-photography/"},{title:"Maternity Photography Abu Dhabi",href:"/maternity-photography-abu-dhabi/"},{title:"Wedding Photography Abu Dhabi",href:"/wedding-photography-abu-dhabi/"}],
 };
 export default function NewbornPhotographyAbuDhabi(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

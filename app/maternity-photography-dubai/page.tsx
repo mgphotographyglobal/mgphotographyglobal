@@ -1,7 +1,8 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Maternity Photography Dubai | MG Photography UAE",
   description: "Radiant maternity photography in Dubai. Cinematic luxury pregnancy portraits, home or outdoor. Trusted by 150+ mothers.",
   alternates: { canonical: "https://mgphotographyglobal.com/maternity-photography-dubai/" },
@@ -81,13 +82,15 @@ Best session timing is between 28–34 weeks of pregnancy, when your bump is bea
     { src: "/images/gallery/maternity-portrait-lilac-gown-traditional-veranda-night.jpg", alt: "Pregnant woman in a lilac gown seated on an ornately decorated traditional veranda at night" },
   ],
   relatedServices: [
-    { title: "Newborn Photography Dubai", href: "/newborn-photography-dubai" },
-    { title: "Baby Photography Dubai", href: "/baby-photography-dubai" },
-    { title: "Maternity Photography Abu Dhabi", href: "/maternity-photography-abu-dhabi" },
-    { title: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai" },
+    { title: "Newborn Photography Dubai", href: "/dubai-newborn-photography/" },
+    { title: "Baby Photography Dubai", href: "/baby-photography-dubai/" },
+    { title: "Maternity Photography Abu Dhabi", href: "/maternity-photography-abu-dhabi/" },
+    { title: "Outdoor Photography Dubai", href: "/outdoor-photography-dubai/" },
   ],
 };
 
 export default function MaternityPhotographyDubai() {
   return <ServicePageTemplate service={serviceData} />;
 }
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, serviceData);

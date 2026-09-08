@@ -35,7 +35,7 @@ const WAIcon = () => (
 
 const heroSlides = [
   {
-    src: "/images/hero-basket-newborn.png",
+    src: "/images/hero-basket-newborn.webp",
     alt: "Newborn baby photographer Dubai — MG Photography UAE luxury newborn sessions",
     objectPosition: "center 20%",
   },
@@ -60,31 +60,31 @@ const quickServices = [
   {
     title: "Newborn Photography",
     desc: "Safe, gentle sessions in the first 14 days",
-    href: "/newborn-photography/",
+    href: "/dubai-newborn-photography/",
     icon: "🌸",
   },
   {
     title: "Baby Photography",
     desc: "Milestone sessions at 3, 6 & 12 months",
-    href: "/baby-photography/",
+    href: "/baby-photography-dubai/",
     icon: "⭐",
   },
   {
     title: "Maternity Photography",
     desc: "Radiant bump portraits at 28–36 weeks",
-    href: "/maternity-photography/",
+    href: "/maternity-photography-dubai/",
     icon: "✨",
   },
   {
     title: "Family Photography",
     desc: "Timeless portraits for every family",
-    href: "/outdoor-photography/",
+    href: "/outdoor-photography-dubai/",
     icon: "🏡",
   },
   {
     title: "Wedding Photography",
     desc: "Cinematic coverage of your special day",
-    href: "/wedding-photography/",
+    href: "/wedding-photography-dubai/",
     icon: "💍",
   },
 ];
@@ -102,15 +102,15 @@ const services = [
   {
     title: "Newborn Photography",
     subtitle: "First breath. Forever memories.",
-    href: "/newborn-photography/",
-    img: "/images/hero-basket-newborn.png",
+    href: "/dubai-newborn-photography/",
+    img: "/images/hero-basket-newborn.webp",
     imgAlt: "Sleeping newborn in floral basket",
     objectPos: "center 20%",
   },
   {
     title: "Baby Photography",
     subtitle: "Every milestone, preserved.",
-    href: "/baby-photography/",
+    href: "/baby-photography-dubai/",
     img: "/images/story-rainbow-smile.png",
     imgAlt: "Joyful baby smiling in rainbow wrap",
     objectPos: "center 30%",
@@ -118,7 +118,7 @@ const services = [
   {
     title: "Maternity Photography",
     subtitle: "Radiant. Timeless. Powerful.",
-    href: "/maternity-photography/",
+    href: "/maternity-photography-dubai/",
     img: "/images/story-mother-holding.png",
     imgAlt: "Mother tenderly holding newborn",
     objectPos: "center top",
@@ -126,7 +126,7 @@ const services = [
   {
     title: "Wedding Photography",
     subtitle: "Your love story, told beautifully.",
-    href: "/wedding-photography/",
+    href: "/wedding-photography-dubai/",
     img: null,
     imgAlt: "",
     objectPos: "center",
@@ -134,7 +134,7 @@ const services = [
   {
     title: "Pre-Wedding Photography",
     subtitle: "Romance before forever.",
-    href: "/pre-wedding-photography/",
+    href: "/pre-wedding-photography-dubai/",
     img: "/images/story-parent-fingers.png",
     imgAlt: "Intimate parental connection — parent fingers with baby",
     objectPos: "center",
@@ -142,7 +142,7 @@ const services = [
   {
     title: "Outdoor Photography",
     subtitle: "Dubai's beauty, your canvas.",
-    href: "/outdoor-photography/",
+    href: "/outdoor-photography-dubai/",
     img: "/images/story-sibling.png",
     imgAlt: "Sibling with newborn — family outdoor portrait Dubai",
     objectPos: "center 30%",
@@ -150,7 +150,7 @@ const services = [
   {
     title: "Architecture Photography",
     subtitle: "Form, light, and vision.",
-    href: "/architecture-photography/",
+    href: "/architecture-photography-dubai/",
     img: "/images/architecture/luxury-villa-exterior-architecture-photography-dubai-03.jpg",
     imgAlt: "Luxury villa exterior at golden hour — architecture photography Dubai",
     objectPos: "center 40%",
@@ -158,7 +158,7 @@ const services = [
   {
     title: "Real Estate Photography",
     subtitle: "Spaces that sell themselves.",
-    href: "/real-estate-photography/",
+    href: "/real-estate-photography-dubai/",
     img: "/images/architecture/luxury-villa-pool-real-estate-photography-dubai-02.jpg",
     imgAlt: "Luxury villa pool at sunset — real estate photography Dubai",
     objectPos: "center 45%",
@@ -242,7 +242,7 @@ export default function HomePage() {
                 <WAIcon />
                 Book on WhatsApp
               </a>
-              <a href="/newborn-photography/" className="btn-outline hero-cta-btn" style={{ fontSize: "0.82rem" }}>
+              <a href="/dubai-newborn-photography/" className="btn-outline hero-cta-btn" style={{ fontSize: "0.82rem" }}>
                 View Portfolio →
               </a>
             </div>
@@ -324,7 +324,7 @@ export default function HomePage() {
         <div className="container-luxury">
           <div className="story-split-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(3rem,6vw,7rem)", alignItems: "center" }}>
             <div className="story-split-img" style={{ position: "relative", aspectRatio: "4/5", marginLeft: "-2rem" }}>
-              <Image src="/images/story-teddy-closeup.png" alt="Newborn baby holding teddy bear — intimate close-up newborn photography Dubai" fill style={{ objectFit: "cover" }} />
+              <Image src="/images/story-teddy-closeup.webp" alt="Newborn baby holding teddy bear — intimate close-up newborn photography Dubai" fill style={{ objectFit: "cover" }} />
               <div className="story-split-frame" style={{ position: "absolute", bottom: "-1.5rem", right: "-1.5rem", width: "60%", height: "60%", border: "1px solid rgba(201,168,76,0.25)", zIndex: -1 }} />
             </div>
             <div className="story-split-text" style={{ paddingRight: "2rem" }}>
@@ -350,7 +350,7 @@ export default function HomePage() {
                   <WAIcon />
                   Book Newborn Session
                 </a>
-                <a href="/newborn-photography/" className="btn-outline" style={{ fontSize: "0.78rem", padding: "0.8rem 1.5rem" }}>
+                <a href="/dubai-newborn-photography/" className="btn-outline" style={{ fontSize: "0.78rem", padding: "0.8rem 1.5rem" }}>
                   View Gallery →
                 </a>
               </div>
@@ -362,7 +362,7 @@ export default function HomePage() {
       {/* ── FAMILY TRUST ── parent hands framing baby ────────────────────── */}
       <section style={{ background: "#0a0a0a", overflow: "hidden" }}>
         <div style={{ position: "relative", height: "clamp(480px,70vh,780px)", width: "100%" }}>
-          <Image src="/images/trust-parent-hands.png" alt="Family photographer Dubai — parent hands surrounding newborn baby" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} />
+          <Image src="/images/trust-parent-hands.webp" alt="Family photographer Dubai — parent hands surrounding newborn baby" fill style={{ objectFit: "cover", objectPosition: "center 30%" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(10,10,10,0.0) 40%, rgba(10,10,10,0.88) 100%)" }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,10,10,0.7) 0%, transparent 50%)" }} />
           <div className="family-trust-box" style={{ position: "absolute", right: "clamp(1.5rem,8vw,8rem)", top: "50%", transform: "translateY(-50%)", maxWidth: "420px", zIndex: 10 }}>
@@ -685,7 +685,7 @@ export default function HomePage() {
               <WAIcon />
               Book on WhatsApp
             </a>
-            <a href="/newborn-photography/" className="btn-outline" style={{ fontSize: "0.88rem" }}>View Portfolio →</a>
+            <a href="/dubai-newborn-photography/" className="btn-outline" style={{ fontSize: "0.88rem" }}>View Portfolio →</a>
           </div>
 
           <div style={{ display: "inline-flex", alignItems: "center", gap: "1.25rem", padding: "0.85rem 1.75rem", border: "1px solid rgba(201,168,76,0.18)", background: "rgba(201,168,76,0.04)" }}>

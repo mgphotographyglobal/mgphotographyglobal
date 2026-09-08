@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Real Estate Photography Dubai | MG Photography UAE",
   description: "Professional HDR real estate photography in Dubai for agencies, developers & landlords. Help listings sell faster.",
   alternates: { canonical: "https://mgphotographyglobal.com/real-estate-photography-dubai/" },
@@ -24,7 +25,9 @@ const s = {
   ],
   ctaText:"List Better. Sell Faster. Book Your Property Photography.",
   keywords:["real estate photography Dubai","property photography Dubai"],
-  relatedServices:[{title:"Architecture Photography Dubai",href:"/architecture-photography-dubai"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai"}],
+  relatedServices:[{title:"Architecture Photography Dubai",href:"/architecture-photography-dubai/"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai/"}],
   heroImage:{src:"/images/architecture/luxury-villa-pool-real-estate-photography-dubai-02.jpg",alt:"Luxury villa infinity pool at sunset — real estate photography Dubai",objectPosition:"center 45%"},
 };
 export default function RealEstatePhotographyDubai(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

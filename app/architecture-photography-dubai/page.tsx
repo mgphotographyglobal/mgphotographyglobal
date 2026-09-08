@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Architecture Photography Dubai | MG Photography UAE",
   description: "Premium architecture photography in Dubai — interior, exterior, commercial & residential. Book with MG Photography UAE today.",
   alternates: { canonical: "https://mgphotographyglobal.com/architecture-photography-dubai/" },
@@ -23,7 +24,9 @@ const s = {
   ],
   ctaText:"Elevate Your Architectural Work With World-Class Photography.",
   keywords:["architecture photography Dubai","architectural photographer Dubai"],
-  relatedServices:[{title:"Real Estate Photography Dubai",href:"/real-estate-photography-dubai"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai"}],
+  relatedServices:[{title:"Real Estate Photography Dubai",href:"/real-estate-photography-dubai/"},{title:"Outdoor Photography Dubai",href:"/outdoor-photography-dubai/"}],
   heroImage:{src:"/images/architecture/luxury-villa-exterior-architecture-photography-dubai-03.jpg",alt:"Luxury villa exterior at golden hour with tower balcony — architecture photography Dubai",objectPosition:"center 40%"},
 };
 export default function ArchitecturePhotographyDubai(){return <ServicePageTemplate service={s}/>;}
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, s);

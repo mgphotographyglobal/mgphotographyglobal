@@ -1,6 +1,7 @@
+import { serviceMetadata } from "../lib/serviceMetadata";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Baby Photography Dubai | Milestone Sessions | MG Photo",
   description: "Professional baby photography in Dubai for every milestone — 3 months, 6 months, sitter, cake smash. Premium quality. Book now.",
   alternates: { canonical: "https://mgphotographyglobal.com/baby-photography-dubai/" },
@@ -35,9 +36,11 @@ const serviceData = {
   ctaText: "Every Stage of Babyhood Deserves to Be Remembered.",
   keywords: ["baby photography Dubai", "milestone baby photography Dubai"],
   relatedServices: [
-    { title: "Newborn Photography Dubai", href: "/newborn-photography-dubai" },
-    { title: "Maternity Photography Dubai", href: "/maternity-photography-dubai" },
-    { title: "Birthday Photography Dubai", href: "/birthday-photography-dubai" },
+    { title: "Newborn Photography Dubai", href: "/dubai-newborn-photography/" },
+    { title: "Maternity Photography Dubai", href: "/maternity-photography-dubai/" },
+    { title: "Birthday Photography Dubai", href: "/birthday-photography-dubai/" },
   ],
 };
 export default function BabyPhotographyDubai() { return <ServicePageTemplate service={serviceData} />; }
+
+export const metadata: Metadata = serviceMetadata(baseMetadata, serviceData);

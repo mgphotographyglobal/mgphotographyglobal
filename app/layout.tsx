@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Luxury newborn, baby, maternity & family photography in Dubai. 500+ families. 5-star reviews. Home & studio sessions. Book via WhatsApp.",
     images: [
       {
-        url: "/images/hero-basket-newborn.png",
+        url: "/images/hero-basket-newborn.webp",
         width: 1200,
         height: 630,
         alt: "Dubai Newborn Photographer — MG Photography UAE luxury newborn photography",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Dubai Newborn, Baby & Maternity Photography | MG Photography UAE",
     description:
       "Luxury photography for Dubai families. 500+ sessions. 5-star reviews. Book via WhatsApp.",
-    images: ["/images/hero-basket-newborn.png"],
+    images: ["/images/hero-basket-newborn.webp"],
   },
   icons: { icon: "/favicon.ico", shortcut: "/favicon.ico" },
 };
@@ -87,7 +87,7 @@ const organizationSchema = {
     "Award-winning luxury photography studio specialising in newborn, maternity, baby, family and wedding photography across Dubai, Abu Dhabi and Sharjah, UAE.",
   url: SITE_URL,
   telephone: "+971588764748",
-  image: `${SITE_URL}/images/hero-basket-newborn.png`,
+  image: `${SITE_URL}/images/hero-basket-newborn.webp`,
   logo: `${SITE_URL}/favicon.ico`,
   priceRange: "AED 500 – AED 2,800",
   currenciesAccepted: "AED",

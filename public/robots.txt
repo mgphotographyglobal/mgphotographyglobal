@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Exclude ad landing pages from indexing
-Disallow: /landing/
+# Ad landing pages use page-level noindex metadata and are omitted from
+# sitemap.xml. Keep them crawlable so crawlers can read the noindex rule.
 
 # ── Search engine crawlers ──────────────────────────────────────
 User-agent: Googlebot

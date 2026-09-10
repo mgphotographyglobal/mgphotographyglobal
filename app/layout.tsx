@@ -120,18 +120,6 @@ const organizationSchema = {
       { "@type": "Offer", itemOffered: { "@type": "Service", name: "Family Photography Dubai", url: `${SITE_URL}/outdoor-photography-dubai/` } },
     ],
   },
-  aggregateRating: {
-    // Sources: Google Reviews (73) + Justdial Ratings (121) = 194 total
-    // ratingCount: all ratings across both platforms
-    // reviewCount: written text reviews only (Google Reviews)
-    // Last verified: 2025 — update these values as review counts grow
-    "@type": "AggregateRating",
-    ratingValue: "5.0",
-    bestRating: "5",
-    worstRating: "1",
-    ratingCount: "194",
-    reviewCount: "73",
-  },
   sameAs: [
     "https://www.instagram.com/mgphotography.in",
     "https://www.facebook.com/share/18ctTaB2GS/",

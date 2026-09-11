@@ -14,7 +14,8 @@ export default function DubaiWeddingGuide() {
       <div className="container-luxury" style={{maxWidth:"820px"}}>
         <div className="label" style={{marginBottom:"1rem",display:"flex",alignItems:"center",gap:"0.75rem"}}><div className="gold-line"/>Wedding Guide</div>
         <h1 className="display-md" style={{marginBottom:"1.25rem"}}>The Complete Dubai<br/><span className="text-gold-gradient">Wedding Photography Guide (2025)</span></h1>
-        <p className="body-lg" style={{marginBottom:"2rem"}}>Choosing a wedding photographer in Dubai is one of the most important decisions you'll make in your entire wedding planning journey. Unlike the flowers, the catering, or even the venue, your wedding photographs are the one investment that outlasts your wedding day itself. They will be looked at by your grandchildren. They deserve the very best.</p>
+        <p className="body-lg" style={{marginBottom:"1.5rem"}}>Choosing a wedding photographer in Dubai is one of the most important decisions you&apos;ll make in your entire wedding planning journey. Unlike the flowers, the catering, or even the venue, your wedding photographs are the one investment that outlasts your wedding day itself. They will be looked at by your grandchildren. They deserve the very best.</p>
+        <p className="body-lg" style={{marginBottom:"2rem"}}>See our <a href="/wedding-photography-dubai/" style={{color:"var(--gold)",textDecoration:"underline",textUnderlineOffset:"0.2em"}}>Dubai wedding photography service</a> for portfolio details and booking information.</p>
         <div className="gold-line-full"/>
       </div>
     </section>

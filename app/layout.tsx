@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import Script from "next/script";
 import { GoogleTagManager } from "@next/third-parties/google";
 import Analytics from "./components/Analytics";
@@ -15,6 +16,19 @@ const SITE_URL = "https://mgphotographyglobal.com";
 // to avoid double pageviews. Do not add a GA4 Configuration tag inside this
 // GTM container — see the note next to <GoogleTagManager /> below.
 const GTM_ID = "GTM-5M595Z78";
+
+const displayFont = Playfair_Display({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-playfair-display",
+  display: "swap",
+});
+
+const bodyFont = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-dm-sans",
+  display: "swap",
+});
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
@@ -149,16 +163,8 @@ const websiteSchema = {
 // ─── Root Layout ─────────────────────────────────────────────────────────────
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-AE" dir="ltr">
+    <html lang="en-AE" dir="ltr" className={`${displayFont.variable} ${bodyFont.variable}`}>
       <head>
-        {/* ── Critical font preconnect — eliminates render-blocking ── */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@400;500;600;700&display=swap"
-        />
-
         {/* ── Schema.org structured data ── */}
         <script
           type="application/ld+json"

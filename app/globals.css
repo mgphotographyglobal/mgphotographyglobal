@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap');
 
 :root {
   --black:       #0D0D0D;
@@ -15,8 +14,8 @@
   --cream-warm:  #F5EFE0;
   --cream-soft:  #FFFDF8;
 
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-playfair-display), Georgia, serif;
+  --font-body:    var(--font-dm-sans), system-ui, sans-serif;
   --ease-luxury:   cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
   --section-pad: clamp(4rem, 10vw, 7rem);

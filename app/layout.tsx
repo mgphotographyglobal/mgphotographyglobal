@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Award-winning newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star Google reviews. Home & studio sessions across Dubai, Abu Dhabi & Sharjah. Book via WhatsApp.",
+    "Newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star Google reviews. Home & studio sessions across Dubai, Abu Dhabi & Sharjah. Book via WhatsApp.",
   keywords: [
     "Dubai Newborn Photographer",
     "Newborn Photography Dubai",
@@ -98,7 +98,7 @@ const organizationSchema = {
   name: "MG Photography UAE",
   alternateName: "MG Photography Dubai",
   description:
-    "Award-winning luxury photography studio specialising in newborn, maternity, baby, family and wedding photography across Dubai, Abu Dhabi and Sharjah, UAE.",
+    "Luxury photography studio specialising in newborn, maternity, baby, family and wedding photography across Dubai, Abu Dhabi and Sharjah, UAE.",
   url: SITE_URL,
   telephone: "+971588764748",
   image: `${SITE_URL}/images/hero-basket-newborn.webp`,

@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dubai Newborn, Baby & Maternity Photography | MG",
-  description: "Award-winning newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star reviews. Book via WhatsApp.",
+  description: "Newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star reviews. Book via WhatsApp.",
   keywords:
     "Dubai Newborn Photographer, Newborn Photography Dubai, Baby Photoshoot Dubai, Maternity Photographer Dubai, Family Photographer Dubai, Wedding Photographer Dubai",
   openGraph: {
@@ -25,7 +25,6 @@ const WA_BOOK =
   "https://wa.me/971588764748?text=Hi%20MG%20Photography%2C%20I%27d%20like%20to%20book%20a%20session%20in%20Dubai.";
 const WA_NEWBORN =
   "https://wa.me/971588764748?text=Hi%20MG%20Photography%2C%20I%27d%20like%20to%20book%20a%20newborn%20photography%20session%20in%20Dubai.";
-const CALL_URL = "tel:+971588764748";
 
 const WAIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" style={{ width: "1rem", height: "1rem", flexShrink: 0 }}>
@@ -213,7 +212,7 @@ export default function HomePage() {
               <span className="hero-heading-line2" style={{ display: "block", fontSize: "clamp(2.4rem, 6.5vw, 5.5rem)", fontWeight: 700, background: "linear-gradient(135deg, var(--gold-light) 0%, var(--gold-pale) 45%, var(--gold) 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Maternity Photography</span>
             </h1>
             <p className="body-lg hero-subtext" style={{ maxWidth: "500px", marginBottom: "1.75rem", fontSize: "clamp(0.95rem, 1.8vw, 1.1rem)" }}>
-              Capture the moments you'll treasure forever with luxury photography designed for Dubai families.
+              Capture the moments you&apos;ll treasure forever with luxury photography designed for Dubai families.
             </p>
 
             {/* Trust indicators — visible above the fold */}
@@ -371,7 +370,7 @@ export default function HomePage() {
               Protected by love.<br /><span className="text-gold-gradient">Preserved forever.</span>
             </h2>
             <p className="body-lg" style={{ marginBottom: "2rem", fontSize: "1rem" }}>
-              Every session is designed around your family's comfort, your baby's safety, and the invisible emotional threads that bind you.
+              Every session is designed around your family&apos;s comfort, your baby&apos;s safety, and the invisible emotional threads that bind you.
             </p>
             <a href={WA_BOOK} className="btn-whatsapp" style={{ fontSize: "0.82rem" }} target="_blank" rel="noopener noreferrer">
               <WAIcon />
@@ -392,7 +391,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="body-lg" style={{ paddingBottom: "0.25rem" }}>
-              From a baby's first breath to architectural grandeur — every service carries the same obsessive attention to detail.
+              From a baby&apos;s first breath to architectural grandeur — every service carries the same obsessive attention to detail.
             </p>
           </div>
 
@@ -632,7 +631,7 @@ export default function HomePage() {
               Every session.<br />A love story<br /><em style={{ color: "var(--gold)" }}>of its own.</em>
             </h2>
             <p className="body-lg" style={{ marginBottom: "2.5rem", fontSize: "0.97rem" }}>
-              Follow us on Instagram to see behind-the-scenes moments, latest sessions, and the quiet magic that happens when a parent sees their child's portraits for the first time.
+              Follow us on Instagram to see behind-the-scenes moments, latest sessions, and the quiet magic that happens when a parent sees their child&apos;s portraits for the first time.
             </p>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.85rem" }}>
               {[
@@ -662,7 +661,7 @@ export default function HomePage() {
           <div className="label" style={{ marginBottom: "1.25rem" }}>Ready to Book?</div>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,5.5vw,5rem)", lineHeight: 1.06, letterSpacing: "-0.03em", marginBottom: "1.5rem" }}>
             Ready to Capture Your<br />
-            <span style={{ background: "linear-gradient(135deg, var(--gold-light), var(--gold-pale), var(--gold))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Baby's First Memories?</span>
+            <span style={{ background: "linear-gradient(135deg, var(--gold-light), var(--gold-pale), var(--gold))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>Baby&apos;s First Memories?</span>
           </h2>
 
           {/* Trust checklist */}

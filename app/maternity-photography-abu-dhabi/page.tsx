@@ -3,7 +3,7 @@ import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
 const baseMetadata: Metadata = {
   title: "Maternity Photography Abu Dhabi | MG Photography",
-  description: "Radiant maternity photography in Abu Dhabi. Cinematic pregnancy portraits for expectant mothers. Book your session.",
+  description: "Maternity photography in Abu Dhabi with gowns, partner portrait options and edited digital images. Explore collections and discuss your preferred location.",
   alternates: { canonical: "https://mgphotographyglobal.com/maternity-photography-abu-dhabi/" },
 };
 const s = {
@@ -16,6 +16,8 @@ const s = {
     {name:"Golden Story",price:"AED 2,699",features:["Studio + outdoor session","50+ edited images","3 gowns + full family shots","Premium album","Priority delivery","Travel to Abu Dhabi"]},
   ],
   faq:[
+    {q:"How do I plan a maternity photoshoot in Abu Dhabi?",a:"Send your preferred date, Abu Dhabi location and the collection you are considering via WhatsApp. Let us know whether your partner or family will join, so we can discuss the session arrangements before you book."},
+    {q:"How many edited photos and gowns are included?",a:"Glow includes 20 edited images and one gown. Radiance includes 35 edited images, two gowns and partner shots. Golden Story includes 50+ edited images, three gowns and full family shots. Compare the collections on this page and confirm your preferred options when enquiring."},
     {q:"Do you offer maternity sessions in Abu Dhabi?",a:"Yes — we travel regularly to Abu Dhabi for maternity sessions. The same premium quality as our Dubai studio, brought to you."},
     {q:"What is the ideal time for a maternity shoot?",a:"Between 28–34 weeks for the best results. Your bump is beautiful and prominent, and you'll still be comfortable throughout the session."},
   ],

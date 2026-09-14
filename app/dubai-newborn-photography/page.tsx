@@ -4,9 +4,10 @@
  * Google Ads Quality Score optimized
  * Core Web Vitals optimized (LCP image priority, no CLS)
  * WCAG AA accessible
- * Full schema markup: LocalBusiness + FAQPage + AggregateRating + BreadcrumbList
+ * Structured data: Service + FAQPage + ImageGallery + BreadcrumbList
  */
 import Image from "next/image";
+import Link from "next/link";
 import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import MobileStickyCTA from "../components/MobileStickyCTA";
@@ -17,11 +18,12 @@ const SITE_URL = "https://mgphotographyglobal.com";
 const PAGE_URL = `${SITE_URL}/dubai-newborn-photography/`;
 const WA_URL = "https://wa.me/971588764748?text=Hi%20MG%20Photography%2C%20I%27d%20like%20to%20book%20a%20newborn%20photography%20session%20in%20Dubai.";
 const CALL_URL = "tel:+971588764748";
+const PAGE_DESCRIPTION = "Newborn photography at home in Dubai. Compare 10, 15 and 25-portrait collections, with props and home setup included. AED 100 Dubai home visit fee applies.";
 
 // ─── SEO Metadata ─────────────────────────────────────────────────────────────
 export const metadata: Metadata = {
   title: "Dubai Newborn Photographer | MG Photography UAE",
-  description: "Professional newborn photographer in Dubai. Safe, gentle, luxury home-visit sessions. Trusted by 500+ UAE families. Book via WhatsApp.",
+  description: PAGE_DESCRIPTION,
   keywords: [
     "Dubai Newborn Photographer",
     "Newborn Photography Dubai",
@@ -40,7 +42,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dubai Newborn Photographer | MG Photography UAE",
     description:
-      "Luxury home newborn photography in Dubai. 500+ families. 5-star Google reviews. Book via WhatsApp.",
+      PAGE_DESCRIPTION,
     type: "website",
     locale: "en_AE",
     url: PAGE_URL,
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Dubai Newborn Photographer | MG Photography UAE",
-    description: "Luxury home newborn photography in Dubai. 500+ families.",
+    description: PAGE_DESCRIPTION,
     images: ["/images/hero-basket-newborn.webp"],
   },
 };
@@ -232,11 +234,11 @@ const faqs = [
   },
   {
     q: "How many photos will we receive?",
-    a: "25–80+ hand-retouched images depending on your package. Every image is individually edited — never batch processed. Gallery delivered within 5–7 working days via private online link.",
+    a: "The Essence Collection includes 10 edited digital portraits, Signature includes 15, and Legacy includes 25. Every image is individually edited — never batch processed. Gallery delivered within 5–7 working days via private online link.",
   },
   {
-    q: "Can siblings and grandparents be included?",
-    a: "Yes — family portraits are a beautiful part of our sessions. We photograph family portraits first while siblings are freshest, then focus on the posed newborn images. Included in the Signature and Legacy Collections.",
+    q: "Which collections include family portraits?",
+    a: "Essence includes a baby and parent portrait. Signature and Legacy include immediate family portraits. If you would like grandparents or other relatives to join, share the number of people when enquiring so we can confirm the arrangements.",
   },
   {
     q: "How much does newborn photography cost in Dubai?",
@@ -332,7 +334,7 @@ export default function DubaiNewbornPhotography() {
             {/* Breadcrumb — improves Quality Score & internal linking */}
             <nav aria-label="Breadcrumb" style={{ marginBottom: "1.5rem" }}>
               <ol style={{ display: "flex", gap: "0.5rem", alignItems: "center", listStyle: "none", padding: 0, flexWrap: "wrap" }}>
-                <li><a href="/" style={{ fontFamily: "var(--font-body)", fontSize: "0.7rem", color: "rgba(250,246,238,0.55)", textDecoration: "none", letterSpacing: "0.05em" }}>Home</a></li>
+                <li><Link href="/" style={{ fontFamily: "var(--font-body)", fontSize: "0.7rem", color: "rgba(250,246,238,0.55)", textDecoration: "none", letterSpacing: "0.05em" }}>Home</Link></li>
                 <li aria-hidden="true" style={{ color: "rgba(201,168,76,0.4)", fontSize: "0.7rem" }}>›</li>
                 <li><span style={{ fontFamily: "var(--font-body)", fontSize: "0.7rem", color: "var(--gold)", letterSpacing: "0.05em" }} aria-current="page">Dubai Newborn Photography</span></li>
               </ol>
@@ -357,7 +359,11 @@ export default function DubaiNewbornPhotography() {
               </span>
             </h1>
             <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)", color: "rgba(250,246,238,0.82)", fontWeight: 400, lineHeight: 1.4, marginBottom: "0.875rem", fontStyle: "italic" }}>
-              Luxury newborn photography for families across Dubai, Abu Dhabi &amp; Sharjah.
+              Newborn photography in the comfort of your Dubai home, with props, baby wardrobe and a professional home setup included.
+            </p>
+
+            <p style={{ marginBottom: "1.5rem", lineHeight: 1.6 }}>
+              <a href="#packages" style={{ color: "var(--gold)", textDecoration: "underline" }}>Compare newborn collections and Dubai home-visit fees</a>
             </p>
 
             {/* Session timing — answers key client question */}

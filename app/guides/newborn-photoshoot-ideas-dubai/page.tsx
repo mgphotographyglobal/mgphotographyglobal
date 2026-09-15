@@ -30,7 +30,7 @@ export default function NewbornPhotoshootIdeasDubai() {
             <div className="gold-line" /> Photography Guide
           </div>
           <h1 className="display-md" style={{ marginBottom: "1.25rem" }}>
-            Best Newborn Photoshoot Ideas<br /><span className="text-gold-gradient">for Dubai Families (2025)</span>
+            Best Newborn Photoshoot Ideas<br /><span className="text-gold-gradient">for Dubai Families</span>
           </h1>
           <p className="body-lg" style={{ marginBottom: "1.5rem" }}>
             Planning your baby&apos;s first photoshoot in Dubai? Whether you&apos;re a first-time parent navigating the world of newborn photography, or a returning client wanting something fresh and different, this guide covers the most beautiful, creative, and popular newborn photoshoot themes we create at MG Photography UAE.
@@ -39,7 +39,7 @@ export default function NewbornPhotoshootIdeasDubai() {
             If you are planning a session, explore our <a href="/dubai-newborn-photography/" style={{ color: "var(--gold)", textDecoration: "underline", textUnderlineOffset: "0.2em" }}>Dubai newborn photography service</a> for portfolio details and booking information.
           </p>
           <p className="body-sm" style={{ marginBottom: "2rem" }}>
-            Written by the team at MG Photography UAE · Updated January 2025
+            Written by the team at MG Photography UAE
           </p>
           <div className="gold-line-full" />
         </div>

@@ -22,7 +22,7 @@ export default function OutdoorLocationsGuide() {
     <section style={{paddingTop:"8rem",paddingBottom:"3rem",background:"var(--black)"}}>
       <div className="container-luxury" style={{maxWidth:"820px"}}>
         <div className="label" style={{marginBottom:"1rem",display:"flex",alignItems:"center",gap:"0.75rem"}}><div className="gold-line"/>Photography Guide</div>
-        <h1 className="display-md" style={{marginBottom:"1.25rem"}}>Best Outdoor Photoshoot Locations<br/><span className="text-gold-gradient">in Dubai (2025)</span></h1>
+        <h1 className="display-md" style={{marginBottom:"1.25rem"}}>Best Outdoor Photoshoot Locations<br/><span className="text-gold-gradient">in Dubai</span></h1>
         <p className="body-lg" style={{marginBottom:"2rem"}}>Dubai is one of the most visually extraordinary cities in the world — and choosing the right location for your photoshoot can be the difference between beautiful and breathtaking. This guide shares our favourite outdoor photography locations across Dubai, curated from 8+ years of creating premium images across the city.</p>
         <div className="gold-line-full"/>
       </div>

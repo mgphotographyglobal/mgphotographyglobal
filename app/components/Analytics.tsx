@@ -120,8 +120,14 @@ export default function Analytics() {
       if (!target) return;
 
       const href = target.href || "";
-      const loc = target.dataset.waLocation || target.dataset.pixelLabel || "unknown";
+      const loc =
+        target.dataset.waLocation ||
+        target.dataset.pixelLabel ||
+        target.getAttribute("aria-label") ||
+        (target.textContent || "").trim().replace(/\s+/g, " ").slice(0, 100) ||
+        "unknown";
       const svc = target.dataset.serviceType || inferServiceType(href);
+      const explicitEvent = target.dataset.trackEvent;
 
       // WhatsApp links
       if (href.includes("wa.me") || href.includes("whatsapp")) {
@@ -129,6 +135,13 @@ export default function Analytics() {
         // Also fire Meta Pixel via data-pixel-event if present
         if (target.dataset.pixelEvent) {
           trackPixel(target.dataset.pixelEvent, { content_name: loc });
+        }
+
+        // A booking CTA is both a WhatsApp contact and a stronger booking-intent
+        // signal. Keep both events, but avoid duplicating an explicit
+        // data-track-event="book_now_click" added by a page component.
+        if (explicitEvent !== "book_now_click" && isBookingIntent(target)) {
+          trackBookNow(target.dataset.packageName || svc, loc);
         }
       }
 
@@ -138,8 +151,8 @@ export default function Analytics() {
       }
 
       // Scroll-anchor "Book Session" / "View Portfolio" links
-      if (target.dataset.trackEvent) {
-        trackGA4(target.dataset.trackEvent, { button_location: loc, service_type: svc });
+      if (explicitEvent) {
+        trackGA4(explicitEvent, { button_location: loc, service_type: svc });
       }
 
       // Outbound link clicks — external domain, not WhatsApp/tel (tracked above)
@@ -188,4 +201,16 @@ function inferServiceType(href: string): string {
   if (href.includes("baby")) return "baby_photography";
   if (href.includes("family")) return "family_photography";
   return "general";
+}
+
+function isBookingIntent(anchor: HTMLAnchorElement): boolean {
+  const label = [
+    anchor.textContent,
+    anchor.getAttribute("aria-label"),
+    anchor.getAttribute("title"),
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return /\b(book|booking|reserve|plan|choose|secure|check (?:my )?(?:date|availability))\b/i.test(label);
 }

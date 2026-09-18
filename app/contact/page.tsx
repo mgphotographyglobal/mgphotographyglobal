@@ -1,6 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import WhatsAppFloat from "../components/WhatsAppFloat";
+import ContactForm from "../components/ContactForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -81,41 +82,7 @@ export default function ContactPage() {
                 <p className="body-sm" style={{ marginBottom: "2rem", fontSize: "0.85rem", lineHeight: 1.7 }}>
                   Fill in your details below and we&apos;ll reach out within 2 hours to discuss your session. For the fastest response, WhatsApp us directly.
                 </p>
-                {/* Note: Form action goes to a form service - using Formspree-style action */}
-                <form action="https://formspree.io/f/your-form-id" method="POST" style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-                  {[
-                    { id: "name", label: "Your Name", type: "text", placeholder: "Full name" },
-                    { id: "email", label: "Email Address", type: "email", placeholder: "your@email.com" },
-                    { id: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "+971 or +91..." },
-                  ].map(({ id, label, type, placeholder }) => (
-                    <div key={id}>
-                      <label htmlFor={id} className="label" style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.62rem" }}>{label}</label>
-                      <input id={id} name={id} type={type} placeholder={placeholder} required
-                        className="input-field"
-                      />
-                    </div>
-                  ))}
-                  <div>
-                    <label htmlFor="service" className="label" style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.62rem" }}>Service Interested In</label>
-                    <select id="service" name="service"
-                      style={{ width: "100%", background: "#1a1a1a", border: "1px solid rgba(201,168,76,0.2)", color: "var(--cream)", fontFamily: "var(--font-body)", fontSize: "0.9rem", padding: "0.85rem 1rem", outline: "none" }}>
-                      <option value="">Select a service</option>
-                      {["Newborn Photography","Baby Photography","Maternity Photography","Wedding Photography","Pre-Wedding Photography","Outdoor Photography","Birthday Photography","Architecture Photography","Real Estate Photography","Other"].map(s => <option key={s} value={s}>{s}</option>)}
-                    </select>
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="label" style={{ display: "block", marginBottom: "0.5rem", fontSize: "0.62rem" }}>Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your vision, preferred dates, and location..." rows={4}
-                      className="input-field"
-                    />
-                  </div>
-                  <button type="submit" className="btn-primary" style={{ width: "100%", justifyContent: "center", padding: "1rem" }}>
-                    Send My Enquiry
-                  </button>
-                  <p className="body-sm" style={{ fontSize: "0.75rem", textAlign: "center" }}>
-                    By submitting, you agree to our <a href="/terms" style={{ color: "var(--gold)", textDecoration: "none" }}>Terms & Conditions</a>.
-                  </p>
-                </form>
+                <ContactForm />
               </div>
             </div>
           </div>

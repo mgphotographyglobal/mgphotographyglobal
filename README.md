@@ -28,14 +28,48 @@ app/
   components/       Shared UI components (Header, Footer, Analytics, CTAs, etc.)
   guides/           SEO content guides
   landing/          Paid-ads landing pages (excluded from sitemap/robots)
+  blog/             Dynamic blog (see "Blog" section below)
+  lib/blog.ts        Blog content loader (reads content/blog/*.md)
+  lib/blogCta.ts      Per-category default calls-to-action
   <service>/        One folder per service + location route
   layout.tsx         Root layout, global metadata, LocalBusiness schema
   page.tsx            Homepage
+  sitemap.ts          Generates sitemap.xml at build time (static + blog)
+content/blog/        Blog post source files (Markdown + frontmatter)
 public/
   images/            Site photography assets
-  robots.txt, sitemap.xml
+  robots.txt          Static — sitemap.xml is generated (see app/sitemap.ts)
 netlify.toml          Build, redirect, and header config
 ```
+
+## Blog
+
+The blog (`/blog`) is a Markdown-driven, statically-generated section built for
+SEO, designed to scale to hundreds of posts without touching any React code.
+
+- **Content:** one `.md` file per post in `content/blog/`, with YAML
+  frontmatter for all SEO/metadata fields (title, slug via filename,
+  metaDescription, category, tags, author, publishedAt, status, etc.) and
+  the article body as Markdown.
+- **Publishing a post:** add a new `content/blog/<slug>.md` file with
+  `status: "published"` and a `publishedAt` date, then rebuild/deploy. No
+  component changes are ever required — this is what allows an automated
+  workflow (e.g. Claude Work) to publish a new article per day.
+- **Drafts & scheduling:** `status: "draft"` or a future `publishedAt`
+  keeps a post out of the production build entirely (never linked, never
+  in the sitemap, never indexable) while still being visible in
+  `npm run dev` for preview.
+- **Routes:** `/blog`, `/blog/page/[n]`, `/blog/[slug]`,
+  `/blog/category/[slug]`, `/blog/tag/[slug]` — all statically generated
+  (`output: "export"`-compatible).
+- **SEO:** each post gets its own `<title>`, meta description, canonical
+  URL, Open Graph/Twitter metadata, and `BlogPosting` + `BreadcrumbList`
+  JSON-LD. `app/sitemap.ts` regenerates `sitemap.xml` at build time,
+  automatically including every published post, category and tag page.
+- **Related articles & CTAs:** related posts are derived from
+  category/tag overlap (`getRelatedPosts` in `app/lib/blog.ts`), and each
+  article's CTA defaults by category (`app/lib/blogCta.ts`) but can be
+  overridden per post via the `cta` frontmatter field.
 
 ## Deployment
 

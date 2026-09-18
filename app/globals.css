@@ -696,6 +696,51 @@ img {
 }
 
 /* ═══════════════════════════════════════════════════════════════════
+   BLOG ARTICLE — reading typography
+   Scoped to .article-content so it only touches rendered Markdown body
+   copy, never other pages.
+   ═══════════════════════════════════════════════════════════════════ */
+.article-content { font-size: 1.05rem; line-height: 1.85; color: rgba(250,246,238,0.82); }
+.article-content > *:first-child { margin-top: 0; }
+.article-content p { margin-bottom: 1.5rem; }
+.article-content h2 {
+  font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  color: var(--cream);
+}
+.article-content h3 {
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  margin-top: 2.25rem;
+  margin-bottom: 1rem;
+  color: var(--cream);
+}
+.article-content ul, .article-content ol { margin: 0 0 1.5rem 1.4rem; }
+.article-content li { margin-bottom: 0.6rem; }
+.article-content a { color: var(--gold); text-decoration: underline; text-underline-offset: 0.2em; }
+.article-content a:hover { color: var(--gold-light); }
+.article-content blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 0.25rem 0 0.25rem 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--cream);
+  font-size: 1.15rem;
+}
+.article-content img { display: block; margin: 2rem 0; width: 100%; height: auto; }
+.article-content strong { color: var(--cream); }
+.article-content hr { border: none; border-top: 1px solid rgba(201,168,76,0.15); margin: 2.5rem 0; }
+.article-content code {
+  background: rgba(201,168,76,0.1); padding: 0.15em 0.4em; border-radius: 3px;
+  font-size: 0.9em;
+}
+
+@media (max-width: 767px) {
+  .article-content { font-size: 1rem; line-height: 1.75; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
    HOMEPAGE MOBILE FIXES
    Scoped strictly to max-width: 767px — desktop layout is untouched.
    Fixes: hero/header overlap, horizontal overflow (dead-CSS grid bugs,

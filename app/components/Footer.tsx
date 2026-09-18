@@ -85,6 +85,12 @@ export default function Footer() {
               ))}
             </ul>
             <h4 className="label" style={{ marginBottom: "1.25rem" }}>Photography Guides</h4>
+            <ul style={{ listStyle: "none", marginBottom: "0.6rem" }}>
+              <li>
+                <Link href="/blog/" style={{ color: "rgba(250,246,238,0.55)", fontFamily: "var(--font-body)", fontSize: "0.85rem", textDecoration: "none", transition: "color 0.3s" }}
+                >Blog</Link>
+              </li>
+            </ul>
             <ul style={{ listStyle: "none" }}>
               {guides.map((g) => (
                 <li key={g.href} style={{ marginBottom: "0.6rem" }}>

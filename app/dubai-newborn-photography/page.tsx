@@ -18,7 +18,8 @@ import { getPostsByCategory } from "../lib/blog";
 
 const SITE_URL = "https://mgphotographyglobal.com";
 const PAGE_URL = `${SITE_URL}/dubai-newborn-photography/`;
-const WA_URL = "https://wa.me/971588764748?text=Hi%20MG%20Photography%2C%20I%27d%20like%20to%20book%20a%20newborn%20photography%20session%20in%20Dubai.";
+const WA_BASE = "https://wa.me/971588764748";
+const WA_URL = `${WA_BASE}?text=${encodeURIComponent("Hi MG Photography UAE, I’m interested in a newborn home photoshoot in Dubai. Could you please share availability and package details? My baby is ___ days old and I’m in ___ area.")}`;
 const CALL_URL = "tel:+971588764748";
 const PAGE_DESCRIPTION = "Newborn photography at home in Dubai. Compare 10, 15 and 25-portrait collections, with props and home setup included. AED 100 Dubai home visit fee applies.";
 
@@ -96,7 +97,7 @@ const serviceSchema = {
   description:
     "Professional newborn photography sessions in Dubai. Safe, gentle posing in the comfort of your own home. Sessions ideal between 5–21 days after birth.",
   offers: [
-    { "@type": "Offer", name: "Essence Collection", price: "800", priceCurrency: "AED" },
+    { "@type": "Offer", name: "Essence Collection Launch Offer", price: "500", priceCurrency: "AED" },
     { "@type": "Offer", name: "Signature Collection", price: "1250", priceCurrency: "AED" },
     { "@type": "Offer", name: "Legacy Collection", price: "2000", priceCurrency: "AED" },
   ],
@@ -125,7 +126,7 @@ const packages = [
       { icon: "heart", text: "Baby-Led, Safe & Unhurried Session" },
       { icon: "retouch", text: "Expert Fine-Art Retouching" },
     ],
-    cta: "Book Legacy",
+    cta: "Check Legacy Availability",
     waText: "Legacy Collection",
   },
   {
@@ -144,15 +145,15 @@ const packages = [
       { icon: "heart", text: "Baby-Led, Safe & Unhurried Session" },
       { icon: "retouch", text: "Expert Fine-Art Retouching" },
     ],
-    cta: "Book Signature",
+    cta: "Check Signature Availability",
     waText: "Signature Collection",
     featured: true,
   },
   {
     name: "The Essence Collection",
     emoji: "✨",
-    eyebrow: "Beautifully Simple",
-    price: "AED 800",
+    eyebrow: "Launch Offer • Standard AED 800",
+    price: "AED 500",
     homeVisit: "AED 100",
     highlights: [
       { icon: "portraits", text: "10 Handcrafted High-Resolution Digital Portraits" },
@@ -163,7 +164,7 @@ const packages = [
       { icon: "heart", text: "Baby-Led, Safe & Unhurried Session" },
       { icon: "retouch", text: "Expert Fine-Art Retouching" },
     ],
-    cta: "Book Essence",
+    cta: "Check Essence Availability",
     waText: "Essence Collection",
   },
 ];
@@ -200,27 +201,6 @@ const addOns = [
   },
 ];
 
-const reviews = [
-  {
-    name: "Priya & Arjun Sharma",
-    location: "Dubai Marina",
-    text: "MG Photography captured our newborn in a way that made me cry with joy. Every single image is a masterpiece. The photographer was so patient and gentle. I have already booked the 3-month and 6-month sessions.",
-    service: "Newborn Photography",
-  },
-  {
-    name: "Fatima Al Hamdan",
-    location: "Downtown Dubai",
-    text: "We booked the home session and it was the best decision. The photographer brought everything — beautiful props, wraps, setups. Our baby was handled so gently throughout. The photos are beyond anything I imagined.",
-    service: "Newborn Photography",
-  },
-  {
-    name: "Sarah & James Chen",
-    location: "Arabian Ranches",
-    text: "From booking to delivery, the experience was seamless and luxurious. Our newborn photos are incredible — my husband cried when he saw them. We've already ordered canvas prints. Highly recommend to every Dubai family.",
-    service: "Newborn Photography",
-  },
-];
-
 const faqs = [
   {
     q: "When is the best time for a newborn session in Dubai?",
@@ -232,7 +212,7 @@ const faqs = [
   },
   {
     q: "How do you keep babies safe during sessions?",
-    a: "Baby safety is our absolute priority. Every pose is performed by a certified newborn photographer. We never rush, never force a pose, and always follow the baby's cues. The space is kept warm and we take breaks as needed.",
+    a: "Baby safety is our priority. Sessions are baby-led and unhurried: we never force a pose, we follow your baby’s cues, keep the setup comfortable, and pause for feeding or soothing whenever needed.",
   },
   {
     q: "How many photos will we receive?",
@@ -244,7 +224,7 @@ const faqs = [
   },
   {
     q: "How much does newborn photography cost in Dubai?",
-    a: "Collections start from AED 800 (Essence), AED 1,250 (Signature), and AED 2,000 (Legacy), plus a AED 100 Dubai home visit fee. A 50% deposit secures your date, with the balance due on the session day.",
+    a: "Our current Essence launch offer is AED 500 (standard AED 800), plus AED 100 for a Dubai home visit — AED 600 total during the offer. Signature is AED 1,250 and Legacy is AED 2,000, plus the Dubai home-visit fee. A 50% deposit secures your date, with the balance due on the session day.",
   },
   {
     q: "When should I book my Dubai newborn photographer?",
@@ -322,7 +302,7 @@ export default function DubaiNewbornPhotography() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(gallerySchema) }} />
 
       <Header />
-      <MobileStickyCTA />
+      <MobileStickyCTA whatsappUrl={WA_URL} whatsappLabel="Check Availability" serviceType="newborn_photography" packagesHref="#packages" packagesLabel="Packages" />
       <LaunchOfferPopup />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
@@ -354,15 +334,15 @@ export default function DubaiNewbornPhotography() {
               </ol>
             </nav>
 
-            {/* Trust badge — immediately visible, social proof above fold */}
+            {/* Launch offer — transparent above-fold pricing */}
             <div
-              role="img"
-              aria-label="5-star rated Dubai photographer with 100+ families"
+              role="note"
+              aria-label="Dubai newborn launch offer"
               style={{ display: "inline-flex", alignItems: "center", gap: "0.65rem", background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.32)", padding: "0.45rem 1rem", marginBottom: "1.5rem" }}
             >
-              <span style={{ color: "var(--gold)", fontSize: "0.75rem" }} aria-hidden="true">★★★★★</span>
-              <span style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--gold)" }}>
-                Trusted by 100+ Families
+              <span aria-hidden="true">🎉</span>
+              <span style={{ fontFamily: "var(--font-body)", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--gold)" }}>
+                Launch Offer — Essence AED 500
               </span>
             </div>
 
@@ -373,12 +353,17 @@ export default function DubaiNewbornPhotography() {
               </span>
             </h1>
             <p style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.1rem, 2.5vw, 1.6rem)", color: "rgba(250,246,238,0.82)", fontWeight: 400, lineHeight: 1.4, marginBottom: "0.875rem", fontStyle: "italic" }}>
-              Newborn photography in the comfort of your Dubai home, with props, baby wardrobe and a professional home setup included.
+              Beautiful, baby-led newborn photography brought to your Dubai home — we bring the professional setup, props and newborn wardrobe.
             </p>
 
-            <p style={{ marginBottom: "1.5rem", lineHeight: 1.6 }}>
-              <a href="#packages" style={{ color: "var(--gold)", textDecoration: "underline" }}>Compare newborn collections and Dubai home-visit fees</a>
-            </p>
+            <div style={{ marginBottom: "1.5rem", padding: "0.9rem 1rem", borderLeft: "2px solid var(--gold)", background: "rgba(201,168,76,0.07)" }}>
+              <p style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "var(--cream)", lineHeight: 1.55, marginBottom: "0.25rem" }}>
+                <strong style={{ color: "var(--gold-light)" }}>Launch price: AED 500</strong> + AED 100 Dubai home visit = <strong>AED 600 total</strong>
+              </p>
+              <a href="#packages" style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "var(--gold)", textDecoration: "underline" }}>
+                See all collections and inclusions
+              </a>
+            </div>
 
             {/* Session timing — answers key client question */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1.5rem" }}>
@@ -390,16 +375,16 @@ export default function DubaiNewbornPhotography() {
 
             {/* Location tag */}
             <p style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "rgba(250,246,238,0.5)", marginBottom: "2rem" }}>
-              Dubai &bull; Abu Dhabi &bull; Sharjah
+              Dubai &bull; Doorstep Home-Visit Service
             </p>
 
             {/* Trust indicators — above fold */}
             <div style={{ display: "flex", flexWrap: "wrap", gap: "0.45rem 1.5rem", marginBottom: "2rem" }}>
               {[
-                "✓ Dubai Based — Home Visits Available",
-                "✓ 500+ Newborn Sessions Completed",
-                "✓ Newborn-Safe Certified Photographer",
-                "✓ 5-Star Google Reviews",
+                "✓ Doorstep Service Across Dubai",
+                "✓ Professional Home Studio Setup",
+                "✓ Props & Newborn Wardrobe Included",
+                "✓ Baby-Led, Unhurried Posing",
               ].map((item) => (
                 <span key={item} style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "rgba(250,246,238,0.82)", fontWeight: 500 }}>
                   {item}
@@ -415,14 +400,13 @@ export default function DubaiNewbornPhotography() {
                 style={{ fontSize: "0.9rem", padding: "1rem 2.25rem" }}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Book your Dubai newborn photography session via WhatsApp"
+                aria-label="Check Dubai newborn photography availability via WhatsApp"
                 data-wa-location="Hero CTA"
                 data-service-type="newborn_photography"
-                data-pixel-event="Schedule"
-                data-pixel-label="Landing Hero WhatsApp"
+                data-track-event="availability_check_click"
               >
                 <WAIcon />
-                Book on WhatsApp
+                Check Availability on WhatsApp
               </a>
               <a
                 href={CALL_URL}
@@ -434,6 +418,9 @@ export default function DubaiNewbornPhotography() {
                 📞 Call Now
               </a>
             </div>
+            <p style={{ marginTop: "0.85rem", fontFamily: "var(--font-body)", fontSize: "0.72rem", color: "rgba(250,246,238,0.55)" }}>
+              No commitment — send your baby&apos;s age and Dubai area and we&apos;ll confirm the suitable collection and availability.
+            </p>
           </div>
         </div>
 
@@ -443,63 +430,31 @@ export default function DubaiNewbornPhotography() {
         </div>
       </section>
 
-      {/* ── SOCIAL PROOF — moved up, directly below hero ──────────────────── */}
+      {/* ── HOME-VISIT VALUE — conversion reassurance directly below hero ── */}
       <section
-        aria-label="Client reviews"
-        style={{ background: "#0c0b09", padding: "clamp(3rem, 6vw, 5rem) 0" }}
+        aria-label="What is included with a Dubai newborn home session"
+        style={{ background: "#0c0b09", padding: "clamp(2.5rem, 5vw, 4rem) 0" }}
       >
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
-          {/* Star rating summary */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>4.4</div>
-              <div style={{ display: "flex", gap: "2px", color: "var(--gold)", justifyContent: "center", fontSize: "1rem", margin: "0.25rem 0" }} role="img" aria-label="4.4 out of 5 stars">★★★★★</div>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", color: "rgba(250,246,238,0.5)", letterSpacing: "0.08em" }}>Rating</div>
-            </div>
-            <div style={{ width: "1px", height: "3.5rem", background: "rgba(201,168,76,0.2)" }} aria-hidden="true" />
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "rgba(250,246,238,0.6)", width: "5rem" }}>Google</span>
-                <div style={{ display: "flex", gap: "1px", color: "var(--gold)" }} aria-hidden="true">★★★★★</div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "rgba(250,246,238,0.6)", width: "5rem" }}>Facebook</span>
-                <div style={{ display: "flex", gap: "1px", color: "var(--gold)" }} aria-hidden="true">★★★★★</div>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-                <span style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "rgba(250,246,238,0.6)", width: "5rem" }}>Instagram</span>
-                <div style={{ display: "flex", gap: "1px", color: "var(--gold)" }} aria-hidden="true">★★★★★</div>
-              </div>
-            </div>
+        <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
+          <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+            <div className="label" style={{ marginBottom: "0.65rem" }}>We Come To You</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.45rem,3vw,2.4rem)", lineHeight: 1.15 }}>
+              A newborn studio experience <span className="text-gold-gradient">inside your Dubai home</span>
+            </h2>
           </div>
-
-          {/* Review cards */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem" }} role="list" aria-label="Client testimonials">
-            {reviews.map((r) => (
-              <article key={r.name} role="listitem" style={{ padding: "1.75rem", background: "rgba(255,255,255,0.025)", border: "1px solid rgba(201,168,76,0.1)" }}>
-                <div style={{ display: "flex", gap: "2px", color: "var(--gold)", fontSize: "0.9rem", marginBottom: "1rem" }} role="img" aria-label="5 stars">★★★★★</div>
-                <blockquote style={{ fontFamily: "var(--font-display)", fontSize: "0.9rem", color: "var(--cream-warm)", lineHeight: 1.78, fontStyle: "italic", marginBottom: "1.25rem" }}>
-                  &ldquo;{r.text}&rdquo;
-                </blockquote>
-                <footer>
-                  <cite style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: "0.84rem", color: "var(--cream)", fontStyle: "normal" }}>{r.name}</cite>
-                  <div style={{ fontFamily: "var(--font-body)", fontSize: "0.7rem", color: "rgba(250,246,238,0.45)", marginTop: "0.15rem" }}>{r.location} &bull; {r.service}</div>
-                </footer>
-              </article>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(190px,1fr))", gap: "0.75rem" }}>
+            {[
+              ["🏠", "Doorstep Setup", "We bring the professional newborn setup to your home."],
+              ["🧸", "Props & Wardrobe", "Newborn props, wraps and baby wardrobe are included."],
+              ["🤍", "Baby-Led", "No rushing or forced poses — feeding and soothing breaks are welcome."],
+              ["✨", "Fine-Art Finish", "Your selected portraits receive individual professional retouching."],
+            ].map(([icon, title, desc]) => (
+              <div key={title} style={{ padding: "1.25rem", border: "1px solid rgba(201,168,76,0.12)", background: "rgba(255,255,255,0.025)" }}>
+                <div style={{ fontSize: "1.35rem", marginBottom: "0.55rem" }} aria-hidden="true">{icon}</div>
+                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--cream)", marginBottom: "0.4rem" }}>{title}</h3>
+                <p style={{ fontFamily: "var(--font-body)", fontSize: "0.78rem", lineHeight: 1.6, color: "rgba(250,246,238,0.62)" }}>{desc}</p>
+              </div>
             ))}
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "2rem" }}>
-            <a
-              href="https://share.google/DzyXsdZg9iUQWHYg2"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-              style={{ fontSize: "0.78rem" }}
-              aria-label="View all Google reviews for MG Photography UAE"
-            >
-              View All Google Reviews →
-            </a>
           </div>
         </div>
       </section>
@@ -549,12 +504,12 @@ export default function DubaiNewbornPhotography() {
               className="btn-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book your newborn photography session in Dubai via WhatsApp"
+              aria-label="Check newborn photography availability in Dubai via WhatsApp"
               data-wa-location="Gallery CTA"
               data-service-type="newborn_photography"
             >
               <WAIcon />
-              Book Your Newborn Session
+              Check Newborn Availability
             </a>
           </div>
         </div>
@@ -686,7 +641,7 @@ export default function DubaiNewbornPhotography() {
                   </ul>
 
                   <a
-                    href={`${WA_URL.replace("book%20a%20newborn%20photography%20session", `book%20the%20${encodeURIComponent(pkg.waText)}`)}`}
+                    href={`${WA_BASE}?text=${encodeURIComponent(`Hi MG Photography UAE, I’m interested in the ${pkg.waText} for a newborn home photoshoot in Dubai. Could you please confirm availability and the total price for my area?`)}`}
                     className={`pkg-btn ${pkg.featured ? "pkg-btn-gold" : "pkg-btn-outline"}`}
                     style={{
                       display: "flex", justifyContent: "center", alignItems: "center", gap: "0.5rem",
@@ -698,12 +653,11 @@ export default function DubaiNewbornPhotography() {
                     }}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Book the ${pkg.name} newborn photography collection in Dubai via WhatsApp`}
+                    aria-label={`Check availability for the ${pkg.name} newborn photography collection in Dubai via WhatsApp`}
                     data-wa-location={`Package - ${pkg.name}`}
                     data-service-type="newborn_photography"
-                    data-track-event="book_now_click"
-                    data-pixel-event="Lead"
-                    data-pixel-label={`Book ${pkg.name}`}
+                    data-track-event="package_availability_click"
+                    data-package-name={pkg.name}
                   >
                     <WAIcon />
                     {pkg.cta}
@@ -714,7 +668,7 @@ export default function DubaiNewbornPhotography() {
           </div>
 
           <p style={{ textAlign: "center", marginTop: "2.5rem", fontFamily: "var(--font-body)", fontSize: "0.78rem", color: "rgba(250,246,238,0.4)" }}>
-            Prices are indicative. Contact us via WhatsApp for an exact quote based on your location and requirements.
+            Dubai home visit is AED 100. Travel outside Dubai and optional add-ons are charged separately.
           </p>
         </div>
       </section>
@@ -790,7 +744,7 @@ export default function DubaiNewbornPhotography() {
                 </div>
 
                 <a
-                  href={`${WA_URL.replace("book%20a%20newborn%20photography%20session", `add%20the%20${encodeURIComponent(addon.waText)}%20to%20my%20session`)}`}
+                  href={`${WA_BASE}?text=${encodeURIComponent(`Hi MG Photography UAE, I’m interested in the ${addon.waText} with a newborn home photoshoot in Dubai. Could you please share availability and details?`)}`}
                   className="pkg-btn pkg-btn-outline"
                   style={{
                     display: "flex", justifyContent: "center", alignItems: "center", gap: "0.5rem",
@@ -806,8 +760,6 @@ export default function DubaiNewbornPhotography() {
                   data-wa-location={`Add-on - ${addon.name}`}
                   data-service-type="newborn_photography"
                   data-track-event="addon_click"
-                  data-pixel-event="Lead"
-                  data-pixel-label={`Add-on - ${addon.name}`}
                 >
                   <WAIcon />
                   {addon.cta}
@@ -875,17 +827,17 @@ export default function DubaiNewbornPhotography() {
           <div style={{ textAlign: "center", marginBottom: "clamp(2.5rem, 5vw, 4rem)" }}>
             <div className="label" style={{ marginBottom: "0.75rem" }}>Why Families Choose Us</div>
             <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.7rem,3.5vw,3rem)", lineHeight: 1.1, letterSpacing: "-0.025em" }}>
-              Dubai&apos;s Most Trusted <span className="text-gold-gradient">Newborn Photographer</span>
+              A Calm, Baby-Led <span className="text-gold-gradient">Newborn Experience</span>
             </h2>
           </div>
           <div className="trust-grid">
             {[
-              { icon: "🛡️", title: "Newborn-Safe Certified", desc: "Every pose performed by a certified, experienced newborn photographer. Baby's comfort and safety always comes first." },
-              { icon: "🏠", title: "Luxury Home Photography — Dubai-Wide", desc: "We bring a full professional home studio setup to you, anywhere across Dubai. No travel, no waiting rooms — just your own space." },
-              { icon: "✏️", title: "Hand-Retouched Images", desc: "Every image individually retouched — warm, soft, cinematic. Never batch processed." },
-              { icon: "⚡", title: "5–7 Day Gallery Delivery", desc: "Your private gallery delivered quickly so you can share those precious first moments." },
-              { icon: "🎨", title: "Luxury Custom Themes", desc: "Premium props, wraps, backdrops and setups — from classic whites to cultural themes." },
-              { icon: "⭐", title: "100+ Families, 5-Star Reviews", desc: "Trusted by families across Dubai, Abu Dhabi and Sharjah for over 8 years." },
+              { icon: "🤍", title: "Baby-Led Safe Posing", desc: "We follow your baby’s cues, never force a pose, and pause whenever feeding or soothing is needed." },
+              { icon: "🏠", title: "Doorstep Home Service", desc: "We bring the professional newborn setup to your Dubai home so you and your baby can stay comfortable." },
+              { icon: "✏️", title: "Fine-Art Retouching", desc: "Your selected portraits are individually edited and professionally retouched." },
+              { icon: "⚡", title: "5–7 Working Day Gallery", desc: "Your edited gallery is delivered through a private online link." },
+              { icon: "🎨", title: "Styled Setups Included", desc: "Props, wraps, backdrops and newborn wardrobe are prepared around your chosen collection." },
+              { icon: "👨‍👩‍👧", title: "Parent & Family Options", desc: "Essence includes a parent portrait; Signature and Legacy include immediate family portraits." },
             ].map((t) => (
               <div key={t.title} className="trust-card">
                 <div className="trust-icon" aria-hidden="true">{t.icon}</div>
@@ -903,12 +855,12 @@ export default function DubaiNewbornPhotography() {
               style={{ fontSize: "0.9rem", padding: "1rem 2.5rem" }}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book your Dubai newborn photography session on WhatsApp"
+              aria-label="Check Dubai newborn photography availability on WhatsApp"
               data-wa-location="Why Choose Us CTA"
               data-service-type="newborn_photography"
             >
               <WAIcon />
-              Book Your Newborn Session on WhatsApp
+              Check Newborn Availability on WhatsApp
             </a>
           </div>
         </div>
@@ -1033,19 +985,19 @@ export default function DubaiNewbornPhotography() {
 
       {/* ── FINAL CTA ─────────────────────────────────────────────────────────── */}
       <section
-        aria-label="Book your Dubai newborn photography session"
+        aria-label="Check Dubai newborn photography session availability"
         style={{ background: "var(--black)", padding: "clamp(5rem, 12vw, 9rem) 0", textAlign: "center", position: "relative", overflow: "hidden" }}
       >
         <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
         <div style={{ position: "relative", zIndex: 2, maxWidth: "680px", margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
-          <div className="label" style={{ marginBottom: "1rem" }}>Limited Slots Available</div>
+          <div className="label" style={{ marginBottom: "1rem" }}>Check Your Date</div>
           <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,5.5vw,4.5rem)", lineHeight: 1.06, letterSpacing: "-0.03em", marginBottom: "1.5rem" }}>
-            Book Your Dubai Newborn<br />
-            <span className="text-gold-gradient">Photography Session</span>
+            Check Dubai Newborn<br />
+            <span className="text-gold-gradient">Session Availability</span>
           </h2>
 
           <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "0.5rem 1.5rem", marginBottom: "2.5rem" }}>
-            {["✓ Book During Pregnancy", "✓ Luxury Home Sessions", "✓ Newborn-Safe Certified", "✓ Fast Gallery Delivery"].map((item) => (
+            {["✓ Doorstep Home Service", "✓ Props & Wardrobe Included", "✓ Baby-Led Posing", "✓ 5–7 Working Day Gallery"].map((item) => (
               <span key={item} style={{ fontSize: "0.8rem", color: "rgba(250,246,238,0.78)", fontFamily: "var(--font-body)", fontWeight: 500 }}>{item}</span>
             ))}
           </div>
@@ -1057,23 +1009,23 @@ export default function DubaiNewbornPhotography() {
               style={{ fontSize: "0.9rem", padding: "1.05rem 2.5rem" }}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book Dubai newborn photography session via WhatsApp"
+              aria-label="Check Dubai newborn photography session availability via WhatsApp"
               data-wa-location="Final CTA"
               data-service-type="newborn_photography"
-              data-pixel-event="Contact"
-              data-pixel-label="Final CTA WhatsApp"
+              data-track-event="availability_check_click"
             >
               <WAIcon />
-              Book on WhatsApp
+              Check Availability on WhatsApp
             </a>
             <a
-              href={CALL_URL}
+              href="#packages"
               className="btn-outline"
               style={{ fontSize: "0.88rem" }}
-              aria-label="Call MG Photography UAE now"
-              data-wa-location="Final CTA Call"
+              aria-label="View Dubai newborn photography packages"
+              data-track-event="view_packages_click"
+              data-wa-location="Final CTA Packages"
             >
-              📞 Call Us Now
+              View Packages
             </a>
           </div>
         </div>

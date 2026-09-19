@@ -5,7 +5,9 @@
  * Scans content/blog/*.md and app/**\/*.tsx for internal links and checks
  * every one against the site's actual routes — derived by walking app/ for
  * page.tsx files and by reading blog post frontmatter, never from a
- * separately hand-maintained list that could drift out of sync.
+ * separately hand-maintained list that could drift out of sync. Route
+ * discovery lives in scripts/lib/repo.mjs, shared with the SEO publishing
+ * workflow scripts (scripts/seo/*.mjs) so both read the same reality.
  *
  * Findings on PUBLISHED posts / real .tsx files are errors (exit 1).
  * Findings on DRAFT/future-dated posts are warnings (non-blocking) so
@@ -17,54 +19,14 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import matter from "gray-matter";
-
-const ROOT = process.cwd();
-const CONTENT_DIR = path.join(ROOT, "content", "blog");
-const APP_DIR = path.join(ROOT, "app");
-const MIN_POSTS_FOR_TAG_PAGE = 2; // keep in sync with app/lib/blog.ts
-
-function slugify(value) {
-  return value
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
-// ─── Load blog posts ────────────────────────────────────────────────────
-function loadPosts() {
-  if (!fs.existsSync(CONTENT_DIR)) return [];
-  return fs
-    .readdirSync(CONTENT_DIR)
-    .filter((f) => f.endsWith(".md"))
-    .map((filename) => {
-      const raw = fs.readFileSync(path.join(CONTENT_DIR, filename), "utf8");
-      const { data, content } = matter(raw);
-      const slug = filename.replace(/\.md$/, "");
-      const publishedAt = new Date(data.publishedAt);
-      const isPublished =
-        data.status === "published" &&
-        !Number.isNaN(publishedAt.getTime()) &&
-        publishedAt.getTime() <= Date.now();
-      return { slug, filename, data, content, isPublished };
-    });
-}
-
-// ─── Walk app/ for real static routes ───────────────────────────────────
-function walkAppRoutes(dir, base = "") {
-  const routes = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    if (entry.name.startsWith("[") || entry.name === "components" || entry.name === "lib") continue;
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      routes.push(...walkAppRoutes(full, `${base}/${entry.name}`));
-    } else if (entry.name === "page.tsx") {
-      routes.push(base === "" ? "/" : `${base}/`);
-    }
-  }
-  return routes;
-}
+import {
+  ROOT,
+  APP_DIR,
+  loadPosts,
+  buildValidRouteSet,
+  normalizeHref,
+  isExternalOrSkippable,
+} from "./lib/repo.mjs";
 
 // ─── Extract candidate .tsx files (excluding blog/[slug] etc.) ─────────
 function walkTsxFiles(dir) {
@@ -93,47 +55,10 @@ function extractJsxHrefs(source) {
   return links;
 }
 
-function normalizeHref(href) {
-  let h = href.trim();
-  if (h.startsWith("https://mgphotographyglobal.com")) h = h.replace("https://mgphotographyglobal.com", "");
-  if (h.startsWith("http://mgphotographyglobal.com")) h = h.replace("http://mgphotographyglobal.com", "");
-  return h;
-}
-
-function isExternalOrSkippable(href) {
-  return (
-    /^https?:\/\//.test(href) ||
-    href.startsWith("mailto:") ||
-    href.startsWith("tel:") ||
-    href.startsWith("#") ||
-    href.startsWith("wa.me")
-  );
-}
-
 function main() {
   const posts = loadPosts();
-  const publishedSlugs = new Set(posts.filter((p) => p.isPublished).map((p) => p.slug));
   const unpublishedSlugs = new Set(posts.filter((p) => !p.isPublished).map((p) => p.slug));
-
-  const categorySlugs = new Set(posts.filter((p) => p.isPublished).map((p) => slugify(p.data.category || "")));
-
-  const tagCounts = new Map();
-  for (const p of posts.filter((p) => p.isPublished)) {
-    for (const tag of p.data.tags || []) {
-      const s = slugify(tag);
-      tagCounts.set(s, (tagCounts.get(s) || 0) + 1);
-    }
-  }
-  const linkableTagSlugs = new Set([...tagCounts.entries()].filter(([, c]) => c >= MIN_POSTS_FOR_TAG_PAGE).map(([s]) => s));
-
-  const staticRoutes = new Set(walkAppRoutes(APP_DIR));
-  const blogRoutes = new Set([
-    "/blog/",
-    ...[...publishedSlugs].map((s) => `/blog/${s}/`),
-    ...[...categorySlugs].map((c) => `/blog/category/${c}/`),
-    ...[...linkableTagSlugs].map((t) => `/blog/tag/${t}/`),
-  ]);
-  const validRoutes = new Set([...staticRoutes, ...blogRoutes]);
+  const { routes: validRoutes } = buildValidRouteSet();
 
   const errors = [];
   const warnings = [];
@@ -202,7 +127,7 @@ function main() {
     process.exit(1);
   }
 
-  console.log(`✓ Internal link validation passed (${posts.length} posts, ${staticRoutes.size} static routes checked).`);
+  console.log(`✓ Internal link validation passed (${posts.length} posts, ${validRoutes.size} routes checked).`);
 }
 
 main();

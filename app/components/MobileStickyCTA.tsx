@@ -44,8 +44,6 @@ export default function MobileStickyCTA({
       <a
         href={whatsappUrl}
         className="mobile-cta-btn sticky-btn-wa"
-        data-pixel-event="Contact"
-        data-pixel-label="Sticky CTA WhatsApp"
         data-wa-location="Mobile Sticky WhatsApp"
         data-service-type={serviceType}
         aria-label={whatsappLabel === "WhatsApp" ? "Chat on WhatsApp" : whatsappLabel}
@@ -77,8 +75,6 @@ export default function MobileStickyCTA({
       <a
         href={packagesHref}
         className="mobile-cta-btn sticky-btn-book"
-        data-pixel-event="ViewContent"
-        data-pixel-label="Sticky CTA Packages"
         data-track-event="view_packages_click"
         data-wa-location="Mobile Sticky Packages"
         data-service-type={serviceType}

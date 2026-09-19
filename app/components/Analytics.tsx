@@ -172,15 +172,24 @@ export default function Analytics() {
     };
     document.addEventListener("click", onClick);
 
-    // ── Page-load ViewContent for key landing pages ───────────────────────
+    // ── Page-load funnel event + ViewContent for key landing pages ─────────
+    // landing_page_view gives us a clean denominator for website conversion:
+    // ad click -> actual landing load -> WhatsApp click -> inbound conversation.
     const path = window.location.pathname;
     if (path.includes("newborn") || path.includes("dubai-newborn")) {
+      trackGA4("landing_page_view", {
+        service_type: "newborn_photography",
+        landing_page: path.includes("dubai-newborn") ? "dubai_newborn" : "newborn",
+      });
       trackViewContent("Newborn Photography", "Landing Page");
     } else if (path.includes("maternity")) {
+      trackGA4("landing_page_view", { service_type: "maternity_photography", landing_page: "maternity" });
       trackViewContent("Maternity Photography", "Landing Page");
     } else if (path.includes("wedding")) {
+      trackGA4("landing_page_view", { service_type: "wedding_photography", landing_page: "wedding" });
       trackViewContent("Wedding Photography", "Landing Page");
     } else if (path.includes("baby")) {
+      trackGA4("landing_page_view", { service_type: "baby_photography", landing_page: "baby" });
       trackViewContent("Baby Photography", "Landing Page");
     }
 
@@ -212,5 +221,5 @@ function isBookingIntent(anchor: HTMLAnchorElement): boolean {
     .filter(Boolean)
     .join(" ");
 
-  return /\b(book|booking|reserve|plan|choose|secure|check (?:my )?(?:date|availability))\b/i.test(label);
+  return /\b(book|booking|reserve|secure)\b/i.test(label);
 }

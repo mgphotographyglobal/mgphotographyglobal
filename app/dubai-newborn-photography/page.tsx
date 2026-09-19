@@ -97,7 +97,7 @@ const serviceSchema = {
   description:
     "Professional newborn photography sessions in Dubai. Safe, gentle posing in the comfort of your own home. Sessions ideal between 5–21 days after birth.",
   offers: [
-    { "@type": "Offer", name: "Essence Collection", price: "800", priceCurrency: "AED" },
+    { "@type": "Offer", name: "Essence Collection Launch Offer", price: "500", priceCurrency: "AED" },
     { "@type": "Offer", name: "Signature Collection", price: "1250", priceCurrency: "AED" },
     { "@type": "Offer", name: "Legacy Collection", price: "2000", priceCurrency: "AED" },
   ],
@@ -152,8 +152,8 @@ const packages = [
   {
     name: "The Essence Collection",
     emoji: "✨",
-    eyebrow: "Beautifully Simple",
-    price: "AED 800",
+    eyebrow: "Launch Offer • Standard AED 800",
+    price: "AED 500",
     homeVisit: "AED 100",
     highlights: [
       { icon: "portraits", text: "10 Handcrafted High-Resolution Digital Portraits" },
@@ -201,7 +201,7 @@ const addOns = [
   },
 ];
 
-const faqs = [const faqs = [
+const faqs = [
   {
     q: "When is the best time for a newborn session in Dubai?",
     a: "Between 5–21 days after birth. Babies sleep deeply and curl into beautiful poses during this window. After 3 weeks they become more alert and poses are harder to achieve safely.",
@@ -224,7 +224,7 @@ const faqs = [const faqs = [
   },
   {
     q: "How much does newborn photography cost in Dubai?",
-    a: "Collections start from AED 800 (Essence), AED 1,250 (Signature), and AED 2,000 (Legacy), plus a AED 100 Dubai home visit fee. A 50% deposit secures your date, with the balance due on the session day.",
+    a: "Our current Essence launch offer is AED 500 (standard AED 800), plus AED 100 for a Dubai home visit — AED 600 total during the offer. Signature is AED 1,250 and Legacy is AED 2,000, plus the Dubai home-visit fee. A 50% deposit secures your date, with the balance due on the session day.",
   },
   {
     q: "When should I book my Dubai newborn photographer?",
@@ -504,7 +504,7 @@ export default function DubaiNewbornPhotography() {
               className="btn-whatsapp"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book your newborn photography session in Dubai via WhatsApp"
+              aria-label="Check newborn photography availability in Dubai via WhatsApp"
               data-wa-location="Gallery CTA"
               data-service-type="newborn_photography"
             >
@@ -653,7 +653,7 @@ export default function DubaiNewbornPhotography() {
                     }}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={`Book the ${pkg.name} newborn photography collection in Dubai via WhatsApp`}
+                    aria-label={`Check availability for the ${pkg.name} newborn photography collection in Dubai via WhatsApp`}
                     data-wa-location={`Package - ${pkg.name}`}
                     data-service-type="newborn_photography"
                     data-track-event="package_availability_click"
@@ -855,7 +855,7 @@ export default function DubaiNewbornPhotography() {
               style={{ fontSize: "0.9rem", padding: "1rem 2.5rem" }}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Book your Dubai newborn photography session on WhatsApp"
+              aria-label="Check Dubai newborn photography availability on WhatsApp"
               data-wa-location="Why Choose Us CTA"
               data-service-type="newborn_photography"
             >
@@ -985,7 +985,7 @@ export default function DubaiNewbornPhotography() {
 
       {/* ── FINAL CTA ─────────────────────────────────────────────────────────── */}
       <section
-        aria-label="Book your Dubai newborn photography session"
+        aria-label="Check Dubai newborn photography session availability"
         style={{ background: "var(--black)", padding: "clamp(5rem, 12vw, 9rem) 0", textAlign: "center", position: "relative", overflow: "hidden" }}
       >
         <div aria-hidden="true" style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "600px", borderRadius: "50%", background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />

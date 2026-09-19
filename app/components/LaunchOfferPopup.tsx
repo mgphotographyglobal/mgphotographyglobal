@@ -77,7 +77,7 @@ export default function LaunchOfferPopup() {
         className="launch-offer-cta"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Claim the AED 500 newborn photography launch offer on WhatsApp"
+        aria-label="Check availability for the AED 500 newborn photography launch offer on WhatsApp"
         data-wa-location="Launch Offer Popup"
         data-service-type="newborn_photography"
         data-track-event="launch_offer_availability_click"

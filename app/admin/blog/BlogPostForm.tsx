@@ -2,6 +2,7 @@
 
 import { useActionState } from "react";
 import { submitPostAction, archivePostAction, deletePostAction, type ActionResult } from "@/lib/blog-admin/actions";
+import { SERVICES } from "@/app/lib/services";
 import ImagePicker from "./ImagePicker";
 
 export interface CategoryOption {
@@ -58,6 +59,7 @@ export default function BlogPostForm({
   posts: PostOption[];
 }) {
   const [state, formAction, pending] = useActionState(submitPostAction, initialState);
+  const services = SERVICES;
 
   return (
     <form action={formAction} className="space-y-8 pb-24">
@@ -158,9 +160,9 @@ export default function BlogPostForm({
         <Field label="Primary Service" htmlFor="primaryService" hint="The commercial page this article should link to.">
           <select id="primaryService" name="primaryService" defaultValue={values.primaryService} className="admin-input">
             <option value="">Auto (from category)</option>
-            {categories.map((c) => (
-              <option key={c.slug} value={c.slug}>
-                {c.name}
+            {services.map((s) => (
+              <option key={s.slug} value={s.href}>
+                {s.title}
               </option>
             ))}
           </select>

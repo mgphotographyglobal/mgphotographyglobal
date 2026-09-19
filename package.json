@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/validate-internal-links.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:links": "node scripts/validate-internal-links.mjs",
+    "suggest:links": "node scripts/suggest-internal-links.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",

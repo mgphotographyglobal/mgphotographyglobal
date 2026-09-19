@@ -67,9 +67,16 @@ SEO, designed to scale to hundreds of posts without touching any React code.
   JSON-LD. `app/sitemap.ts` regenerates `sitemap.xml` at build time,
   automatically including every published post, category and tag page.
 - **Related articles & CTAs:** related posts are derived from
-  category/tag overlap (`getRelatedPosts` in `app/lib/blog.ts`), and each
-  article's CTA defaults by category (`app/lib/blogCta.ts`) but can be
-  overridden per post via the `cta` frontmatter field.
+  category/cluster/tag overlap (`getRelatedPosts` in `app/lib/blog.ts`),
+  and each article's CTA defaults by category (`app/lib/blogCta.ts`) but
+  can be overridden per post via the `cta` frontmatter field.
+- **Internal linking (service ↔ pillar ↔ supporting ↔ related articles):**
+  see [`docs/INTERNAL_LINKING.md`](docs/INTERNAL_LINKING.md) for the full
+  architecture, the `cluster`/`isPillar`/`primaryService` frontmatter
+  fields, the broken-link validator (`npm run validate:links`, runs
+  automatically before `npm run build`), and the link-suggestion CLI
+  (`npm run suggest:links -- <slug>`) that a future automated publishing
+  workflow uses to find where a new article should link to/from.
 
 ## Deployment
 

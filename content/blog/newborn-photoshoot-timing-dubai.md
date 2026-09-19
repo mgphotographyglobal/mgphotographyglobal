@@ -12,6 +12,7 @@ publishedAt: "2026-08-20"
 updatedAt: "2026-09-10"
 status: "published"
 focusKeyword: "newborn photoshoot timing Dubai"
+relatedSlugs: ["newborn-photography-complete-guide", "newborn-session-preparation-guide"]
 ---
 
 If you only remember one thing about newborn photography, remember this: timing matters more than almost anything else. The soft, curled-up poses that make newborn photography so distinctive are only possible in a narrow window — and in Dubai's fast-paced hospital-to-home routine, that window can pass before parents realise it.
@@ -37,7 +38,7 @@ Life rarely follows a plan, and neither do due dates.
 
 Many of our clients are managing visiting family, recovery, and a home that isn't always ready for a full studio-style setup — which is why we bring a complete home-studio setup to you, anywhere in Dubai, rather than asking you to travel with a newborn.
 
-If you'd like to see what a session looks like in practice, explore our [Dubai newborn photography service](/dubai-newborn-photography/) for portfolio examples and package details.
+If you'd like to see what a session looks like in practice, explore our [Dubai newborn photography service](/dubai-newborn-photography/) for portfolio examples and package details. Once your date is confirmed, our [newborn session preparation guide](/blog/newborn-session-preparation-guide/) walks through exactly how to get your home and your baby ready.
 
 ## Quick Checklist for Parents
 

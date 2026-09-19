@@ -2,9 +2,16 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import MarkdownIt from "markdown-it";
+import { serviceForCategory } from "./services";
 
 const SITE_URL = "https://mgphotographyglobal.com";
 const CONTENT_DIR = path.join(process.cwd(), "content", "blog");
+
+// Tag pages below this many published posts aren't generated as their own
+// route — a tag page with a single article is thin, low-value content that
+// exists only to hold one internal link. The tag still displays on the
+// article as plain text in that case (see getAllTags()/isTagLinkable()).
+const MIN_POSTS_FOR_TAG_PAGE = 2;
 
 // Draft/scheduled posts are only visible outside production so an author or
 // automation workflow can preview them before they go live. A production
@@ -47,6 +54,22 @@ export interface BlogFrontmatter {
   focusKeyword?: string;
   relatedSlugs?: string[];
   cta?: BlogCta;
+
+  /**
+   * Topic cluster key. Defaults to categorySlug(category) when omitted, so
+   * most posts never need to set this explicitly — it only needs to be set
+   * when a post's cluster should differ from its category (a rare,
+   * deliberate editorial choice, not the default path).
+   */
+  cluster?: string;
+  /** Marks this post as the pillar/hub article for its cluster. At most one per cluster. */
+  isPillar?: boolean;
+  /**
+   * Explicit override for the service page this article should support.
+   * Defaults to serviceForCategory(category) — set this only when an
+   * article's primary commercial intent differs from its category.
+   */
+  primaryService?: string;
 }
 
 export interface BlogPost extends BlogFrontmatter {
@@ -72,6 +95,17 @@ export function categorySlug(category: string): string {
 
 export function tagSlug(tag: string): string {
   return slugify(tag);
+}
+
+/** A post's cluster key — explicit `cluster` field, or its category slug. */
+export function clusterKey(post: Pick<BlogFrontmatter, "category" | "cluster">): string {
+  return post.cluster ? slugify(post.cluster) : categorySlug(post.category);
+}
+
+/** The service page this post should link to as its primary commercial target. */
+export function resolvePrimaryServiceHref(post: BlogPost): string | undefined {
+  if (post.primaryService) return post.primaryService;
+  return serviceForCategory(post.category)?.href;
 }
 
 function readingTime(wordCount: number): number {
@@ -148,6 +182,18 @@ export function getPostsByTag(slug: string): BlogPost[] {
   return getAllPosts().filter((p) => (p.tags ?? []).some((t) => tagSlug(t) === slug));
 }
 
+/** The pillar/hub post for a cluster, if one has been designated. */
+export function getPillarForCluster(cluster: string): BlogPost | undefined {
+  return getAllPosts().find((p) => p.isPillar && clusterKey(p) === cluster);
+}
+
+/** Published posts sharing a cluster, newest first, pillar excluded. */
+export function getClusterPosts(cluster: string, excludeSlug?: string): BlogPost[] {
+  return getAllPosts().filter(
+    (p) => clusterKey(p) === cluster && !p.isPillar && p.slug !== excludeSlug
+  );
+}
+
 export interface CategoryInfo {
   name: string;
   slug: string;
@@ -171,7 +217,8 @@ export interface TagInfo {
   count: number;
 }
 
-export function getAllTags(): TagInfo[] {
+/** All tags, including thin ones — used only to render tag pills as plain text. */
+function getAllTagsRaw(): TagInfo[] {
   const map = new Map<string, TagInfo>();
   for (const post of getAllPosts()) {
     for (const tag of post.tags ?? []) {
@@ -185,39 +232,70 @@ export function getAllTags(): TagInfo[] {
 }
 
 /**
- * Related posts are derived from category/tag overlap rather than
- * hardcoded references, so new articles automatically surface in each
- * other's "related" sections without touching any component.
+ * Tags with enough posts to justify their own indexable page. This is the
+ * list used for generateStaticParams and the sitemap — a tag used by only
+ * one article would otherwise become a thin, near-duplicate page that
+ * exists purely to hold a single internal link (index bloat).
+ */
+export function getAllTags(): TagInfo[] {
+  return getAllTagsRaw().filter((t) => t.count >= MIN_POSTS_FOR_TAG_PAGE);
+}
+
+/** Whether a tag has its own page to link to (see getAllTags). */
+export function isTagLinkable(tag: string): boolean {
+  return getAllTags().some((t) => t.slug === tagSlug(tag));
+}
+
+function byRecency(a: BlogPost, b: BlogPost): number {
+  return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+}
+
+/**
+ * Related posts are derived from topical signals rather than hardcoded
+ * references, so new articles automatically surface in each other's
+ * "related" sections without touching any component. Priority, highest
+ * first: same category/service -> same cluster -> shared tags -> the
+ * post's own explicit relatedSlugs. Each post appears at most once, in the
+ * tier of its strongest match.
+ *
+ * Deliberately no "recent posts" catch-all: if a post has fewer than
+ * `limit` genuinely topical matches, it simply gets fewer related links
+ * rather than being padded out with unrelated content. An empty-ish
+ * Related Articles section is preferable to recommending, say, a wedding
+ * post underneath a newborn article just to hit a round number.
  */
 export function getRelatedPosts(post: BlogPost, limit = 3): BlogPost[] {
-  const all = getAllPosts().filter((p) => p.slug !== post.slug);
+  const all = getAllPosts().filter((p) => p.slug !== post.slug && !p.isPillar);
+  const postCluster = clusterKey(post);
+  const explicitSet = new Set(post.relatedSlugs ?? []);
 
-  if (post.relatedSlugs?.length) {
-    const manual = post.relatedSlugs
-      .map((s) => all.find((p) => p.slug === s))
-      .filter((p): p is BlogPost => Boolean(p));
-    if (manual.length >= limit) return manual.slice(0, limit);
+  const sameCategory = all.filter((p) => categorySlug(p.category) === categorySlug(post.category));
+  const sameClusterOnly = all.filter(
+    (p) => clusterKey(p) === postCluster && categorySlug(p.category) !== categorySlug(post.category)
+  );
+  const sharedTags = all.filter(
+    (p) =>
+      categorySlug(p.category) !== categorySlug(post.category) &&
+      clusterKey(p) !== postCluster &&
+      (p.tags ?? []).some((t) => (post.tags ?? []).some((pt) => tagSlug(pt) === tagSlug(t)))
+  );
+  const explicit = all.filter((p) => explicitSet.has(p.slug));
+
+  const tiers = [sameCategory.sort(byRecency), sameClusterOnly.sort(byRecency), sharedTags.sort(byRecency), explicit];
+
+  const seen = new Set<string>();
+  const result: BlogPost[] = [];
+  for (const tier of tiers) {
+    for (const p of tier) {
+      if (result.length >= limit) break;
+      if (seen.has(p.slug)) continue;
+      seen.add(p.slug);
+      result.push(p);
+    }
+    if (result.length >= limit) break;
   }
 
-  const scored = all.map((p) => {
-    let score = 0;
-    if (categorySlug(p.category) === categorySlug(post.category)) score += 3;
-    const sharedTags = (p.tags ?? []).filter((t) =>
-      (post.tags ?? []).some((pt) => tagSlug(pt) === tagSlug(t))
-    ).length;
-    score += sharedTags;
-    return { post: p, score };
-  });
-
-  scored.sort((a, b) => b.score - a.score);
-
-  const manualSlugs = new Set(post.relatedSlugs ?? []);
-  const ranked = scored.filter((s) => !manualSlugs.has(s.post.slug) && s.score > 0);
-  const manualPosts = (post.relatedSlugs ?? [])
-    .map((s) => all.find((p) => p.slug === s))
-    .filter((p): p is BlogPost => Boolean(p));
-
-  return [...manualPosts, ...ranked.map((s) => s.post)].slice(0, limit);
+  return result;
 }
 
 export function postUrl(slug: string): string {

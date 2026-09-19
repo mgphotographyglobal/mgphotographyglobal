@@ -51,7 +51,7 @@ export default function NewbornMetaLanding() {
         </div>
       </section>
       <footer style={{padding:"1.5rem",borderTop:"1px solid rgba(201,168,76,0.08)",textAlign:"center"}}>
-        <p className="body-sm" style={{fontSize:"0.75rem"}}>© MG Photography UAE · Dubai, UAE · <a href="/terms" style={{color:"var(--gold)",textDecoration:"none"}}>Terms</a></p>
+        <p className="body-sm" style={{fontSize:"0.75rem"}}>© MG Photography UAE · Dubai, UAE · <a href="/terms/" style={{color:"var(--gold)",textDecoration:"none"}}>Terms</a></p>
       </footer>
     </div>
   );

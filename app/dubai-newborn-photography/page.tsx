@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import MobileStickyCTA from "../components/MobileStickyCTA";
 import Header from "../components/Header";
 import { PackageIcon, type PackageIconType } from "../components/PackageIcons";
+import { getPostsByCategory } from "../lib/blog";
 
 const SITE_URL = "https://mgphotographyglobal.com";
 const PAGE_URL = `${SITE_URL}/dubai-newborn-photography/`;
@@ -300,6 +301,17 @@ const WAIcon = () => (
 
 // ─── Component ────────────────────────────────────────────────────────────────
 export default function DubaiNewbornPhotography() {
+  // Data-driven — matches this page's service against the blog's "Newborn
+  // Photography" category, so new articles appear here automatically with
+  // no edits to this file. Only published posts can appear.
+  const helpfulArticles = getPostsByCategory("newborn-photography")
+    .slice()
+    .sort((a, b) => {
+      if (a.isPillar !== b.isPillar) return a.isPillar ? -1 : 1;
+      return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+    })
+    .slice(0, 4);
+
   return (
     <>
       {/* Schema injection */}
@@ -954,6 +966,35 @@ export default function DubaiNewbornPhotography() {
           </div>
         </div>
       </section>
+
+      {/* ── HELPFUL GUIDES — contextual links out to supporting blog content ── */}
+      {helpfulArticles.length > 0 && (
+        <section
+          aria-label="Helpful newborn photography guides"
+          style={{ background: "var(--black-rich)", padding: "clamp(3rem, 6vw, 5rem) 0" }}
+        >
+          <div style={{ maxWidth: "780px", margin: "0 auto", padding: "0 clamp(1.25rem,5vw,4rem)" }}>
+            <div className="label" style={{ marginBottom: "0.75rem" }}>Learn More</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.4rem,2.5vw,2rem)", lineHeight: 1.2, letterSpacing: "-0.02em", marginBottom: "1.75rem" }}>
+              Helpful Newborn Photography Guides
+            </h2>
+            <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "0" }}>
+              {helpfulArticles.map((article) => (
+                <li key={article.slug} style={{ borderBottom: "1px solid rgba(201,168,76,0.1)", padding: "1.1rem 0" }}>
+                  <Link
+                    href={`/blog/${article.slug}/`}
+                    style={{ color: "var(--cream)", fontFamily: "var(--font-display)", fontSize: "1.02rem", textDecoration: "none" }}
+                    className="hover-gold"
+                  >
+                    {article.title}
+                  </Link>
+                  <p className="body-sm" style={{ fontSize: "0.85rem", marginTop: "0.4rem" }}>{article.excerpt}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* ── INTERNAL LINKS ─────────────────────────────────────────────────── */}
       <section

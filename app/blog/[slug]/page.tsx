@@ -8,12 +8,17 @@ import WhatsAppFloat from "../../components/WhatsAppFloat";
 import Breadcrumbs from "../components/Breadcrumbs";
 import RelatedArticles from "../components/RelatedArticles";
 import ArticleCTA from "../components/ArticleCTA";
+import PillarCallout from "../components/PillarCallout";
 import {
   getPublishedPosts,
   getPostBySlug,
   getRelatedPosts,
+  getPillarForCluster,
+  getClusterPosts,
+  clusterKey,
   categorySlug,
   tagSlug,
+  isTagLinkable,
   postCanonicalUrl,
   postUrl,
   BLOG_SITE_URL,
@@ -66,6 +71,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<Para
   const post = getPostBySlug(slug);
   if (!post) notFound();
 
+  const cluster = clusterKey(post);
+  const pillar = post.isPillar ? undefined : getPillarForCluster(cluster);
+  const supportingPosts = post.isPillar ? getClusterPosts(cluster, post.slug) : [];
   const related = getRelatedPosts(post, 3);
   const cta = resolveCta(post.category, post.cta);
 
@@ -157,28 +165,47 @@ export default async function BlogArticlePage({ params }: { params: Promise<Para
           <div className="container-luxury" style={{ maxWidth: "760px" }}>
             <div className="article-content" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
 
+            {pillar && <PillarCallout pillar={pillar} />}
+
             {post.tags && post.tags.length > 0 && (
               <nav aria-label="Article tags" style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "2.5rem" }}>
-                {post.tags.map((tag) => (
-                  <Link
-                    key={tag}
-                    href={`/blog/tag/${tagSlug(tag)}/`}
-                    className="label"
-                    style={{
-                      textDecoration: "none",
-                      border: "1px solid rgba(201,168,76,0.25)",
-                      padding: "0.4rem 0.9rem",
-                      fontSize: "0.62rem",
-                    }}
-                  >
-                    #{tag}
-                  </Link>
-                ))}
+                {post.tags.map((tag) =>
+                  isTagLinkable(tag) ? (
+                    <Link
+                      key={tag}
+                      href={`/blog/tag/${tagSlug(tag)}/`}
+                      className="label"
+                      style={{
+                        textDecoration: "none",
+                        border: "1px solid rgba(201,168,76,0.25)",
+                        padding: "0.4rem 0.9rem",
+                        fontSize: "0.62rem",
+                      }}
+                    >
+                      #{tag}
+                    </Link>
+                  ) : (
+                    // Not enough posts share this tag yet to justify its own
+                    // page (see MIN_POSTS_FOR_TAG_PAGE) — shown as plain text
+                    // rather than a link to nowhere-useful.
+                    <span
+                      key={tag}
+                      className="label"
+                      style={{ border: "1px solid rgba(201,168,76,0.12)", padding: "0.4rem 0.9rem", fontSize: "0.62rem", opacity: 0.6 }}
+                    >
+                      #{tag}
+                    </span>
+                  )
+                )}
               </nav>
             )}
 
             <ArticleCTA cta={cta} />
-            <RelatedArticles posts={related} />
+            {post.isPillar ? (
+              <RelatedArticles posts={supportingPosts} heading="Supporting Guides in This Series" label="Go Deeper" />
+            ) : (
+              <RelatedArticles posts={related} />
+            )}
           </div>
         </section>
       </article>

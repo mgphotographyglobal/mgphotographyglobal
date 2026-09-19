@@ -403,8 +403,7 @@ export default function DubaiNewbornPhotography() {
                 aria-label="Check Dubai newborn photography availability via WhatsApp"
                 data-wa-location="Hero CTA"
                 data-service-type="newborn_photography"
-                data-pixel-event="Schedule"
-                data-pixel-label="Landing Hero WhatsApp"
+                data-track-event="availability_check_click"
               >
                 <WAIcon />
                 Check Availability on WhatsApp
@@ -657,9 +656,8 @@ export default function DubaiNewbornPhotography() {
                     aria-label={`Book the ${pkg.name} newborn photography collection in Dubai via WhatsApp`}
                     data-wa-location={`Package - ${pkg.name}`}
                     data-service-type="newborn_photography"
-                    data-track-event="book_now_click"
-                    data-pixel-event="Lead"
-                    data-pixel-label={`Book ${pkg.name}`}
+                    data-track-event="package_availability_click"
+                    data-package-name={pkg.name}
                   >
                     <WAIcon />
                     {pkg.cta}
@@ -762,8 +760,6 @@ export default function DubaiNewbornPhotography() {
                   data-wa-location={`Add-on - ${addon.name}`}
                   data-service-type="newborn_photography"
                   data-track-event="addon_click"
-                  data-pixel-event="Lead"
-                  data-pixel-label={`Add-on - ${addon.name}`}
                 >
                   <WAIcon />
                   {addon.cta}
@@ -1016,8 +1012,7 @@ export default function DubaiNewbornPhotography() {
               aria-label="Check Dubai newborn photography session availability via WhatsApp"
               data-wa-location="Final CTA"
               data-service-type="newborn_photography"
-              data-pixel-event="Contact"
-              data-pixel-label="Final CTA WhatsApp"
+              data-track-event="availability_check_click"
             >
               <WAIcon />
               Check Availability on WhatsApp

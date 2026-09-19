@@ -1,17 +1,27 @@
 ---
-title: "Newborn Photography Safety: How We Keep Babies Safe"
-seoTitle: "Newborn Photography Safety: How We Keep Babies Safe | MG Photography UAE"
-metaDescription: "How do professional newborn photographers keep babies safe during a session? A clear look at safe posing, spotting, and what to expect at home in Dubai."
-excerpt: "An honest look at how newborn photography safety actually works — what's established industry practice, what to expect during a home session in Dubai, and the questions worth asking before you book."
-featuredImage: "/images/gallery/newborn-baby-photography-dubai-purple-bonnet-bunny-02.jpg"
-featuredImageAlt: "Photographer's hands supporting a baby during a posed shot — process, not just the final image."
-category: "Newborn Photography"
-tags: ["newborn photography", "Dubai", "safety"]
-author: "MG Photography UAE"
-publishedAt: "2026-09-19"
-status: "draft"
-focusKeyword: "newborn photography safety"
-cluster: "newborn-photography"
+title: 'Newborn Photography Safety: How We Keep Babies Safe'
+seoTitle: 'Newborn Photography Safety: How We Keep Babies Safe | MG Photography UAE'
+metaDescription: >-
+  How do professional newborn photographers keep babies safe during a session? A
+  clear look at safe posing, spotting, and what to expect at home in Dubai.
+excerpt: >-
+  An honest look at how newborn photography safety actually works — what's
+  established industry practice, what to expect during a home session in Dubai,
+  and the questions worth asking before you book.
+featuredImage: /images/gallery/newborn-photography-dubai-purple-theme-parents-hands-01.jpg
+featuredImageAlt: >-
+  Newborn's hands held gently between both parents' hands during a home newborn
+  photography session in Dubai
+category: Newborn Photography
+tags:
+  - newborn photography
+  - Dubai
+  - safety
+author: MG Photography UAE
+publishedAt: '2026-09-19'
+status: published
+focusKeyword: newborn photography safety
+cluster: newborn-photography
 ---
 
 For most parents, the first question about newborn photography isn't about poses or props — it's simpler than that: is this actually safe for my baby? It's a fair question, and a good one to ask before booking anyone. This guide walks through how safety works in newborn photography generally, what's genuinely standard practice, and what you can reasonably expect from a session at home in Dubai.
@@ -30,7 +40,7 @@ At MG Photography UAE, this shows up in a straightforward way: every pose we use
 
 This is also the area where it matters most to ask a photographer directly how they work, rather than assuming — practices genuinely vary between photographers, and a reputable one will be glad to explain theirs.
 
-[MG EDITORIAL INPUT REQUIRED: Describe MG Photography's actual spotting/support practice during posed shots — specifically, is a hand kept on or near the baby at all times, is a parent involved in supporting any poses, and is a second person present to assist? 2–3 sentences, describing what genuinely happens in an MG session, not general industry practice.]
+At MG Photography UAE, support during posing centres on two things: proper equipment and an extra pair of hands. For many poses, we use dedicated half-moon-shaped newborn posing supports — often called "posing beans" — placed beneath the wrap or blanket to cradle and stabilise baby's position from below, rather than relying on props alone to hold a pose. Alongside that, we ask one family member to sit close to the setup throughout, and our assistant gives them simple, clear guidance on how to help keep things safe and steady around the baby. Support isn't something that happens off to the side — it's part of how every pose is actually built.
 
 If you're planning a session, this is a reasonable thing to ask about directly — see [our newborn photography sessions in Dubai](/dubai-newborn-photography/) for more on how we work.
 

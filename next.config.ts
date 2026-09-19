@@ -7,6 +7,13 @@ const nextConfig: NextConfig = {
   // a hybrid app: every route with no dynamic data dependency is still
   // served pre-rendered/static exactly as before, while blog routes use
   // ISR + on-demand revalidation. See docs/BLOG_ADMIN_CHATGPT_WORK_AUTOMATION.md.
+  //
+  // NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY must be set as
+  // Netlify site env vars (any context that builds this site — production,
+  // branch deploys, deploy previews) *before* a build runs: app/lib/blog.ts
+  // creates its Supabase client at module load, so `next build` hard-fails
+  // ("supabaseUrl is required") while collecting page data for the blog
+  // routes if they're missing at build time, not just at request time.
   trailingSlash: true,
 
   images: {

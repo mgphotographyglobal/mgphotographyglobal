@@ -332,12 +332,12 @@ export default function DubaiNewbornPhotography() {
       >
         {/* LCP image — priority loaded */}
         <Image
-          src="/images/hero-basket-newborn.webp"
-          alt="Dubai newborn photographer — luxury newborn photography session by MG Photography UAE"
+          src="/images/hero-basket-newborn-girl.webp"
+          alt="Sleeping newborn baby girl in a floral basket — Dubai newborn photographer MG Photography UAE"
           fill
           priority
           sizes="100vw"
-          style={{ objectFit: "cover", objectPosition: "center 20%" }}
+          style={{ objectFit: "cover", objectPosition: "center 30%" }}
         />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, rgba(10,8,5,0.94) 0%, rgba(10,8,5,0.72) 55%, rgba(10,8,5,0.22) 100%)" }} />
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,8,5,0.92) 0%, transparent 62%)" }} />
@@ -357,12 +357,12 @@ export default function DubaiNewbornPhotography() {
             {/* Trust badge — immediately visible, social proof above fold */}
             <div
               role="img"
-              aria-label="5-star rated Dubai photographer with 500+ families"
+              aria-label="5-star rated Dubai photographer with 100+ families"
               style={{ display: "inline-flex", alignItems: "center", gap: "0.65rem", background: "rgba(201,168,76,0.12)", border: "1px solid rgba(201,168,76,0.32)", padding: "0.45rem 1rem", marginBottom: "1.5rem" }}
             >
               <span style={{ color: "var(--gold)", fontSize: "0.75rem" }} aria-hidden="true">★★★★★</span>
               <span style={{ fontFamily: "var(--font-body)", fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--gold)" }}>
-                Trusted by 500+ UAE Families
+                Trusted by 100+ Families
               </span>
             </div>
 
@@ -452,9 +452,9 @@ export default function DubaiNewbornPhotography() {
           {/* Star rating summary */}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
             <div style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>5.0</div>
-              <div style={{ display: "flex", gap: "2px", color: "var(--gold)", justifyContent: "center", fontSize: "1rem", margin: "0.25rem 0" }} role="img" aria-label="5 out of 5 stars">★★★★★</div>
-              <div style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", color: "rgba(250,246,238,0.5)", letterSpacing: "0.08em" }}>500+ Verified Reviews</div>
+              <div style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 4vw, 3rem)", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>4.4</div>
+              <div style={{ display: "flex", gap: "2px", color: "var(--gold)", justifyContent: "center", fontSize: "1rem", margin: "0.25rem 0" }} role="img" aria-label="4.4 out of 5 stars">★★★★★</div>
+              <div style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", color: "rgba(250,246,238,0.5)", letterSpacing: "0.08em" }}>Rating</div>
             </div>
             <div style={{ width: "1px", height: "3.5rem", background: "rgba(201,168,76,0.2)" }} aria-hidden="true" />
             <div style={{ display: "flex", flexDirection: "column", gap: "0.4rem" }}>
@@ -885,7 +885,7 @@ export default function DubaiNewbornPhotography() {
               { icon: "✏️", title: "Hand-Retouched Images", desc: "Every image individually retouched — warm, soft, cinematic. Never batch processed." },
               { icon: "⚡", title: "5–7 Day Gallery Delivery", desc: "Your private gallery delivered quickly so you can share those precious first moments." },
               { icon: "🎨", title: "Luxury Custom Themes", desc: "Premium props, wraps, backdrops and setups — from classic whites to cultural themes." },
-              { icon: "⭐", title: "500+ Families, 5-Star Reviews", desc: "Trusted by families across Dubai, Abu Dhabi and Sharjah for over 8 years." },
+              { icon: "⭐", title: "100+ Families, 5-Star Reviews", desc: "Trusted by families across Dubai, Abu Dhabi and Sharjah for over 8 years." },
             ].map((t) => (
               <div key={t.title} className="trust-card">
                 <div className="trust-icon" aria-hidden="true">{t.icon}</div>

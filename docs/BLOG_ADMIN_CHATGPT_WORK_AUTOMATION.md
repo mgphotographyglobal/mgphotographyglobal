@@ -169,3 +169,17 @@ table.
   (this ChatGPT Work session, or `scripts/seo/generate.mjs` for the
   legacy markdown flow), and only the *publishing* step moved into the
   database.
+
+## 10. Troubleshooting: "supabaseUrl is required" on a Netlify build
+
+`app/lib/blog.ts` creates its Supabase client at module load time, so
+`next build` fails while collecting page data for the blog routes
+(`Failed to collect page data for /blog/...`) if
+`NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` aren't
+present for that specific build — this is a build-time failure, not
+just a request-time one. If a deploy-preview or branch-deploy build
+fails this way even though the site's env vars look correctly
+configured for that context, it's most likely a propagation delay
+between saving the env var and the next build actually picking it up —
+retry the build (a new commit, or a manual "Clear cache and deploy
+site" from the Netlify UI) rather than assuming the config is wrong.

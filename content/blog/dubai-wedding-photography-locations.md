@@ -11,7 +11,6 @@ author: "MG Photography UAE"
 publishedAt: "2026-09-03"
 status: "published"
 focusKeyword: "wedding photography locations Dubai"
-relatedSlugs: ["maternity-photoshoot-outfit-guide"]
 ---
 
 Dubai's mix of skyline, desert, and coastline gives couples an unusually wide range of settings for wedding photography. Here are five that we return to again and again — and why they work.

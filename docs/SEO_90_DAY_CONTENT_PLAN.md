@@ -57,7 +57,11 @@ only once daily publishing actually begins.
 
 Every published article from the Phase 1 blog build, reviewed for
 standalone reader value — not kept just because it validated the
-technical system. **No statuses were changed as part of this review.**
+technical system.
+
+**Update (Phase 2.5 cleanup, completed):** the two action items below
+have been carried out — see the Phase 2.5 Cleanup Log at the end of this
+document for exactly what changed.
 
 | Article | Verdict | Reasoning |
 |---|---|---|
@@ -65,29 +69,30 @@ technical system. **No statuses were changed as part of this review.**
 | `newborn-photoshoot-timing-dubai` | **KEEP** | Real informational value (the 5–14 day window), distinct intent from the other two newborn posts. |
 | `newborn-session-preparation-guide` | **KEEP** | Practical, distinct checklist intent. |
 | `dubai-wedding-photography-locations` | **KEEP** | Genuinely distinct from the existing `/guides/dubai-wedding-photography-guide/` (locations vs. choosing-a-photographer). |
-| `maternity-photoshoot-outfit-guide` | **MERGE / RETARGET** — see Cannibalization Audit below. This post and the pre-existing static page `/guides/what-to-wear-maternity-photoshoot/` target the *same* search intent and the *same* keyword ("what to wear for a maternity photoshoot"). Recommendation: either (a) retarget this blog post to a genuinely different angle (e.g. sourcing/renting gowns in Dubai) and let the older, already-indexed `/guides/` page keep the "what to wear" intent, or (b) merge the two and canonicalize one to the other. **Do not publish more content that duplicates this intent.** |
-| `family-photoshoot-props-ideas` (**draft**) | **REMOVE** | This is explicitly test/placeholder content created only to validate the draft-vs-published pipeline (its own title says "Draft — Not Yet Published" and its body is a one-paragraph explanation of that fact). It has zero standalone reader value and should never be published. Recommend deleting the file entirely in a future pass rather than ever setting `status: published`. |
+| `maternity-photoshoot-outfit-guide` | **REMOVED (Phase 2.5)** | Duplicated `/guides/what-to-wear-maternity-photoshoot/` — same intent, same target keyword. Its two genuinely unique tips were merged into the static guide, the blog file was deleted, and a 301 redirect now points the old URL to the canonical guide. |
+| `family-photoshoot-props-ideas` (**draft**) | **REMOVED (Phase 2.5)** | Was explicitly test/placeholder content created only to validate the draft-vs-published pipeline, with zero standalone reader value. File deleted. |
 
 ## 3. Cannibalization Audit
 
 The most important finding of this audit: **the previous blog phase did
 not cross-check against the site's pre-existing static `/guides/` pages**,
-and one real overlap resulted (see `maternity-photoshoot-outfit-guide`
-above). This plan corrects course two ways: (1) it flags the existing
-overlap rather than compounding it, and (2) every one of the 90 planned
-articles below was checked against all four `/guides/` pages, all 5
+and one real overlap resulted (`maternity-photoshoot-outfit-guide` vs.
+`/guides/what-to-wear-maternity-photoshoot/`). **This has been resolved**
+as part of the Phase 2.5 cleanup — see the Cleanup Log at the end of this
+document. This plan corrects course two ways going forward: (1) it no
+longer carries that overlap, and (2) every one of the 90 planned articles
+below was checked against all four `/guides/` pages, the (now 4)
 published blog posts, and every other planned article in this same list.
 
-**Confirmed/flagged risks** (all other 86 planned articles: **None** — no
+**Confirmed/flagged risks** (all other 87 planned articles: **None** — no
 overlapping existing page identified):
 
 | Planned article | Existing page it's close to | Risk | Action |
 |---|---|---|---|
-| *(existing, not new)* `maternity-photoshoot-outfit-guide` | `/guides/what-to-wear-maternity-photoshoot/` | **High** | See Sample Content Review above — retarget or merge, not part of the 90-day plan itself. |
 | Day 79 — Maternity Photography Locations in Dubai | `/guides/outdoor-photoshoot-locations-dubai/` | Low | Keep separate — scope strictly to MG Photography's own studio-style/outdoor options and maternity-specific comfort, not a general Dubai location list. |
 | Day 76 — Questions to Ask Before Booking a Destination Wedding Photographer | `/guides/dubai-wedding-photography-guide/` | **Medium** | Keep scoped specifically to destination/travel logistics; link to the existing guide for general selection criteria rather than repeating them. If the angle can't stay genuinely distinct at drafting time, retarget instead of publishing. |
 | Day 5 — Complete Guide to Family Photography in Dubai (pillar) | `/guides/outdoor-photoshoot-locations-dubai/` | Low | Different intent (planning a family session vs. choosing a location) — must not become a locations list. |
-| Day 13 — What to Wear for Your Newborn Photoshoot | `maternity-photoshoot-outfit-guide` / `/guides/what-to-wear-maternity-photoshoot/` | Low | Distinct — parent wardrobe for a *newborn* session, not maternity wardrobe. |
+| Day 13 — What to Wear for Your Newborn Photoshoot | `/guides/what-to-wear-maternity-photoshoot/` | Low | Distinct — parent wardrobe for a *newborn* session, not maternity wardrobe. |
 
 **Deliberately excluded topics** (considered and rejected specifically to
 avoid cannibalization or thin duplication):
@@ -534,7 +539,7 @@ plan moves deeper into any single cluster.
 - **Outgoing links:** /dubai-newborn-photography/ ("our newborn photography sessions in Dubai"); /blog/newborn-photography-complete-guide/ ("our complete newborn photography guide"); /blog/newborn-photography-safety-how-we-keep-babies-safe/ ("more on newborn photography safety"); /blog/at-home-vs-studio-newborn-photography-what-s-the-difference/ ("how we approach at-home vs studio newborn photography")
 - **Incoming link opportunities:** from "Newborn Photography Safety: How We Keep Babies Safe" ("our guide to what to wear for your newborn photoshoot"); from "At-Home vs Studio Newborn Photography: What's the Difference" ("what to wear for your newborn photoshoot"); from "What's Included in a Newborn Photography Package?" ("more on what to wear for your newborn photoshoot")
 - **Related articles:** Newborn Photography Safety: How We Keep Babies Safe; At-Home vs Studio Newborn Photography: What's the Difference; What's Included in a Newborn Photography Package?
-- **Cannibalization risk:** Low — Distinct from /blog/maternity-photoshoot-outfit-guide/ and /guides/what-to-wear-maternity-photoshoot/ — this covers PARENT wardrobe for a newborn session, not maternity wardrobe. Keep separate; do not reuse maternity phrasing.
+- **Cannibalization risk:** Low — Distinct from /guides/what-to-wear-maternity-photoshoot/ (the canonical "what to wear" page for maternity) — this covers PARENT wardrobe for a newborn session, not maternity wardrobe. Keep separate; do not reuse maternity phrasing.
 - **E-E-A-T:** No — Standalone-useful without requiring a specific client example.
 - **Featured image concept:** Parents in soft neutral tones holding their wrapped newborn.
 - **SEO title idea:** What to Wear for Your Newborn Photoshoot: A Parent's Guide | MG Photography UAE
@@ -1103,3 +1108,30 @@ documentation of the intended handoff only.
 No other files were changed. No article content was written, no
 frontmatter `status` fields were modified, and no articles were
 published, per the task's explicit scope.
+
+## 16. Phase 2.5 Cleanup Log
+
+A fast follow-up pass resolved the two conflicts this document flagged,
+before daily publishing (Phase 3) begins:
+
+- **`content/blog/maternity-photoshoot-outfit-guide.md` deleted.** It
+  duplicated `/guides/what-to-wear-maternity-photoshoot/` (same intent,
+  same target keyword). The older static guide was kept as canonical —
+  it was more complete and already indexed/linked (Footer, sitemap). Its
+  two genuinely unique tips ("fitted underneath, flowing on top" and
+  "bring a second outfit") were merged into the static guide. A permanent
+  301 redirect (`netlify.toml`) now sends
+  `/blog/maternity-photoshoot-outfit-guide/` to
+  `/guides/what-to-wear-maternity-photoshoot/`. The one internal
+  reference to the deleted post (`relatedSlugs` in
+  `dubai-wedding-photography-locations.md`) was removed.
+- **`content/blog/family-photoshoot-props-ideas.md` deleted.** It was
+  explicit pipeline-test content ("Draft — Not Yet Published" in its own
+  title) with zero reader value and was never linked from anywhere.
+- **`docs/INTERNAL_LINKING.md`** link map updated to drop both removed
+  posts and add the static guide as the canonical maternity-outfit URL.
+- No changes were made to `docs/SEO_90_DAY_CONTENT_PLAN.json`'s 90
+  planned slots — none of them conflicted with a retained `/guides/`
+  page. Only the audit narrative in this file and one stale
+  `cannibalizationNotes` string (Day 13) were updated to stop referencing
+  the now-deleted post.

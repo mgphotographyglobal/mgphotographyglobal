@@ -135,19 +135,27 @@ automatically.
 
 ## Current internal link map
 
-Generated from the actual repository content as of this change (5
-published posts, 2 with only one article in their category so far).
+Generated from the actual repository content as of this change (4
+published posts).
+
+> **Phase 2.5 cleanup note:** `/blog/maternity-photoshoot-outfit-guide/`
+> and the test-only draft `/blog/family-photoshoot-props-ideas/` were
+> removed from `content/blog/`. The maternity outfit post duplicated the
+> older, more complete `/guides/what-to-wear-maternity-photoshoot/` page
+> (same search intent); its two genuinely unique tips were merged into
+> that page, and a 301 redirect (`netlify.toml`) now sends the old blog
+> URL to the canonical guide. See `docs/SEO_90_DAY_CONTENT_PLAN.md` for
+> the full cannibalization writeup.
 
 | Page | Type | Category / Cluster | Pillar? | Target Service | Links To | Linked From |
 |---|---|---|---|---|---|---|
 | `/blog/newborn-photography-complete-guide/` | Pillar article | Newborn Photography | **Yes** | `/dubai-newborn-photography/` | Newborn service page; `newborn-photoshoot-timing-dubai`; `newborn-session-preparation-guide` | Newborn service pages (Dubai/Abu Dhabi/Sharjah — Helpful Guides, shown first); `newborn-photoshoot-timing-dubai` (PillarCallout + Related); `newborn-session-preparation-guide` (PillarCallout + in-body + Related) |
-| `/blog/newborn-photoshoot-timing-dubai/` | Supporting article | Newborn Photography | No | `/dubai-newborn-photography/` | Newborn service page; `newborn-session-preparation-guide` | Newborn service pages (Helpful Guides); pillar (in-body + Supporting Guides grid); `newborn-session-preparation-guide` (in-body + Related); `maternity-photoshoot-outfit-guide` (Related, shared tag "Dubai") |
+| `/blog/newborn-photoshoot-timing-dubai/` | Supporting article | Newborn Photography | No | `/dubai-newborn-photography/` | Newborn service page; `newborn-session-preparation-guide` | Newborn service pages (Helpful Guides); pillar (in-body + Supporting Guides grid); `newborn-session-preparation-guide` (in-body + Related) |
 | `/blog/newborn-session-preparation-guide/` | Supporting article | Newborn Photography | No | `/dubai-newborn-photography/` | Newborn service page; pillar; `newborn-photoshoot-timing-dubai` | Newborn service pages (Helpful Guides); pillar (in-body + Supporting Guides grid); `newborn-photoshoot-timing-dubai` (in-body + Related) |
-| `/blog/maternity-photoshoot-outfit-guide/` | Standalone article (only post in category so far) | Maternity Photography | No | `/maternity-photography-dubai/` | Maternity service page | Maternity service pages (Dubai + Abu Dhabi, Helpful Guides); `dubai-wedding-photography-locations` (Related, explicit + shared tag) |
-| `/blog/dubai-wedding-photography-locations/` | Standalone article (only post in category so far) | Wedding Photography | No | `/wedding-photography-dubai/` | Wedding + Pre-Wedding service pages | Wedding service pages (Dubai + Abu Dhabi, Helpful Guides); `maternity-photoshoot-outfit-guide` (Related, shared tag "Dubai") |
-| `/blog/family-photoshoot-props-ideas/` | **Draft** — excluded from build | Outdoor Photography | No | — | — (not built) | — (not built, not linked anywhere) |
+| `/blog/dubai-wedding-photography-locations/` | Standalone article (only post in category so far) | Wedding Photography | No | `/wedding-photography-dubai/` | Wedding + Pre-Wedding service pages | Wedding service pages (Dubai + Abu Dhabi, Helpful Guides) |
+| `/guides/what-to-wear-maternity-photoshoot/` | Static guide (pre-existing, outside the blog system) | Maternity Photography | — (not part of the pillar/cluster system) | `/maternity-photography-dubai/` | Maternity service page | Footer ("Photography Guides"); sitemap.ts |
 
-**Recommended action:** the Baby, Pre-Wedding, Outdoor, Birthday,
+**Recommended action:** the Baby, Maternity, Pre-Wedding, Outdoor, Birthday,
 Real Estate and Architecture Photography service pages currently have no
 matching blog articles, so their "Helpful Guides" section doesn't render
 yet (this is correct behavior, not a bug — the section only appears once

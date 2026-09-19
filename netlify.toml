@@ -49,6 +49,23 @@
   status = 301
   force = true
 
+# Retired duplicate: /blog/maternity-photoshoot-outfit-guide/ covered the same
+# "what to wear for a maternity photoshoot" intent as the older, more complete
+# /guides/what-to-wear-maternity-photoshoot/ page. The blog post was removed
+# from content/blog/ (Phase 2.5 cleanup) in favour of the static guide, which
+# is kept as the single canonical URL for this intent.
+[[redirects]]
+  from = "/blog/maternity-photoshoot-outfit-guide"
+  to = "/guides/what-to-wear-maternity-photoshoot/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog/maternity-photoshoot-outfit-guide/"
+  to = "/guides/what-to-wear-maternity-photoshoot/"
+  status = 301
+  force = true
+
 # Short-URL aliases now serve real content directly (see app/newborn-photography/page.tsx)
 # — no redirect needed. A Netlify redirect here would silently override that fix for
 # any direct/server-side visit (typed URL, external link, refresh), even though

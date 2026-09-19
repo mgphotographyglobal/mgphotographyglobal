@@ -117,7 +117,7 @@ export default function ContactForm() {
       </div>
 
       <p className="body-sm" style={{ fontSize: "0.75rem", textAlign: "center" }}>
-        By submitting, you agree to our <a href="/terms" style={{ color: "var(--gold)", textDecoration: "none" }}>Terms & Conditions</a>.
+        By submitting, you agree to our <a href="/terms/" style={{ color: "var(--gold)", textDecoration: "none" }}>Terms & Conditions</a>.
       </p>
     </form>
   );

@@ -4,19 +4,31 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/validate-internal-links.mjs",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:links": "node scripts/validate-internal-links.mjs",
+    "suggest:links": "node scripts/suggest-internal-links.mjs",
+    "seo:next": "node scripts/seo/next.mjs",
+    "seo:status": "node scripts/seo/status.mjs",
+    "seo:prepare": "node scripts/seo/prepare.mjs",
+    "seo:approve": "node scripts/seo/approve.mjs",
+    "seo:publish": "node scripts/seo/publish.mjs",
+    "seo:skip": "node scripts/seo/skip.mjs"
   },
   "dependencies": {
     "@next/third-parties": "^16.3.0",
+    "gray-matter": "^4.0.3",
     "lucide-react": "^1.14.0",
+    "markdown-it": "^15.0.2",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/markdown-it": "^14.2.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

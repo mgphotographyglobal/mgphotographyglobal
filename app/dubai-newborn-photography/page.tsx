@@ -12,6 +12,7 @@ import type { Metadata } from "next";
 import Footer from "../components/Footer";
 import MobileStickyCTA from "../components/MobileStickyCTA";
 import Header from "../components/Header";
+import LaunchOfferPopup from "../components/LaunchOfferPopup";
 import { PackageIcon, type PackageIconType } from "../components/PackageIcons";
 import { getPostsByCategory } from "../lib/blog";
 
@@ -322,6 +323,7 @@ export default function DubaiNewbornPhotography() {
 
       <Header />
       <MobileStickyCTA />
+      <LaunchOfferPopup />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section

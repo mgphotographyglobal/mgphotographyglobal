@@ -950,3 +950,134 @@ img {
   .service-tile-grid { grid-auto-rows: 165px !important; }
   .service-tile-grid > a.service-tile-hero { grid-auto-rows: 210px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════
+   LAUNCH OFFER POPUP — /dubai-newborn-photography only
+   ═══════════════════════════════════════════════════════════════════ */
+@keyframes launchOfferIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.launch-offer-popup {
+  position: fixed;
+  z-index: 980;
+  bottom: 6rem;
+  right: 1.5rem;
+  width: min(300px, calc(100vw - 2.5rem));
+  padding: 1.25rem 1.25rem 1.35rem;
+  background: linear-gradient(160deg, #1c1408 0%, #0f0c08 60%, #1a1208 100%);
+  border: 1px solid rgba(201, 168, 76, 0.35);
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(201, 168, 76, 0.08);
+  animation: launchOfferIn 0.5s var(--ease-cinematic) both;
+}
+
+.launch-offer-close {
+  position: absolute;
+  top: 0.55rem;
+  right: 0.55rem;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 50%;
+  color: rgba(250, 246, 238, 0.75);
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.25s var(--ease-cinematic);
+}
+.launch-offer-close:hover {
+  color: var(--gold-light);
+  border-color: var(--gold);
+  background: rgba(201, 168, 76, 0.12);
+}
+
+.launch-offer-badge {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--gold-light);
+  margin-bottom: 0.6rem;
+  padding-right: 1.5rem;
+}
+.launch-offer-badge-mobile { display: none; }
+
+.launch-offer-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-display);
+}
+.launch-offer-price-old {
+  font-size: 0.95rem;
+  color: rgba(250, 246, 238, 0.45);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+.launch-offer-price-new {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: -0.01em;
+}
+
+.launch-offer-copy {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: rgba(250, 246, 238, 0.7);
+  margin-bottom: 1rem;
+}
+.launch-offer-copy-mobile { display: none; }
+
+.launch-offer-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  min-height: 44px;
+  background: #25D366;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all 0.3s var(--ease-cinematic);
+}
+.launch-offer-cta:hover {
+  background: #1fbc5a;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.35);
+}
+
+@media (max-width: 640px) {
+  .launch-offer-popup {
+    left: 1rem;
+    right: 1rem;
+    bottom: calc(12rem + env(safe-area-inset-bottom));
+    width: auto;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 1.1rem 1.1rem 1.2rem;
+  }
+  .launch-offer-badge-desktop { display: none; }
+  .launch-offer-badge-mobile { display: block; }
+  .launch-offer-copy-desktop { display: none; }
+  .launch-offer-copy-mobile { display: block; }
+  .launch-offer-price-new { font-size: 1.4rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-offer-popup { animation: none; }
+}

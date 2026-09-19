@@ -5,13 +5,15 @@ import { getPublishedPosts, POSTS_PER_PAGE } from "../../../lib/blog";
 
 type Params = { page: string };
 
-export function generateStaticParams() {
-  const totalPages = Math.max(1, Math.ceil(getPublishedPosts().length / POSTS_PER_PAGE));
-  // Static export requires at least one generated param for this route to
-  // exist at all. Once there's genuinely only one page of posts, "page 2"
-  // still needs a static param to satisfy that constraint — the page
-  // component itself calls notFound() for any page beyond what exists, so
-  // this never produces a real, linkable dead page.
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  const totalPages = Math.max(1, Math.ceil((await getPublishedPosts()).length / POSTS_PER_PAGE));
+  // At least one generated param keeps this route pre-rendered even when
+  // there's genuinely only one page of posts today — the page component
+  // itself calls notFound() for any page beyond what currently exists, and
+  // newly-crossed page thresholds are picked up by ISR (`revalidate` above)
+  // without a redeploy.
   const extraPages = Math.max(1, totalPages - 1);
   return Array.from({ length: extraPages }, (_, i) => ({
     page: String(i + 2),
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 export default async function BlogPagePaginated({ params }: { params: Promise<Params> }) {
   const { page: pageParam } = await params;
   const page = Number(pageParam);
-  const totalPages = Math.max(1, Math.ceil(getPublishedPosts().length / POSTS_PER_PAGE));
+  const totalPages = Math.max(1, Math.ceil((await getPublishedPosts()).length / POSTS_PER_PAGE));
 
   if (!Number.isInteger(page) || page < 2 || page > totalPages) notFound();
 

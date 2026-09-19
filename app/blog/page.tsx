@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import BlogIndex from "./BlogIndex";
 
+// Time-based revalidation as a safety net; publishing from /admin/blog
+// also explicitly revalidates this path on demand (see lib/blog-admin/
+// actions.ts), so new posts normally appear immediately, not after a delay.
+export const revalidate = 300;
+
 export const metadata: Metadata = {
   title: "Photography Blog | Guides & Stories | MG Photography UAE",
   description:

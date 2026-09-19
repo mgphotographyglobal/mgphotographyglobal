@@ -15,10 +15,10 @@ import {
   getRelatedPosts,
   getPillarForCluster,
   getClusterPosts,
+  getAllTags,
   clusterKey,
   categorySlug,
   tagSlug,
-  isTagLinkable,
   postCanonicalUrl,
   postUrl,
   BLOG_SITE_URL,
@@ -27,13 +27,18 @@ import { resolveCta } from "../../lib/blogCta";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return getPublishedPosts().map((post) => ({ slug: post.slug }));
+// Revalidated on demand by the admin publish action (see
+// lib/blog-admin/actions.ts) — this time-based value is only a safety net
+// in case a revalidation call is ever missed.
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return (await getPublishedPosts()).map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) return {};
 
   const canonical = postCanonicalUrl(post);
@@ -68,13 +73,17 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 export default async function BlogArticlePage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
   if (!post) notFound();
 
   const cluster = clusterKey(post);
-  const pillar = post.isPillar ? undefined : getPillarForCluster(cluster);
-  const supportingPosts = post.isPillar ? getClusterPosts(cluster, post.slug) : [];
-  const related = getRelatedPosts(post, 3);
+  const [pillar, supportingPosts, related, linkableTags] = await Promise.all([
+    post.isPillar ? Promise.resolve(undefined) : getPillarForCluster(cluster),
+    post.isPillar ? getClusterPosts(cluster, post.slug) : Promise.resolve([]),
+    post.isPillar ? Promise.resolve([]) : getRelatedPosts(post, 3),
+    getAllTags(),
+  ]);
+  const linkableTagSlugs = new Set(linkableTags.map((t) => t.slug));
   const cta = resolveCta(post.category, post.cta);
 
   const articleJsonLd = {
@@ -170,7 +179,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<Para
             {post.tags && post.tags.length > 0 && (
               <nav aria-label="Article tags" style={{ display: "flex", flexWrap: "wrap", gap: "0.6rem", marginTop: "2.5rem" }}>
                 {post.tags.map((tag) =>
-                  isTagLinkable(tag) ? (
+                  linkableTagSlugs.has(tagSlug(tag)) ? (
                     <Link
                       key={tag}
                       href={`/blog/tag/${tagSlug(tag)}/`}

@@ -1,9 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getPublishedPosts, getAllCategories, getAllTags, postCanonicalUrl } from "./lib/blog";
 
-// Required for metadata-route files (sitemap.xml, robots.txt) under
-// output: "export" — they must be fully static, generated once at build time.
-export const dynamic = "force-static";
+// Now that the site is no longer output:"export" (blog content is
+// database-backed), the sitemap is regenerated periodically instead of
+// once at build time, so newly published posts appear without a redeploy.
+export const revalidate = 300;
 
 const SITE_URL = "https://mgphotographyglobal.com";
 
@@ -37,14 +38,14 @@ const staticRoutes: { path: string; changeFrequency: MetadataRoute.Sitemap[numbe
   { path: "/guides/dubai-wedding-photography-guide/", changeFrequency: "yearly", priority: 0.6 },
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const entries: MetadataRoute.Sitemap = staticRoutes.map((r) => ({
     url: `${SITE_URL}${r.path}`,
     changeFrequency: r.changeFrequency,
     priority: r.priority,
   }));
 
-  const posts = getPublishedPosts();
+  const posts = await getPublishedPosts();
 
   entries.push({
     url: `${SITE_URL}/blog/`,
@@ -66,7 +67,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const category of getAllCategories()) {
+  for (const category of await getAllCategories()) {
     entries.push({
       url: `${SITE_URL}/blog/category/${category.slug}/`,
       changeFrequency: "weekly",
@@ -74,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
-  for (const tag of getAllTags()) {
+  for (const tag of await getAllTags()) {
     entries.push({
       url: `${SITE_URL}/blog/tag/${tag.slug}/`,
       changeFrequency: "weekly",

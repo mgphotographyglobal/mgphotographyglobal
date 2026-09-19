@@ -9,13 +9,15 @@ import { getAllTags, getPostsByTag } from "../../../lib/blog";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return getAllTags().map((t) => ({ slug: t.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return (await getAllTags()).map((t) => ({ slug: t.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const tag = getAllTags().find((t) => t.slug === slug);
+  const tag = (await getAllTags()).find((t) => t.slug === slug);
   if (!tag) return {};
 
   return {
@@ -27,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 export default async function TagPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const tag = getAllTags().find((t) => t.slug === slug);
+  const tag = (await getAllTags()).find((t) => t.slug === slug);
   if (!tag) notFound();
 
-  const posts = getPostsByTag(slug);
+  const posts = await getPostsByTag(slug);
 
   return (
     <>

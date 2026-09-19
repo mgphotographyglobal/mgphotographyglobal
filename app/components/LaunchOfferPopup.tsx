@@ -80,8 +80,7 @@ export default function LaunchOfferPopup() {
         aria-label="Claim the AED 500 newborn photography launch offer on WhatsApp"
         data-wa-location="Launch Offer Popup"
         data-service-type="newborn_photography"
-        data-pixel-event="Lead"
-        data-pixel-label="Launch Offer Popup WhatsApp"
+        data-track-event="launch_offer_availability_click"
         data-package-name="Essence Launch Offer"
       >
         <WAIcon />

@@ -1,3 +1,13 @@
+> **Superseded by the Phase 4 Blog Admin Panel.** Publishing no longer
+> requires a git commit or a full site rebuild — new articles are created,
+> reviewed, and published through `/admin/blog` (Supabase-backed), with
+> targeted revalidation instead of a redeploy. See
+> `docs/BLOG_ADMIN_CHATGPT_WORK_AUTOMATION.md` for the current workflow.
+> This document (and the `scripts/seo/*` commands below) is kept for
+> reference and as a rollback path — it still works against
+> `content/blog/*.md`, which has not been deleted — but is no longer the
+> primary publishing path.
+
 # SEO Daily Publishing Workflow (Phase 3)
 
 Turns one item from `docs/SEO_90_DAY_CONTENT_PLAN.json` (the single

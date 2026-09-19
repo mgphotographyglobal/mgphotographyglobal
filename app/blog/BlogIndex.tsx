@@ -5,8 +5,8 @@ import BlogCard from "./components/BlogCard";
 import Pagination from "./components/Pagination";
 import { getPublishedPosts, POSTS_PER_PAGE } from "../lib/blog";
 
-export default function BlogIndex({ page }: { page: number }) {
-  const posts = getPublishedPosts();
+export default async function BlogIndex({ page }: { page: number }) {
+  const posts = await getPublishedPosts();
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
   const start = (page - 1) * POSTS_PER_PAGE;
   const pagePosts = posts.slice(start, start + POSTS_PER_PAGE);

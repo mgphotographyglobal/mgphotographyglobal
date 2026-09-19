@@ -27,7 +27,7 @@ interface ServicePageProps {
   };
 }
 
-export default function ServicePageTemplate({ service }: ServicePageProps) {
+export default async function ServicePageTemplate({ service }: ServicePageProps) {
   const whatsappMsg = encodeURIComponent(`Hi MG Photography UAE, I'm interested in ${service.title} in ${service.location}. Please share more details.`);
   const SITE_URL = "https://mgphotographyglobal.com";
   const pageUrl = `${SITE_URL}${service.canonicalPath}`;
@@ -78,7 +78,7 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
   // so no article URLs are ever hardcoded per service page. Only published
   // posts can appear here. Pillar articles surface first since they're the
   // most complete resource for the topic.
-  const helpfulArticles = getPostsByCategory(categorySlug(service.title))
+  const helpfulArticles = (await getPostsByCategory(categorySlug(service.title)))
     .slice()
     .sort((a, b) => {
       if (a.isPillar !== b.isPillar) return a.isPillar ? -1 : 1;

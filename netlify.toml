@@ -1,6 +1,12 @@
 [build]
   command = "npm run build"
-  publish = "out"
+  # No `publish` directory set on purpose: the site is no longer a static
+  # export (blog content is now database-backed with on-demand
+  # revalidation — see docs/BLOG_ADMIN_CHATGPT_WORK_AUTOMATION.md). Netlify
+  # auto-detects the Next.js Runtime from the absence of output:"export"
+  # in next.config.ts and manages build output/deployment itself; every
+  # page with no dynamic data dependency is still served static/pre-rendered
+  # exactly as before.
 
 [build.environment]
   NODE_VERSION = "20"
@@ -77,7 +83,7 @@
   status = 301
 
 # NOTE: no SPA-fallback ("/* -> /index.html" status 200) rule here on purpose.
-# This is a fully static export with a real pre-rendered HTML file for every route
-# (trailingSlash: true), so a catch-all fallback isn't needed — and if added, it
-# would mask genuinely missing/mistyped URLs as soft-404s (200 status, homepage
-# content) instead of returning a real 404, which actively hurts crawlability.
+# The Next.js Runtime serves a real 404 for genuinely missing/mistyped URLs
+# (including unknown blog slugs) — a catch-all fallback would turn those
+# into soft-404s (200 status, homepage content) instead, which actively
+# hurts crawlability.

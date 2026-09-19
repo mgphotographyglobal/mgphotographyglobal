@@ -9,13 +9,15 @@ import { getAllCategories, getPostsByCategory } from "../../../lib/blog";
 
 type Params = { slug: string };
 
-export function generateStaticParams() {
-  return getAllCategories().map((c) => ({ slug: c.slug }));
+export const revalidate = 300;
+
+export async function generateStaticParams() {
+  return (await getAllCategories()).map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { slug } = await params;
-  const category = getAllCategories().find((c) => c.slug === slug);
+  const category = (await getAllCategories()).find((c) => c.slug === slug);
   if (!category) return {};
 
   return {
@@ -27,10 +29,10 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
 
 export default async function CategoryPage({ params }: { params: Promise<Params> }) {
   const { slug } = await params;
-  const category = getAllCategories().find((c) => c.slug === slug);
+  const category = (await getAllCategories()).find((c) => c.slug === slug);
   if (!category) notFound();
 
-  const posts = getPostsByCategory(slug);
+  const posts = await getPostsByCategory(slug);
 
   return (
     <>

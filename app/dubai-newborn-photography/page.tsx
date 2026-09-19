@@ -300,11 +300,11 @@ const WAIcon = () => (
 );
 
 // ─── Component ────────────────────────────────────────────────────────────────
-export default function DubaiNewbornPhotography() {
+export default async function DubaiNewbornPhotography() {
   // Data-driven — matches this page's service against the blog's "Newborn
   // Photography" category, so new articles appear here automatically with
   // no edits to this file. Only published posts can appear.
-  const helpfulArticles = getPostsByCategory("newborn-photography")
+  const helpfulArticles = (await getPostsByCategory("newborn-photography"))
     .slice()
     .sort((a, b) => {
       if (a.isPillar !== b.isPillar) return a.isPillar ? -1 : 1;

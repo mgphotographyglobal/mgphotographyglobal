@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 
 const WA_URL =
-  "https://wa.me/971588764748?text=Hi%2C%20I%E2%80%99d%20like%20to%20claim%20the%20AED%20500%20newborn%20photography%20launch%20offer.";
+  "https://wa.me/971588764748?text=Hi%20MG%20Photography%20UAE%2C%20I%E2%80%99m%20interested%20in%20the%20AED%20500%20Essence%20newborn%20launch%20offer.%20Could%20you%20please%20confirm%20availability%3F%20My%20baby%20is%20___%20days%20old%20and%20I%E2%80%99m%20in%20___%20area.";
 const SESSION_KEY = "mg-launch-offer-dismissed";
 
 const WAIcon = () => (
@@ -65,11 +65,11 @@ export default function LaunchOfferPopup() {
       </div>
 
       <p className="launch-offer-copy launch-offer-copy-desktop">
-        Book your newborn photoshoot at our special launch price for a limited time.
-        Click WhatsApp to claim the offer.
+        Essence Collection launch price: AED 500 + AED 100 Dubai home visit
+        (AED 600 total). Check your date on WhatsApp.
       </p>
       <p className="launch-offer-copy launch-offer-copy-mobile">
-        Limited-time newborn offer.
+        Essence AED 500 + AED 100 Dubai home visit.
       </p>
 
       <a
@@ -82,9 +82,10 @@ export default function LaunchOfferPopup() {
         data-service-type="newborn_photography"
         data-pixel-event="Lead"
         data-pixel-label="Launch Offer Popup WhatsApp"
+        data-package-name="Essence Launch Offer"
       >
         <WAIcon />
-        WhatsApp Now
+        Check Offer Availability
       </a>
     </div>
   );

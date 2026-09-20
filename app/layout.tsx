@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: "%s",
   },
   description:
-    "Newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star Google reviews. Home & studio sessions across Dubai, Abu Dhabi & Sharjah. Book via WhatsApp.",
+    "Newborn photography at your home in Dubai, plus baby, maternity, family and wedding photography. Explore our portfolio and enquire via WhatsApp.",
   keywords: [
     "Dubai Newborn Photographer",
     "Newborn Photography Dubai",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "MG Photography UAE",
     title: "Dubai Newborn, Baby & Maternity Photography | MG Photography UAE",
     description:
-      "Luxury newborn, baby, maternity & family photography in Dubai. 500+ families. 5-star reviews. Home & studio sessions. Book via WhatsApp.",
+      "Newborn photography at your home in Dubai, plus baby, maternity, family and wedding photography. Explore our portfolio and enquire via WhatsApp.",
     images: [
       {
         url: "/images/hero-basket-newborn.webp",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dubai Newborn, Baby & Maternity Photography | MG Photography UAE",
     description:
-      "Luxury photography for Dubai families. 500+ sessions. 5-star reviews. Book via WhatsApp.",
+      "Newborn photography at your home in Dubai, plus baby, maternity, family and wedding photography. Explore our portfolio and enquire via WhatsApp.",
     images: ["/images/hero-basket-newborn.webp"],
   },
   icons: { icon: "/favicon.ico", shortcut: "/favicon.ico" },
@@ -98,7 +98,7 @@ const organizationSchema = {
   name: "MG Photography UAE",
   alternateName: "MG Photography Dubai",
   description:
-    "Luxury photography studio specialising in newborn, maternity, baby, family and wedding photography across Dubai, Abu Dhabi and Sharjah, UAE.",
+    "Photography service specialising in newborn home visits, maternity, baby, family and wedding photography across Dubai, Abu Dhabi and Sharjah, UAE.",
   url: SITE_URL,
   telephone: "+971588764748",
   image: `${SITE_URL}/images/hero-basket-newborn.webp`,

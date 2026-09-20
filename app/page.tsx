@@ -9,13 +9,13 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Dubai Newborn, Baby & Maternity Photography | MG",
-  description: "Newborn, baby, maternity, family & wedding photography in Dubai. 500+ families. 5-star reviews. Book via WhatsApp.",
+  description: "Newborn photography at your home in Dubai, plus baby, maternity, family and wedding photography. Explore our portfolio and enquire via WhatsApp.",
   keywords:
     "Dubai Newborn Photographer, Newborn Photography Dubai, Baby Photoshoot Dubai, Maternity Photographer Dubai, Family Photographer Dubai, Wedding Photographer Dubai",
   openGraph: {
     title: "Dubai Newborn, Baby & Maternity Photography | MG Photography UAE",
     description:
-      "Luxury newborn, baby, maternity & family photography in Dubai. 500+ families photographed. Book your session today.",
+      "Newborn photography at your home in Dubai, plus baby, maternity, family and wedding photography. Explore our portfolio and enquire via WhatsApp.",
     type: "website",
     locale: "en_AE",
   },
@@ -92,7 +92,7 @@ const trustPoints = [
   { icon: "📸", title: "500+ Sessions", desc: "Trusted by families across Dubai, Abu Dhabi & Sharjah" },
   { icon: "✏️", title: "Professional Editing", desc: "Hand-retouched images — never batch processed" },
   { icon: "🎨", title: "Luxury Themes", desc: "Premium setups, backdrops & carefully curated props" },
-  { icon: "🏠", title: "Home & Studio", desc: "We come to you, or welcome you to our studio" },
+  { icon: "🏠", title: "Newborn Home Visits", desc: "We bring the newborn photography setup to your Dubai home" },
   { icon: "⚡", title: "Fast Delivery", desc: "Gallery delivered within 5–7 working days" },
   { icon: "⭐", title: "5-Star Reviews", desc: "100% of clients would recommend MG Photography" },
 ];
@@ -221,7 +221,7 @@ export default function HomePage() {
                 "✓ Dubai Based Photographer",
                 "✓ 500+ Families Photographed",
                 "✓ 5-Star Client Reviews",
-                "✓ Home & Studio Sessions Available",
+                "✓ Newborn Home Visits in Dubai",
               ].map((item) => (
                 <span key={item} style={{ fontSize: "clamp(0.7rem, 1.4vw, 0.8rem)", color: "rgba(250,246,238,0.85)", fontFamily: "var(--font-body)", fontWeight: 500, letterSpacing: "0.01em" }}>
                   {item}
@@ -335,7 +335,7 @@ export default function HomePage() {
                 {[
                   "Sessions in the first 14 days — when they curl & sleep deeply",
                   "Newborn-safe posing by certified photographer",
-                  "Home visits across Dubai or in-studio sessions",
+                  "Doorstep newborn sessions at your home in Dubai",
                   "Full gallery delivered within 5–7 days",
                 ].map((item) => (
                   <li key={item} style={{ display: "flex", alignItems: "flex-start", gap: "0.6rem", fontFamily: "var(--font-body)", fontSize: "0.9rem", color: "rgba(250,246,238,0.72)", lineHeight: 1.6 }}>
@@ -483,7 +483,7 @@ export default function HomePage() {
               </div>
             </div>
             <div style={{ position: "relative", aspectRatio: "4/3" }}>
-              <Image src="/images/story-bear-hat-cot.png" alt="Newborn in bear hat — newborn photography Dubai studio" fill style={{ objectFit: "cover" }} />
+              <Image src="/images/story-bear-hat-cot.png" alt="Sleeping newborn wearing a bear hat in a cot" fill style={{ objectFit: "cover" }} />
             </div>
             <div style={{ position: "relative", aspectRatio: "4/3" }}>
               <Image src="/images/story-parent-fingers.png" alt="Parent fingers holding newborn — maternity photographer Dubai" fill style={{ objectFit: "cover" }} />
@@ -523,7 +523,7 @@ export default function HomePage() {
             <div>
               <div className="label" style={{ marginBottom: "1rem" }}>Recent Sessions</div>
               <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,4.5vw,4rem)", lineHeight: 1.08, letterSpacing: "-0.03em" }}>
-                Fresh from<br /><span className="text-gold-gradient">the studio</span>
+                Recent<br /><span className="text-gold-gradient">photography sessions</span>
               </h2>
             </div>
             <p className="body-lg" style={{ paddingBottom: "0.25rem" }}>

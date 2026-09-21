@@ -93,7 +93,7 @@ export const viewport: Viewport = {
 // ─── Schema Markup ────────────────────────────────────────────────────────────
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": ["LocalBusiness", "ProfessionalService"],
+  "@type": "Organization",
   "@id": `${SITE_URL}/#organization`,
   name: "MG Photography UAE",
   alternateName: "MG Photography Dubai",
@@ -103,21 +103,6 @@ const organizationSchema = {
   telephone: "+971588764748",
   image: `${SITE_URL}/images/hero-basket-newborn.webp`,
   logo: `${SITE_URL}/favicon.ico`,
-  priceRange: "AED 500 – AED 2,800",
-  currenciesAccepted: "AED",
-  paymentAccepted: "Cash, Bank Transfer",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Dubai",
-    addressLocality: "Dubai",
-    addressRegion: "Dubai",
-    addressCountry: "AE",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: "25.2048",
-    longitude: "55.2708",
-  },
   areaServed: [
     { "@type": "City", name: "Dubai", "@id": "https://www.wikidata.org/wiki/Q612" },
     { "@type": "City", name: "Abu Dhabi", "@id": "https://www.wikidata.org/wiki/Q3392" },
@@ -139,14 +124,6 @@ const organizationSchema = {
     "https://www.facebook.com/share/18ctTaB2GS/",
     "https://youtube.com/@mgphotography.thanjavur",
     "https://share.google/DzyXsdZg9iUQWHYg2",
-  ],
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
   ],
 };
 

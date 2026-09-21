@@ -84,7 +84,7 @@ const serviceSchema = {
   name: "Newborn Photography Dubai",
   serviceType: "Newborn Photography",
   provider: {
-    "@type": "LocalBusiness",
+    "@type": "Organization",
     "@id": `${SITE_URL}/#organization`,
     name: "MG Photography UAE",
     telephone: "+971588764748",

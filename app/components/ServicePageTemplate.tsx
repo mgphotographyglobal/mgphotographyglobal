@@ -40,7 +40,8 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
     description: service.description.replace(/\s+/g, " ").trim(),
     url: pageUrl,
     provider: {
-      "@type": "LocalBusiness",
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: "MG Photography UAE",
       telephone: "+971588764748",
       url: SITE_URL,

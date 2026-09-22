@@ -193,8 +193,10 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
                     src={img.src}
                     alt={img.alt}
                     fill
-                    loading={i < 3 ? "eager" : "lazy"}
-                    sizes={i === 0 ? "66vw" : "33vw"}
+                    loading="lazy"
+                    sizes={i === 0
+                      ? "(max-width: 768px) 100vw, (max-width: 1400px) 66vw, 845px"
+                      : "(max-width: 768px) 50vw, (max-width: 1400px) 33vw, 423px"}
                     style={{ objectFit: "cover" }}
                   />
                 </div>

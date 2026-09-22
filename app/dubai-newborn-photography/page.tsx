@@ -490,8 +490,10 @@ export default function DubaiNewbornPhotography() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  loading={i < 3 ? "eager" : "lazy"}
-                  sizes={i === 0 || i === 4 ? "66vw" : "33vw"}
+                  loading="lazy"
+                  sizes={i === 0 || i === 4
+                    ? "(max-width: 767px) 50vw, (max-width: 1400px) 66vw, 845px"
+                    : "(max-width: 767px) 50vw, (max-width: 1400px) 33vw, 423px"}
                   style={{ objectFit: "cover", transition: "transform 0.7s ease" }}
                 />
               </div>

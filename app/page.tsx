@@ -89,12 +89,12 @@ const quickServices = [
 ];
 
 const trustPoints = [
-  { icon: "📸", title: "500+ Sessions", desc: "Trusted by families across Dubai, Abu Dhabi & Sharjah" },
+  { icon: "🚐", title: "Doorstep Newborn Sessions", desc: "We bring the photography setup to your Dubai home" },
   { icon: "✏️", title: "Professional Editing", desc: "Hand-retouched images — never batch processed" },
   { icon: "🎨", title: "Luxury Themes", desc: "Premium setups, backdrops & carefully curated props" },
-  { icon: "🏠", title: "Newborn Home Visits", desc: "We bring the newborn photography setup to your Dubai home" },
-  { icon: "⚡", title: "Fast Delivery", desc: "Gallery delivered within 5–7 working days" },
-  { icon: "⭐", title: "5-Star Reviews", desc: "100% of clients would recommend MG Photography" },
+  { icon: "👶", title: "Baby-Led Approach", desc: "Sessions are paced around feeding, settling & comfort" },
+  { icon: "📋", title: "Clear Collections", desc: "Compare portrait counts, setups and inclusions before enquiring" },
+  { icon: "💬", title: "WhatsApp Booking", desc: "Ask about availability and packages directly" },
 ];
 
 const services = [
@@ -175,15 +175,6 @@ const recentSessions = [
   { src: "/images/gallery/newborn-photography-dubai-green-wrap-macrame-sleeping-23.jpg", alt: "Newborn baby swaddled in olive green wrap on macrame backdrop — newborn photography Dubai" },
 ];
 
-const testimonials = [
-  { name: "Priya Sharma",            location: "Dubai Marina",    text: "MG Photography captured our newborn in a way that made me cry with joy. Every single image is a masterpiece. I have already booked the 3-month and 6-month sessions.",    service: "Newborn Photography"     },
-  { name: "Aisha Al Mansoori",       location: "Abu Dhabi",       text: "Our wedding photos are absolutely stunning. They captured moments I didn't even know were happening. Our families were blown away. Truly world-class work.",                   service: "Wedding Photography"     },
-  { name: "Rahul & Deepa Nair",      location: "Sharjah",         text: "The maternity shoot exceeded all expectations. The editing quality is extraordinary — I feel like a Bollywood celebrity in these photos! We will treasure these forever.",     service: "Maternity Photography"   },
-  { name: "Fatima Hassan",           location: "Downtown Dubai",   text: "We've used MG Photography three times now. Each time the quality gets better. They've become our family photographers for life.",                                            service: "Family Photography"      },
-  { name: "James & Maria Rodriguez", location: "JBR, Dubai",      text: "The pre-wedding shoot at the desert was absolutely cinematic. It felt like we were in a movie. Forever grateful.",                                                             service: "Pre-Wedding Photography" },
-  { name: "Ahmed Al Rashid",         location: "Business Bay",    text: "The architectural shots are magazine-quality. Our properties sold 40% faster with these professional photographs. Worth every dirham.",                                         service: "Real Estate Photography" },
-];
-
 export default function HomePage() {
   return (
     <>
@@ -218,10 +209,10 @@ export default function HomePage() {
             {/* Trust indicators — visible above the fold */}
             <div className="hero-trust-badges" style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem 1.5rem", marginBottom: "2rem" }}>
               {[
-                "✓ Dubai Based Photographer",
-                "✓ 500+ Families Photographed",
-                "✓ 5-Star Client Reviews",
-                "✓ Newborn Home Visits in Dubai",
+                "✓ Doorstep Newborn Sessions",
+                "✓ Props & Wardrobe Included",
+                "✓ Baby-Led Posing",
+                "✓ WhatsApp Booking",
               ].map((item) => (
                 <span key={item} style={{ fontSize: "clamp(0.7rem, 1.4vw, 0.8rem)", color: "rgba(250,246,238,0.85)", fontFamily: "var(--font-body)", fontWeight: 500, letterSpacing: "0.01em" }}>
                   {item}
@@ -248,7 +239,7 @@ export default function HomePage() {
 
             {/* Stats bar */}
             <div className="hero-stats-bar" style={{ marginTop: "2.5rem", display: "flex", flexWrap: "wrap", gap: "1.5rem 3rem", paddingTop: "1.75rem", borderTop: "1px solid rgba(201,168,76,0.18)" }}>
-              {[["500+","Families"],["8+","Years"],["5★","Rating"],["3","UAE Cities"]].map(([val,lab]) => (
+              {[["Dubai","Home Visits"],["Baby-Led","Newborn Posing"],["Hand-Edited","Portraits"],["WhatsApp","Booking"]].map(([val,lab]) => (
                 <div key={lab} className="hero-stat-item">
                   <div style={{ fontFamily: "var(--font-display)", fontSize: "1.6rem", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>{val}</div>
                   <div className="body-sm" style={{ fontSize: "0.72rem", marginTop: "0.2rem" }}>{lab}</div>
@@ -471,7 +462,7 @@ export default function HomePage() {
               MG Photography UAE began with a singular conviction — that every family deserves images that live on their walls, in their hearts, and in the stories they tell their children.
             </p>
             <p style={{ fontFamily: "var(--font-body)", fontSize: "1.05rem", color: "rgba(13,13,13,0.7)", lineHeight: 1.8 }}>
-              Over 8 years and 500+ families across Dubai, Abu Dhabi & Sharjah, we have never stopped believing that the most important thing in any photograph is the feeling it leaves behind.
+              Today, we bring that approach to newborn home visits and photography sessions across Dubai, Abu Dhabi and Sharjah, with every image shaped around the people and moments in front of the camera.
             </p>
           </div>
 
@@ -571,37 +562,15 @@ export default function HomePage() {
       {/* ── TESTIMONIALS ─────────────────────────────────────────────────── */}
       <section style={{ background: "var(--black-rich)", padding: "clamp(5rem,10vw,8rem) 0" }}>
         <div className="container-luxury">
-          <div className="testimonials-grid" style={{ display: "grid", gridTemplateColumns: "1fr 2fr", gap: "5rem", alignItems: "start" }}>
-            <div className="testimonials-sticky" style={{ position: "sticky", top: "6rem" }}>
-              <div className="label" style={{ marginBottom: "1rem" }}>Client Reviews</div>
-              <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,3.5vw,3rem)", lineHeight: 1.12, letterSpacing: "-0.025em", marginBottom: "1.5rem" }}>
-                Stories that<br /><span className="text-gold-gradient">move us.</span>
-              </h2>
-              <p className="body-lg" style={{ marginBottom: "2rem", fontSize: "0.95rem" }}>
-                Real words from real families across Dubai, Abu Dhabi & Sharjah. Every review verified on Google.
-              </p>
-              <div className="stars" style={{ marginBottom: "1rem" }}>{"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}</div>
-              <p className="body-sm" style={{ marginBottom: "2rem", fontSize: "0.78rem" }}>5.0 · 500+ sessions</p>
-              <a href="https://share.google/DzyXsdZg9iUQWHYg2" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.72rem", padding: "0.55rem 1.1rem" }}>View Google Reviews →</a>
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
-              {testimonials.map((t) => (
-                <div key={t.name} className="testimonial-card" style={{ padding: "2rem", border: "1px solid rgba(201,168,76,0.1)", background: "rgba(255,255,255,0.02)" }}>
-                  <div className="stars" style={{ marginBottom: "1rem" }}>{"★★★★★".split("").map((s, i) => <span key={i}>{s}</span>)}</div>
-                  <p style={{ fontFamily: "var(--font-display)", fontSize: "1rem", color: "var(--cream-warm)", lineHeight: 1.75, fontStyle: "italic", marginBottom: "1.5rem" }}>
-                    &ldquo;{t.text}&rdquo;
-                  </p>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div>
-                      <div style={{ fontFamily: "var(--font-body)", fontWeight: 600, fontSize: "0.9rem", color: "var(--cream)" }}>{t.name}</div>
-                      <div className="body-sm" style={{ fontSize: "0.75rem" }}>{t.location}</div>
-                    </div>
-                    <div className="label" style={{ fontSize: "0.58rem", textAlign: "right" }}>{t.service}</div>
-                  </div>
-                </div>
-              ))}
-              <a href="/testimonials/" className="btn-outline" style={{ alignSelf: "flex-start", marginTop: "0.5rem" }}>Read All Reviews →</a>
-            </div>
+          <div style={{ maxWidth: "720px", margin: "0 auto", textAlign: "center" }}>
+            <div className="label" style={{ marginBottom: "1rem" }}>Customer Feedback</div>
+            <h2 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem,3.5vw,3rem)", lineHeight: 1.12, letterSpacing: "-0.025em", marginBottom: "1.5rem" }}>
+              Read feedback at its<br /><span className="text-gold-gradient">original source.</span>
+            </h2>
+            <p className="body-lg" style={{ margin: "0 auto 2rem", maxWidth: "580px", fontSize: "0.95rem" }}>
+              Visit the MG Photography UAE Google profile for customer feedback published directly on Google.
+            </p>
+            <a href="https://share.google/DzyXsdZg9iUQWHYg2" target="_blank" rel="noopener noreferrer" className="btn-outline" style={{ fontSize: "0.78rem", padding: "0.7rem 1.25rem" }}>View Google Profile →</a>
           </div>
         </div>
       </section>
@@ -688,9 +657,9 @@ export default function HomePage() {
           </div>
 
           <div style={{ display: "inline-flex", alignItems: "center", gap: "1.25rem", padding: "0.85rem 1.75rem", border: "1px solid rgba(201,168,76,0.18)", background: "rgba(201,168,76,0.04)" }}>
-            <span style={{ color: "var(--gold)", fontWeight: 800, fontFamily: "var(--font-body)", letterSpacing: "0.1em", fontSize: "0.85rem" }}>BNI</span>
+            <span style={{ color: "var(--gold)", fontWeight: 800, fontFamily: "var(--font-body)", letterSpacing: "0.1em", fontSize: "0.85rem" }}>UAE</span>
             <div style={{ width: "1px", height: "1.25rem", background: "rgba(201,168,76,0.3)" }} />
-            <span className="body-sm" style={{ fontSize: "0.78rem" }}>Proud Member · Business Network International · Dubai Chapter</span>
+            <span className="body-sm" style={{ fontSize: "0.78rem" }}>Doorstep photography service · Dubai · Abu Dhabi · Sharjah</span>
           </div>
         </div>
       </section>

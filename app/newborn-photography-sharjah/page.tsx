@@ -3,13 +3,13 @@ import ServicePageTemplate from "../components/ServicePageTemplate";
 import type { Metadata } from "next";
 const baseMetadata: Metadata = {
   title: "Newborn Photography Sharjah | MG Photography",
-  description: "Premium newborn photography in Sharjah. Safe, cinematic, professional. Book your session today with MG Photography UAE.",
+  description: "Baby-led newborn photography at home in Sharjah. MG Photography UAE brings lighting, backdrops, props and wraps to your doorstep.",
   alternates: { canonical: "https://mgphotographyglobal.com/newborn-photography-sharjah/" },
 };
 const s = {
-  title:"Newborn Photography",location:"Sharjah, UAE",canonicalPath:"/newborn-photography-sharjah/",heroTitle:"Sharjah's Most",heroSubtitle:"Trusted Newborn Photographer.",emoji:"👶",
-  description:"The first two weeks of your baby's life are a treasure that can never be recovered. At MG Photography UAE, we travel to Sharjah to create cinematic newborn portraits with the same premium quality that Dubai families have trusted for over 8 years.\n\nWe bring our fully-equipped studio setup to your Sharjah location — ensuring your baby stays comfortable, warm, and safe throughout the entire session.",
-  whySection:{title:"Why Sharjah Families Choose MG Photography",points:["Available for sessions across all areas of Sharjah","Certified safe newborn posing — baby safety is always first","Premium editing and cinematic retouching on every image","Gallery delivered within 10–14 business days","Simple WhatsApp booking process","200+ newborn sessions completed across the UAE"]},
+  title:"Newborn Photography",location:"Sharjah, UAE",canonicalPath:"/newborn-photography-sharjah/",heroTitle:"Newborn Photography",heroSubtitle:"At Your Sharjah Home.",emoji:"👶",
+  description:"The first weeks with your baby pass quickly. MG Photography UAE travels to Sharjah for baby-led newborn sessions in the comfort of your home.\n\nWe bring a mobile photography setup with lighting, backdrops, props and wraps. The session follows your baby's cues, with time for feeding, settling and cuddle breaks whenever needed.",
+  whySection:{title:"Why Book a Home Newborn Session in Sharjah",points:["Doorstep newborn sessions available across Sharjah","Baby-led posing that follows your baby's cues","Lighting, backdrops, props and wraps brought to your home","Feeding, settling and cuddle breaks included","Hand-edited, high-resolution final portraits","WhatsApp booking and availability confirmation"]},
   packages:[
     {name:"Essential",price:"AED 1,099",features:["2-hour session","20 edited images","Digital gallery","Travel to Sharjah"]},
     {name:"Signature",price:"AED 1,999",features:["4-hour session","40 edited images","Family shots included","Digital gallery + 1 print","Travel to Sharjah"]},

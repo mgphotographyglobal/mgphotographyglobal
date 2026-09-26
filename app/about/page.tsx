@@ -4,8 +4,8 @@ import WhatsAppFloat from "../components/WhatsAppFloat";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About MG Photography UAE | Luxury Photography Studio Dubai",
-  description: "The story behind MG Photography UAE — a luxury photography studio serving Dubai, Abu Dhabi & Sharjah with cinematic quality and heartfelt emotion. BNI Member.",
+  title: "About MG Photography UAE | Doorstep Photography",
+  description: "Meet MG Photography UAE, a service-area photography business offering doorstep and on-location sessions across Dubai, Abu Dhabi and Sharjah.",
   alternates: { canonical: "https://mgphotographyglobal.com/about/" },
 };
 
@@ -33,7 +33,7 @@ export default function AboutPage() {
             We Create Photographs<br />That Make You Feel<br /><span className="text-gold-shimmer">Something Real.</span>
           </h1>
           <p className="body-lg" style={{ maxWidth: "580px" }}>
-            MG Photography UAE is a luxury photography studio based in Dubai, serving families, couples, businesses, and creative clients across the UAE with cinematic artistry and genuine emotional care.
+            MG Photography UAE is a service-area photography business serving families, couples, businesses, and creative clients across Dubai, Abu Dhabi, and Sharjah. Newborn sessions are delivered at the client&apos;s home, with the photography setup brought to the doorstep.
           </p>
         </div>
       </section>
@@ -49,10 +49,10 @@ export default function AboutPage() {
                 MG Photography UAE was founded on a single, uncompromising belief: that photography should do more than document — it should transport you. Looking at a great photograph of your family, your wedding, or your newborn should feel like reliving the moment entirely, with all its warmth and weight and wonder.
               </p>
               <p className="body-lg" style={{ marginBottom: "1.25rem" }}>
-                With over 8 years of professional experience and more than 500 families photographed across Dubai, Abu Dhabi, and Sharjah, we've grown from a one-person passion project into the UAE's most trusted luxury photography studio — but our commitment to personal, emotionally honest photography has never changed.
+                Our work is planned around each client, service, and location. Newborn sessions follow the baby&apos;s cues and include time for feeding, settling, and cuddle breaks, while every service begins with a clear conversation about the brief and preferred date.
               </p>
               <p className="body-lg">
-                We are proud members of BNI (Business Network International), recognized by Dubai's business community for our professionalism, reliability, and the consistent excellence of our work.
+                For current public feedback, visit our <a href="https://share.google/DzyXsdZg9iUQWHYg2" target="_blank" rel="noopener noreferrer">Google Business Profile</a>, where reviews remain connected to their original source.
               </p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
@@ -89,7 +89,7 @@ export default function AboutPage() {
       <section style={{ padding: "4rem 0", background: "var(--black-rich)", borderTop: "1px solid rgba(201,168,76,0.1)", borderBottom: "1px solid rgba(201,168,76,0.1)" }}>
         <div className="container-luxury">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: "2rem", textAlign: "center" }}>
-            {[["500+","Families Photographed"],["8+","Years of Experience"],["3","UAE Cities Served"],["5★","Google Rating"],["BNI","Member Status"]].map(([val,lab]) => (
+            {[["Dubai","Primary Service Area"],["Abu Dhabi","Travel Available"],["Sharjah","Travel Available"],["Home Visits","Newborn Service Model"],["WhatsApp","Primary Booking Channel"]].map(([val,lab]) => (
               <div key={lab}>
                 <div style={{ fontFamily: "var(--font-display)", fontSize: "2.25rem", color: "var(--gold)", fontWeight: 700, lineHeight: 1 }}>{val}</div>
                 <div className="body-sm" style={{ fontSize: "0.78rem", marginTop: "0.4rem" }}>{lab}</div>

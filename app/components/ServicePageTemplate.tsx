@@ -236,7 +236,7 @@ export default function ServicePageTemplate({ service }: ServicePageProps) {
             <h2 className="display-sm">
               Choose Your <span className="text-gold-gradient">Package</span>
             </h2>
-            <p className="body-lg" style={{ maxWidth: "440px", margin: "1rem auto 0" }}>Transparent pricing. No hidden fees. Premium quality guaranteed.</p>
+            <p className="body-lg" style={{ maxWidth: "520px", margin: "1rem auto 0" }}>Package inclusions are listed below. Any travel fees or optional add-ons are confirmed before booking.</p>
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(260px,1fr))", gap: "1.25rem" }}>
             {service.packages.map((pkg, i) => (

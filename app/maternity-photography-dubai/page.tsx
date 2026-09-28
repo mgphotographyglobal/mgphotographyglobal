@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 const baseMetadata: Metadata = {
   title: "Maternity Photography Dubai | MG Photography UAE",
-  description: "Radiant maternity photography in Dubai. Cinematic luxury pregnancy portraits, home or outdoor. Trusted by 150+ mothers.",
+  description: "Maternity photography in Dubai with 45-minute, 90-minute and two-hour collections. Compare retouched-image counts, delivery timing and album options.",
   alternates: { canonical: "https://mgphotographyglobal.com/maternity-photography-dubai/" },
 };
 
@@ -30,24 +30,24 @@ Best session timing is between 28–34 weeks of pregnancy, when your bump is bea
       "Studio & golden-hour outdoor options across Dubai",
       "Partner and family inclusion shots always welcomed",
       "Premium skin retouching that celebrates, not alters, your natural glow",
-      "Delivery in 10–14 days with easy online gallery sharing",
+      "Collection-specific delivery timing confirmed before booking",
     ],
   },
   packages: [
     {
-      name: "Studio Glow",
-      price: "AED 799",
-      features: ["2-hour studio session","20 edited images","1 luxury gown included","2 backdrop setups","High-resolution gallery"],
+      name: "MG Maternity Glow",
+      price: "AED 599",
+      features: ["Up to 45 minutes of coverage","10 retouched images","Minimum 5-day delivery"],
     },
     {
-      name: "Radiance",
-      price: "AED 1,499",
-      features: ["3-hour studio session","35 edited images","2 gowns included","Partner/family shots","4 backdrop setups","1 complimentary 8×10 print","Gallery within 10 days"],
+      name: "MG Maternity Signature",
+      price: "AED 1,199",
+      features: ["Up to 90 minutes of coverage","20 retouched images","Minimum 5-day delivery"],
     },
     {
-      name: "Golden Story",
-      price: "AED 2,499",
-      features: ["Studio + outdoor golden-hour session","50+ edited images","3 premium gown options","Complete family shots","Drone portrait (outdoor)","Premium print album","Priority 7-day delivery"],
+      name: "MG Maternity Editorial",
+      price: "AED 1,899",
+      features: ["Up to 2 hours of coverage","35 retouched images","12×12 album","Minimum 7-day delivery"],
     },
   ],
   faq: [
@@ -55,6 +55,7 @@ Best session timing is between 28–34 weeks of pregnancy, when your bump is bea
     { q: "What should I wear for the session?", a: "We provide a curated selection of luxury gowns for all sessions. You're also welcome to bring your own outfits. We'll discuss wardrobe options in your pre-session consultation call." },
     { q: "Can my partner or family join?", a: "Absolutely — and we encourage it. Partner and family shots add beautiful emotional depth to your maternity gallery. Siblings especially create magical moments." },
     { q: "Is outdoor shooting available?", a: "Yes. We offer stunning outdoor sessions at golden-hour locations across Dubai — desert dunes, beachfronts, architectural backdrops, and green parks." },
+    { q: "Which maternity collections are available?", a: "MG Maternity Glow is AED 599 with up to 45 minutes and 10 retouched images. Signature is AED 1,199 with up to 90 minutes and 20 retouched images. Editorial is AED 1,899 with up to 2 hours, 35 retouched images and a 12×12 album." },
   ],
   ctaText: "Celebrate This Season of You. Book Your Maternity Session.",
   keywords: ["maternity photography Dubai", "pregnancy photoshoot Dubai"],
